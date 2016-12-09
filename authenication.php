@@ -1,4 +1,26 @@
-<!DOCTYPE html>
+<?php
+require 'functions.php';
+
+$error = '';
+if (isset($_SESSION['error'])) {
+  $error = $_SESSION['error'];
+}
+
+$message = '';
+if (isset($_SESSION['message'])) {
+  $message = $_SESSION['message'];
+}
+
+if ($error) {
+  print $error;
+  unset($_SESSION['error']);
+}
+
+if ($message) {
+  print $message;
+  unset($_SESSION['message']);
+}
+ ?>
 <html>
   <head>
     <meta charset="utf-8">
@@ -14,7 +36,7 @@
 
     <div class="form-wrapper">
         <!-- Login form -->
-        <form action="/resources/lib/login.php" method="post">
+        <form action="login.php" method="post">
           <input type="text" name="username" placeholder="Email or username">
           <input type="password" name="password" placeholder="Password">
           <button type="submit" class="login">Log in</button>
@@ -23,7 +45,7 @@
         </form>
 
         <!-- Register form -->
-        <form action="/resources/lib/register.php" method="post">
+        <form action="register.php" method="post">
           <h2>Sign up</h2>
             <input type="text" name="fullname" placeholder="Full name">
             <input type="text" name="username" placeholder="Username">
@@ -34,6 +56,6 @@
     </div>
 
   </div>
-  
+
   </body>
 </html>
