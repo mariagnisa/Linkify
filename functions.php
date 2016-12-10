@@ -93,6 +93,7 @@ function loginUser($db, $username, $password) {
   return false;
 }
 
+//check if a user is logged in through an active session
 function checkUserLogin($db) {
 
   session_start();
