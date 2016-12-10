@@ -75,12 +75,13 @@ function registerNewUser($db, $name, $username, $email, $password) {
 }
 
 //validates a user against db and if correct, the user logs into linkify
-function LoginUser($db, $username, $password) {
+function loginUser($db, $username, $password) {
   //Escapes username and password
   list($username, $password) = escapeData($db, [$username, $password]);
 
   //Fetch the user based on username or email
   $user = executeGetQuery($db, "SELECT * FROM users WHERE email = '$username' OR username = '$username'", true);
+
   if ($user) {
     //if username is matched in db, validate password
     if (password_verify($password, $user['password'])) {
@@ -92,5 +93,17 @@ function LoginUser($db, $username, $password) {
   return false;
 }
 
+function checkUserLogin($db) {
+
+  session_start();
+  if (!isset($_SESSION['loginUser'])) {
+    return false;
+  }
+  $uid = '';
+  $_SESSION['loginUser'] = [
+    'uid' => $uid
+  ];
+  return true;
+}
 
  ?>
