@@ -1,4 +1,5 @@
 <?php
+session_start();
 require 'functions.php';
 
 $error = '';
@@ -20,6 +21,7 @@ if ($message) {
   print $message;
   unset($_SESSION['message']);
 }
+
  ?>
 <html>
   <head>
