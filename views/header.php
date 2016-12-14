@@ -1,8 +1,6 @@
 <?php
-/*<div class="logout">
-  <button type="button" name="logout-button">Logout</button>
-</div>*/
 
+$loggedin = isset($_SESSION["loginUser"]);
  ?>
 
 <header>
@@ -11,10 +9,15 @@
       <h3>linkify</h3>
     </div>
 
-    <div class="buttons">
+      <?php if (!$loggedin): ?>
       <button type="button" name="login-button" class="login-button">Login</button>
       <button type="button" name="register-button" class="register-button">Sign up</button>
-    </div>
+    <?php else: ?>
+      <div class="logout-button">
+        <a href="../lib/logout.php">Logout</a>
+      </div>
+    <?php endif; ?>
+
 
   </div>
 
