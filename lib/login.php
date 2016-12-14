@@ -11,6 +11,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $_SESSION['loginUser'] = [
       'uid' => $uid
       ];
+      setcookie('username', $_POST['username'], time() + (86400 * 30), "/");
+      setcookie('password', $_POST['password'], time() + (86400 * 30), "/");
     }
   } else {
     //if missing fields
