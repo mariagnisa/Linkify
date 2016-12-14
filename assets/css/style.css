@@ -1,28 +1,138 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+/*index*/
 .wrapper {
 
 }
 
 .introduction-wrapper {
-
+  text-align: center;
 }
 
-.form-wrapper {
+.login-wrapper {
+  display: block;
+  margin: 10px;
+  flex-shrink: 1;
+  padding: 5px;
+  text-align: left;
+  position: absolute;
+  right: 10px;
+  height: 80px;
+  width: 180px;
+  display: none;
+}
 
+.login-wrapper input {
+  padding: 3px;
+  margin: 4px;
+}
+
+.login-wrapper button {
+  margin: 4px;
+}
+
+.login-wrapper label {
+  font-size: 12px;
 }
 
 .login {
+  height: 20px;
+  width: auto;
+  padding: 3px;
+  background: white;
+  border: 1px solid grey;
+  border-radius: 3px;
+}
 
+.register-wrapper {
+  display: block;
+  margin: 10px;
+  flex-shrink: 1;
+  padding: 5px;
+  text-align: left;
+  position: absolute;
+  right: 10px;
+  height: 80px;
+  width: 180px;
+  display: none;
+}
+
+.register-wrapper input {
+  padding: 3px;
+  margin: 4px;
+}
+
+.register-wrapper button {
+  margin: 4px;
+}
+
+.register {
+  height: 20px;
+  width: auto;
+  padding: 3px;
+  background: white;
+  border: 1px solid grey;
+  border-radius: 3px;
 }
 
 .remember-checkbox {
 
 }
-
-.register {
+/*header*/
+.buttons {
 
 }
 
-.alertbox {
+.login-button {
+  border-radius: 3px;
+  background: white;
+  margin: 10px;
+  position: absolute;
+  right: 65px;
+  top: 10px;
+  border: 1px solid grey;
+  padding: 3px;
+  cursor: pointer;
+}
+
+.register-button {
+  border-radius: 3px;
+  background: white;
+  margin: 10px;
+  position: absolute;
+  right: 0px;
+  top: 10px;
+  border: 1px solid grey;
+  padding: 3px;
+  cursor: pointer;
+}
+
+.navbar {
+  background: lightgrey;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  border-bottom: 1px solid grey;
+}
+
+.logo {
+  display: inline-block;
+  position: relative;
+  height: 20px;
+  width: auto;
+  left: 15px;
+  top: 40%;
+}
+
+.logout-button {
+
+}
+
+.cookie-box {
   width: 100%;
   height: 45px;
   text-align: center;
@@ -32,7 +142,7 @@
   padding: 5px;
 }
 
-.button {
+.cookie-box__button {
   height: 30px;
   width: 60px;
   background: white;
