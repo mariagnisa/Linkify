@@ -7,6 +7,7 @@ $loggedInUser = checkUserLogin($db);
 <html>
   <head>
     <?php
+    $title = 'Linkify';
     require_once __DIR__.'/views/head.php';
      ?>
   </head>
@@ -24,7 +25,7 @@ $loggedInUser = checkUserLogin($db);
    ?>
    <div class="cookie-box">
     <p>This website uses <a href="https://www.cookielaw.org/the-cookie-law">cookies</a> to ensure you get the best experience on our website.</p>
-  <button class="cookie-box__button" type="submit" name="button">Accept</button>
+  <button class="cookie-box__button" type="button" name="button">Accept</button>
   </div>
   </body>
 </html>
