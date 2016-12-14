@@ -33,10 +33,10 @@ if ($message) {
 
     <div class="introduction-wrapper">
       <h1>Welcome to Linkify.</h1>
-      <p>When I know what this is about I will fix this text.</p>
+
     </div>
 
-    <div class="form-wrapper">
+    <div class="login-wrapper">
         <!-- Login form -->
         <form action="login.php" method="post">
           <input type="text" name="username" placeholder="Email or username">
@@ -45,7 +45,8 @@ if ($message) {
           <input type="checkbox" name="remember" class="remember-checkbox" checked>
           <label for="remember-checkbox">Remember me</label>
         </form>
-
+    </div>
+    <div class="register-wrapper">
         <!-- Register form -->
         <form action="register.php" method="post">
           <h2>Sign up</h2>
