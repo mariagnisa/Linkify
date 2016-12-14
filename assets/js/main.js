@@ -23,34 +23,54 @@ function getCookie(cname) {
 }
 //check if there is a cookie
 function checkCookie() {
-  const username = getCookie('uid');
-  document.querySelector('.cookie-box').style.display = 'flex';
-  if (username != "") {
-    getCookie();
-  } else {
-    setCookie();
+  const accept = getCookie('accept-cookie');
+  if (accept == "") {
+    document.querySelector('.cookie-box').style.display = 'flex';
+    const cbutton = document.querySelector('.cookie-box__button');
+    cbutton.addEventListener('click', event => {
+      setCookie('accept-cookie', '1', 1);
+      document.querySelector('.cookie-box').style.display = 'none';
+    });
+  }
+}
+
+//check username and password cookie
+function checkLoginCookie() {
+  const username = getCookie('username');
+  const password = getCookie('password');
+
+  const usernameField = document.getElementsByName('username')[0];
+  const passwordField = document.getElementsByName('password')[0];
+  if(usernameField != null && passwordField != null) {
+      usernameField.value = username;
+      passwordField.value = password;
   }
 }
 
 document.addEventListener("DOMContentLoaded", function(event) {
+  checkCookie();
+  checkLoginCookie();
   const button = document.querySelector('.login-button');
   const login = document.querySelector('.login-wrapper');
-  button.addEventListener('click', event => {
-    if (login.style.display != 'block') {
-      login.style.display = 'block';
-    } else {
-      login.style.display = 'none';
-    }
-
-  });
+  if (button != null) {
+    button.addEventListener('click', event => {
+      if (login.style.display != 'block') {
+        login.style.display = 'block';
+      } else {
+        login.style.display = 'none';
+      }
+    });
+  }
 
   const regButton = document.querySelector('.register-button');
   const register = document.querySelector('.register-wrapper');
-  regButton.addEventListener('click', event => {
-    if (register.style.display != 'block') {
-      register.style.display = 'block';
-    } else {
-      register.style.display = 'none';
-    }
-  });
+  if (regButton != null) {
+    regButton.addEventListener('click', event => {
+      if (register.style.display != 'block') {
+        register.style.display = 'block';
+      } else {
+        register.style.display = 'none';
+      }
+    });
+  }
 });
