@@ -46,9 +46,9 @@ if ($message) {
           <label for="remember-checkbox">Remember me</label>
         </form>
     </div>
-    <div class="../lib/register-wrapper">
+    <div class="register-wrapper">
         <!-- Register form -->
-        <form action="register.php" method="post">
+        <form action="../lib/register.php" method="post">
             <input type="text" name="fullname" placeholder="Full name">
             <input type="text" name="username" placeholder="Username">
             <input type="email" name="email" placeholder="Email">
