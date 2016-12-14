@@ -32,7 +32,7 @@ if ($message) {
   <div class="wrapper">
 
     <div class="introduction-wrapper">
-      <h1>Welcome to Linkify.</h1>
+
 
     </div>
 
@@ -49,7 +49,6 @@ if ($message) {
     <div class="register-wrapper">
         <!-- Register form -->
         <form action="register.php" method="post">
-          <h2>Sign up</h2>
             <input type="text" name="fullname" placeholder="Full name">
             <input type="text" name="username" placeholder="Username">
             <input type="email" name="email" placeholder="Email">
