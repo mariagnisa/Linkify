@@ -38,7 +38,7 @@ if ($message) {
 
     <div class="login-wrapper">
         <!-- Login form -->
-        <form action="login.php" method="post">
+        <form action="../lib/login.php" method="post">
           <input type="text" name="username" placeholder="Email or username">
           <input type="password" name="password" placeholder="Password">
           <button type="submit" class="login">Log in</button>
@@ -46,7 +46,7 @@ if ($message) {
           <label for="remember-checkbox">Remember me</label>
         </form>
     </div>
-    <div class="register-wrapper">
+    <div class="../lib/register-wrapper">
         <!-- Register form -->
         <form action="register.php" method="post">
             <input type="text" name="fullname" placeholder="Full name">
