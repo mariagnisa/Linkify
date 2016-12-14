@@ -1,5 +1,5 @@
 <?php
-
+$title = (isset($title)) ? $title:'Linkify';
  ?>
 
  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
