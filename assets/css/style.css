@@ -108,6 +108,23 @@ html, body {
   cursor: pointer;
 }
 
+.account-button {
+  border-radius: 3px;
+  background: white;
+  margin: 10px;
+  position: absolute;
+  right: 80px;
+  top: 10px;
+  border: 1px solid grey;
+  padding: 3px;
+  cursor: pointer;
+}
+
+.account-button a {
+  text-decoration: none;
+  color: black;
+}
+
 .navbar {
   background: lightgrey;
   width: 100%;
@@ -130,12 +147,11 @@ html, body {
   background: white;
   margin: 10px;
   position: absolute;
-  right: 25px;
+  right: 15px;
   top: 10px;
   border: 1px solid grey;
   padding: 3px;
   cursor: pointer;
-  font-size: 12px;
 }
 
 .logout-button a {
@@ -162,4 +178,9 @@ html, body {
   position: absolute;
   right: 35px;
   top: 15px;
+}
+
+/*settings*/
+.change-text {
+  resize: none;  
 }
