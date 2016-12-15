@@ -16,9 +16,10 @@ $loggedin = isset($_SESSION["loginUser"]);
       <div class="logout-button">
         <a href="../lib/logout.php">Logout</a>
       </div>
+      <div class="account-button">
+        <a href="views/settings.php">Account</a>
+      </div>
     <?php endif; ?>
-
-
   </div>
 
 
