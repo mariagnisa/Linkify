@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $loggedin = isset($_SESSION["loginUser"]);
  ?>
 
@@ -19,6 +19,9 @@ $loggedin = isset($_SESSION["loginUser"]);
       <div class="account-button">
         <a href="views/settings.php">Account</a>
       </div>
+
+      <img class="profile" src="/../assets/img/avatars/avatar<?php echo $_SESSION['loginUser']['uid'] ?>.jpg" alt="">
+
     <?php endif; ?>
   </div>
 
