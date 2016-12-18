@@ -1,5 +1,24 @@
 <?php
+require_once __DIR__.'/../lib/functions.php';
 
+//check if the user is logged in
+if (!checkUserLogin($db)) {
+  header('Location: /');
+  die();
+}
+$uid = $_SESSION['loginUser']['uid'];
+
+$user = executeGetQuery($db, "SELECT * FROM users WHERE id = '$uid'", true);
+
+if (isset($_SESSION['error'])) {
+  print_r($_SESSION['error']);
+  unset($_SESSION['error']);
+}
+
+if (isset($_SESSION['message'])) {
+  print_r($_SESSION['message']);
+  unset($_SESSION['message']);
+}
  ?>
 
 <h1>Account settings</h1>
@@ -7,31 +26,21 @@
 
 <div class="change-settings">
   <h3>Change email</h3>
-  <form action="../lib/settings.php" method="post">
-    <input type="text" name="change-email" placeholder="New email"> <br>
-    <button type="submit" name="email-button">Submit</button>
-  </form>
+  <form action="../lib/settings.php" method="POST">
+    <input type="text" name="changeEmail" value="<?php echo $user['email']; ?>"> <br>
+
 
   <h3>Change password</h3>
-  <form action="../lib/settings.php" method="post">
-    <input type="password" name="new-password" placeholder="New password"><br>
-    <input type="password" name="repeat-password" placeholder="Repeat password"><br>
-    <button type="submit" name="password-button">Submit</button>
-  </form>
+    <input type="password" name="newPassword" placeholder="New password"><br>
+    <input type="password" name="repeatPassword" placeholder="Repeat password"><br>
 
-  <h3>Change details</h3>
-  <form action="../lib/settings.php" method="post">
-    <textarea autofocus class="change-text" name="change-details"></textarea>
-  </form>
 
-  <h3>Upload profile image</h3>
-
+  <h3>Change bio</h3>
+    <textarea name="changeText" class="change-text"><?php echo $user['bio']; ?></textarea>
 
   <hr>
   <h4>Save settings</h4>
-  <form action="../lib/settings.php" method="post">
-    <input type="password" name="confirm-password-1" placeholder="Password"><br>
-    <input type="password" name="confirm-password-2" placeholder="Repeat password"><br>
-    <button type="submit" name="save-button">Submit</button>
+    <input type="password" name="confirmPassword" placeholder="Password"><br>
+    <button type="submit" name="saveButton" value="1">Save</button>
   </form>
 </div>
