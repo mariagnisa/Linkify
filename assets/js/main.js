@@ -26,7 +26,7 @@ function checkCookie() {
   const accept = getCookie('accept-cookie');
   if (accept == "") {
     document.querySelector('.cookie-box').style.display = 'flex';
-    const cbutton = document.querySelector('.cookie-box__button');
+    const cbutton = document.querySelector('.cookie-box-button');
     cbutton.addEventListener('click', event => {
       setCookie('accept-cookie', '1', 1);
       document.querySelector('.cookie-box').style.display = 'none';
