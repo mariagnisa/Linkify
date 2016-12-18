@@ -1,5 +1,7 @@
 <?php
 require_once __DIR__.'/../lib/functions.php';
+require_once __DIR__.'/../views/head.php';
+
 
 //check if the user is logged in
 if (!checkUserLogin($db)) {
@@ -44,3 +46,16 @@ if (isset($_SESSION['message'])) {
     <button type="submit" name="saveButton" value="1">Save</button>
   </form>
 </div>
+
+<div class="profile-img">
+  <form action="../lib/updateimg.php" method="post" enctype="multipart/form-data">
+    <h3>Upload profile image</h3>
+      <input type="file" name="profileImg" accept=".jpg, .png">
+      <br/>
+      <button type="submit" name="avatarButton">Upload</button>
+  </form>
+
+  <img src="../assets/img/avatars/avatar<?php echo $user['id'] ?>.jpg" alt="">
+</div>
+
+<?php  require_once __DIR__.'/footer.php';  ?>
