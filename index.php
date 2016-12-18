@@ -1,19 +1,11 @@
 <?php
-require_once __DIR__.'/lib/functions.php';
+  require_once __DIR__.'/lib/functions.php';
 
-$loggedInUser = checkUserLogin($db);
- ?>
+  $loggedInUser = checkUserLogin($db);
 
-<html>
-  <head>
-    <?php
-    $title = 'Linkify';
-    require_once __DIR__.'/views/head.php';
-     ?>
-  </head>
-  <body>
-  <?php
-  require_once __DIR__.'/views/header.php';
+  $title = 'Linkify';
+  require_once __DIR__.'/views/head.php';
+
     //checks if a user has a active session
     if ($loggedInUser) {
       //if active session, the user will come to home page
@@ -27,5 +19,5 @@ $loggedInUser = checkUserLogin($db);
     <p>This website uses <a href="https://www.cookielaw.org/the-cookie-law">cookies</a> to ensure you get the best experience on our website.</p>
   <button class="cookie-box-button" type="button" name="button">Accept</button>
   </div>
-  </body>
-</html>
+
+<?php require_once __DIR__.'/views/footer.php'; ?>
