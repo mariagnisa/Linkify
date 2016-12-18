@@ -189,7 +189,22 @@ html, body {
   bottom: 0px;
 }
 
+.profile {
+  height: 40px;
+  width: auto;
+  position: absolute;
+  right: 170px;
+  top: 5px;
+  border-radius: 50%;
+}
+
 /*settings*/
 .change-text {
   resize: none;
+}
+
+.profile-img img {
+  height: 60px;
+  width: auto;
+  border-radius: 50%;
 }
