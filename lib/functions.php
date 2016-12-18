@@ -101,11 +101,11 @@ function checkUserLogin($db) {
   if (!isset($_SESSION['loginUser'])) {
     return false;
   }
-  $uid = '';
-  $_SESSION['loginUser'] = [
-    'uid' => $uid
-  ];
   return true;
 }
 
+function validateUserPassword($db, $uid, $password) {
+  $hash = executeGetQuery($db, "SELECT password FROM users WHERE id = '$uid'", true)['password'];
+  return password_verify($password, $hash);
+}
  ?>
