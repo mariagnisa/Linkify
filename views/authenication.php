@@ -1,7 +1,7 @@
 <?php
 
 require_once __DIR__.'/../lib/functions.php';
-
+require_once __DIR__.'/../views/head.php';
 $error = '';
 if (isset($_SESSION['error'])) {
   $error = $_SESSION['error'];
@@ -23,18 +23,6 @@ if ($message) {
 }
 
  ?>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-  <div class="wrapper">
-
-    <div class="introduction-wrapper">
-
-
-    </div>
 
     <div class="login-wrapper">
         <!-- Login form -->
@@ -57,7 +45,5 @@ if ($message) {
         </form>
     </div>
 
-  </div>
 
-  </body>
-</html>
+<?php  require_once __DIR__.'/../views/footer.php';  ?>
