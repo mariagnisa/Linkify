@@ -4,15 +4,11 @@ html, body {
   margin: 0;
   padding: 0;
 }
+
+textarea {
+  resize: none;
+}
 /*index*/
-.wrapper {
-
-}
-
-.introduction-wrapper {
-  text-align: center;
-}
-
 .login-wrapper {
   margin: 10px;
   flex-shrink: 1;
@@ -142,6 +138,11 @@ html, body {
   top: 40%;
 }
 
+.logo a {
+  text-decoration: none;
+  color: black;
+}
+
 .logout-button {
   border-radius: 3px;
   background: white;
@@ -200,7 +201,7 @@ html, body {
 
 /*settings*/
 .change-text {
-  resize: none;
+
 }
 
 .profile-img img {
