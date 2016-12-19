@@ -22,12 +22,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       die();
     }
 
+    //check if email and password inputs are empty
     if (empty($_POST['changeEmail']) || empty($_POST["confirmPassword"])) {
       $_SESSION['error'] = 'Missing fields.';
       header('Location: ../views/settings.php');
       die();
     }
 
+    //validate password, checks which user through session
     if (!validateUserPassword($db, $_SESSION['loginUser']['uid'], $_POST['confirmPassword'])) {
       $_SESSION['error'] = 'Invalid password.';
       header('Location: ../views/settings.php');
@@ -38,8 +40,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = mysqli_real_escape_string($db, $_POST['changeEmail']);
     $bio = mysqli_real_escape_string($db, $_POST['changeText']);
 
+    //the sql beginning for update email and bio, password further below
     $updateSql = "UPDATE users SET email = '$email', bio = '$bio'";
 
+    //if new password is not empty, checks if repeat password is filled in
     if(!empty($_POST['newPassword'])) {
       if (empty($_POST['repeatPassword'])) {
         $_SESSION['error'] = 'Please repeat your password.';
@@ -49,17 +53,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $newPassword = $_POST['newPassword'];
       $repeatPassword = $_POST['repeatPassword'];
 
+      //checks if the new passwords match, if not error
       if (!($newPassword === $repeatPassword)) {
         $_SESSION['error'] = 'Passwords do not match. Please try again.';
         header('Location: ../views/settings.php');
         die();
       }
+      //hash the new password
       $password = password_hash($newPassword, PASSWORD_BCRYPT);
+      //adding password to the sql update
       $updateSql = $updateSql . ", password = '$password'";
     }
-
+    //the end for the sql update statement,
     $whereClause =  " WHERE id = '$uid'";
 
+    //change email or password, if not error
     if (!executePosts($db, $updateSql.$whereClause)) {
       $_SESSION['error'] = 'Something went wrong with the database request.';
     } else {
