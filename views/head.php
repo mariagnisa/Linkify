@@ -10,7 +10,7 @@ $title = (isset($title)) ? $title:'Linkify';
 
 <link rel="stylesheet" href="/assets/css/reset.css">
 <link rel="stylesheet" href="/assets/css/style.css">
-<link rel="icon" href="/assets/img/favicon.svg">
+<link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.ico">
 <script src="/assets/js/main.js"> </script>
 </head>
 <body>
