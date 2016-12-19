@@ -20,4 +20,5 @@
   <button class="cookie-box-button" type="button" name="button">Accept</button>
   </div>
 
+
 <?php require_once __DIR__.'/views/footer.php'; ?>
