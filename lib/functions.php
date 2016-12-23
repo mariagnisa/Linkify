@@ -96,7 +96,7 @@ function loginUser($db, $username, $password) {
 
 //check if a user is logged in through an active session
 function checkUserLogin($db) {
-  
+
   if (!isset($_SESSION['loginUser'])) {
     return false;
   }
@@ -106,5 +106,17 @@ function checkUserLogin($db) {
 function validateUserPassword($db, $uid, $password) {
   $hash = executeGetQuery($db, "SELECT password FROM users WHERE id = '$uid'", true)['password'];
   return password_verify($password, $hash);
+}
+
+function hasImage($imageFolder) {
+  //$imageFolder = "../assets/img/avatars";
+  $imageLink = "avatar" . $_SESSION['loginUser']['uid'] . ".jpg";
+  $images = scandir($imageFolder);
+  foreach ($images as $image) {
+    if ($image === $imageLink) {
+      return true;
+    }
+  }
+  return false;
 }
  ?>
