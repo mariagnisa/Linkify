@@ -1,11 +1,11 @@
 <?php
-  session_start();
+
   require_once __DIR__.'/lib/functions.php';
+  require_once __DIR__.'/views/head.php';
 
   $loggedInUser = checkUserLogin($db);
 
   $title = 'Linkify';
-  require_once __DIR__.'/views/head.php';
 
     //checks if a user has a active session
     if ($loggedInUser) {
