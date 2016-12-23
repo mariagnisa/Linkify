@@ -1,4 +1,5 @@
 <?php
+  session_start();
   require_once __DIR__.'/lib/functions.php';
 
   $loggedInUser = checkUserLogin($db);
