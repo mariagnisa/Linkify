@@ -1,13 +1,9 @@
 <?php
+
 require_once __DIR__.'/../lib/functions.php';
 require_once __DIR__.'/../views/head.php';
 
 
-//check if the user is logged in
-if (!checkUserLogin($db)) {
-  header('Location: /');
-  die();
-}
 $uid = $_SESSION['loginUser']['uid'];
 
 $user = executeGetQuery($db, "SELECT * FROM users WHERE id = '$uid'", true);
@@ -21,6 +17,8 @@ if (isset($_SESSION['message'])) {
   print_r($_SESSION['message']);
   unset($_SESSION['message']);
 }
+
+
  ?>
 
 <h1>Account settings</h1>
@@ -50,12 +48,19 @@ if (isset($_SESSION['message'])) {
 <div class="profile-img">
   <form action="../lib/updateimg.php" method="post" enctype="multipart/form-data">
     <h3>Upload profile image</h3>
-      <input type="file" name="profileImg" accept=".jpg, .png">
+      <input type="file" name="profileImg" accept=".jpg">
       <br/>
       <button type="submit" name="avatarButton">Upload</button>
   </form>
+  <?php
+   if (hasImage("../assets/img/avatars")): ?>
+          <img src="../assets/img/avatars/avatar<?php echo $user['id'] ?>.jpg" alt="avatar">
+          <?php else: ?>
+            <div class="empty-avatar">
+                <p>Your new avatar is waiting</p>
+            </div>
+  <?php endif; ?>
 
-  <img src="../assets/img/avatars/avatar<?php echo $user['id'] ?>.jpg" alt="">
 </div>
 
 <?php  require_once __DIR__.'/footer.php';  ?>
