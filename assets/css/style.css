@@ -9,6 +9,36 @@ textarea {
   resize: none;
 }
 /*index*/
+.cookie-box {
+  width: 100%;
+  height: 45px;
+  text-align: center;
+  justify-content: center;
+  background: #d9d9d9;
+  border: 1px solid black;
+  display: none;
+  color: black;
+  padding: 5px;
+  position: absolute;
+  bottom: 0px;
+}
+
+.cookie-box a {
+  text-decoration: none;
+  color: black;
+}
+
+.cookie-box-button {
+  height: 30px;
+  width: 60px;
+  background: white;
+  color: black;
+  text-align: center;
+  position: relative;
+  right: -15px;
+  bottom: 0px;
+}
+
 .login-wrapper {
   margin: 10px;
   flex-shrink: 1;
@@ -85,11 +115,14 @@ textarea {
   background: white;
   margin: 10px;
   position: absolute;
-  right: 65px;
-  top: 10px;
+  right: 85px;
+  top: 5px;
   border: 1px solid grey;
   padding: 3px;
   cursor: pointer;
+  height: 27px;
+  width: auto;
+  font-size: 1.0em;
 }
 
 .register-button {
@@ -97,11 +130,14 @@ textarea {
   background: white;
   margin: 10px;
   position: absolute;
-  right: 0px;
-  top: 10px;
+  right: 15px;
+  top: 5px;
   border: 1px solid grey;
   padding: 3px;
   cursor: pointer;
+  height: 27px;
+  width: auto;
+  font-size: 1.0em;
 }
 
 .account-button {
@@ -110,10 +146,13 @@ textarea {
   margin: 10px;
   position: absolute;
   right: 80px;
-  top: 10px;
+  top: 5px;
   border: 1px solid grey;
   padding: 3px;
   cursor: pointer;
+  height: 27px;
+  width: auto;
+  font-size: 1.0em;
 }
 
 .account-button a {
@@ -149,10 +188,13 @@ textarea {
   margin: 10px;
   position: absolute;
   right: 15px;
-  top: 10px;
+  top: 5px;
   border: 1px solid grey;
   padding: 3px;
   cursor: pointer;
+  height: 27px;
+  width: auto;
+  font-size: 1.0em;
 }
 
 .logout-button a {
@@ -160,43 +202,24 @@ textarea {
   color: black;
 }
 
-.cookie-box {
-  width: 100%;
-  height: 45px;
-  text-align: center;
-  justify-content: center;
-  background: #d9d9d9;
-  border: 1px solid black;
-  display: none;
-  color: black;
-  padding: 5px;
-  position: absolute;
-  bottom: 0px;
-}
-
-.cookie-box a {
-  text-decoration: none;
-  color: black;
-}
-
-.cookie-box-button {
-  height: 30px;
-  width: 60px;
-  background: white;
-  color: black;
-  text-align: center;
-  position: relative;
-  right: -15px;
-  bottom: 0px;
-}
-
 .profile {
   height: 40px;
-  width: auto;
+  width: 40px;
+  background-size: 100%;
   position: absolute;
   right: 170px;
   top: 5px;
   border-radius: 50%;
+  border: 1px solid grey;
+  background: white;
+  justify-content: center;
+}
+
+.profile-text {
+  position: relative;
+  top: 30%;
+  font-size: 0.9em;
+  color: black;
 }
 
 /*settings*/
@@ -206,6 +229,42 @@ textarea {
 
 .profile-img img {
   height: 60px;
-  width: auto;
+  width: 60px;
+  background-size: 100%;
   border-radius: 50%;
+}
+
+.empty-avatar {
+  background: white;
+  border: 1px solid grey;
+  height: 60px;
+  width: 60px;
+}
+
+.empty-avatar p {
+  font-size: 0.8em;
+  text-align: center;
+  padding: 2px;
+  position: relative;
+  top: 5px;
+}
+/*profile*/
+.profile-info {
+
+}
+
+.profile-username {
+
+}
+
+.profile-name {
+
+}
+
+.profile-bio {
+
+}
+
+.profile-posts {
+
 }
