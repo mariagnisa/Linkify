@@ -50,6 +50,7 @@ function checkLoginCookie() {
 document.addEventListener("DOMContentLoaded", function(event) {
   checkCookie();
   checkLoginCookie();
+
   const button = document.querySelector('.login-button');
   const login = document.querySelector('.login-wrapper');
   if (button != null) {
@@ -73,4 +74,18 @@ document.addEventListener("DOMContentLoaded", function(event) {
       }
     });
   }
+
+  //intercepts click events on the body and checks if login or register forms are open
+  document.body.addEventListener('click', event => {
+    const clickInsideLogin = login.contains(event.target);
+    const clickInsideRegister = register.contains(event.target);
+    const clickLoginButton = button.contains(event.target);
+    const clickRegButton = regButton.contains(event.target)
+
+    if ((!clickInsideLogin && !clickLoginButton) && login.style.display == 'block') {
+      login.style.display = 'none';
+    } else if ((!clickInsideRegister && !clickRegButton) && register.style.display == 'block') {
+        register.style.display = 'none';
+      }
+  });
 });
