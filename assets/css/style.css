@@ -20,7 +20,7 @@ textarea {
   color: black;
   padding: 5px;
   position: absolute;
-  bottom: 0px;
+  bottom: 10%;
 }
 
 .cookie-box a {
