@@ -1,4 +1,5 @@
 'use strict';
+
 //set cookie
 function setCookie(cname, cvalue, cmaxDay) {
   const d = new Date();
@@ -6,6 +7,7 @@ function setCookie(cname, cvalue, cmaxDay) {
   const expires = "expires=" + d.toUTCString();
   document.cookie = cname + "=" + cvalue + ";" + expires;
 }
+
 //get cookie
 function getCookie(cname) {
   const name = cname + "=";
@@ -21,6 +23,7 @@ function getCookie(cname) {
   }
   return "";
 }
+
 //check if there is a cookie
 function checkCookie() {
   const accept = getCookie('accept-cookie');
