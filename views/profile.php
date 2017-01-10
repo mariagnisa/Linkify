@@ -20,7 +20,7 @@ if (isset($_SESSION['message'])) {
  ?>
 
 <div class="profile-info">
-  <h3>profile</h3>
+  <h3>Profile</h3>
   <div class="profile-username">
     <?php echo $user['username']; ?>
   </div>
@@ -35,13 +35,15 @@ if (isset($_SESSION['message'])) {
   <?php
 
   foreach ($posts as $post):
+    $date = $post['published'];
+    $date= date("l jS \of F Y");
     if ($post['uid'] === $uid && sizeof($post) != 0):?>
       <div class="profile-posts">
         <a href="<?php echo $post['link']; ?>">
         <div class="post-title"><?php echo $post['title']; ?></div>
         </a>
         <div class="post-content"><?php echo $post['content']; ?></div>
-        <div class="post-published"><?php echo $post['published']; ?></div>
+        <div class="post-published"><?php echo 'Published ' . $date; ?></div>
       </div>
   <?php endif;
     endforeach;
