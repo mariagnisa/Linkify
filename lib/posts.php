@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user = $_SESSION['loginUser']['uid'];
     $description = $_POST['description'];
     $link = $_POST['link'];
-    $date= date("Y/m/d h:i:s");
+    
 
     //check if the fields are not empty, if error
     if (empty($title) || empty($description) || empty($link)) {
