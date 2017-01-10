@@ -12,17 +12,35 @@ if (isset($_SESSION['message'])) {
   print_r($_SESSION['message']);
   unset($_SESSION['message']);
 }
+
+$uid = $_SESSION['loginUser']['uid'];
+
+$posts = executeGetQuery($db, "SELECT * FROM posts");
  ?>
 
 <h3>A place to rule them all</h3>
-
-<form action="/../lib/posts.php" method="post">
-  <input type="text" name="title" placeholder="Title"><br>
-  <textarea name="description" placeholder="Description"></textarea><br>
-  <input type="url" name="link" placeholder="Your link"><br>
-  <button type="submit" name="postButton">Send</button>
-</form>
-
-
+  <div class="post">
+    <form action="/../lib/posts.php" method="post">
+      <input type="text" name="title" placeholder="Title"><br>
+      <textarea name="description" placeholder="Description"></textarea><br>
+      <input type="url" name="link" placeholder="Your link"><br>
+      <button type="submit" name="postButton">Share</button>
+    </form>
+  </div>
+<?php
+foreach ($posts as $post):
+  $date = $post['published'];
+  $date= date("l jS \of F Y");?>
+    <div class="profile-posts">
+      <img src="../assets/img/avatars/avatar<?php echo $post['uid'] ?>.jpg" alt="avatar">
+      <a href="<?php echo $post['link']; ?>">
+      <div class="post-title"><?php echo $post['title']; ?></div>
+      </a>
+      <div class="post-content"><?php echo $post['content']; ?></div>
+      <div class="post-published"><?php echo 'Published ' . $date; ?></div>
+    </div>
+<?php
+  endforeach;
+ ?>
 
 <?php  require_once __DIR__.'/../views/footer.php';  ?>
