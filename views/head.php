@@ -13,7 +13,7 @@ $title = (isset($title)) ? $title:'Linkify';
 
 <title> <?php echo $title; ?></title>
 
-<link rel="stylesheet" href="/assets/css/reset.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/4.1.0/sanitize.min.css">
 <link rel="stylesheet" href="/assets/css/style.css">
 <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.ico">
 <script src="/assets/js/main.js"> </script>
