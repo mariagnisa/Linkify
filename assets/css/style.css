@@ -54,15 +54,21 @@ textarea {
 .login-wrapper input {
   padding: 3px;
   margin: 4px;
+  border: 1px solid grey;
+  width: 170px;
 }
 
 .login-wrapper button {
   margin: 4px;
+  height: 25px;
   cursor: pointer;
 }
 
 .login-wrapper label {
-  font-size: 12px;
+  font-size: 10px;
+  position: absolute;
+  top: 85px;
+  right: 15px;
 }
 
 .login {
@@ -89,10 +95,13 @@ textarea {
 .register-wrapper input {
   padding: 3px;
   margin: 4px;
+  width: 170px;
+  border: 1px solid grey;
 }
 
 .register-wrapper button {
   margin: 4px;
+  height: 30px;
   cursor: pointer;
 }
 
@@ -106,7 +115,35 @@ textarea {
 }
 
 .remember-checkbox {
+  position: absolute;
+  right: 5px;
+  top: 85px;
+}
 
+.post {
+  margin: auto;
+}
+
+.post input {
+  border: 1px solid grey;
+  width: 170px;
+  margin: 5px;
+  padding: 3px;
+}
+
+.post textarea {
+  border: 1px solid grey;
+  width: 170px;
+  height: 70px;
+  margin: 0px 5px 0px 5px;
+  padding: 3px;
+}
+
+.post button {
+  border: 1px solid grey;
+  border-radius: 3px;
+  position: relative;
+  left: 120px;
 }
 /*header*/
 
@@ -148,7 +185,7 @@ textarea {
   right: 80px;
   top: 5px;
   border: 1px solid grey;
-  padding: 3px;
+  padding: 3px 3px 5px 3px;
   cursor: pointer;
   height: 27px;
   width: auto;
@@ -174,7 +211,7 @@ textarea {
   height: 20px;
   width: auto;
   left: 15px;
-  top: 40%;
+  top: -15%;
 }
 
 .logo a {
@@ -223,6 +260,27 @@ textarea {
 }
 
 /*settings*/
+.change-settings input {
+  border: 1px solid grey;
+  padding: 3px;
+}
+
+.change-settings textarea {
+  border: 1px solid grey;
+  height: 80px;
+  width: 200px;
+  padding: 3px;
+}
+
+.change-settings button {
+  border: 1px solid grey;
+  border-radius: 3px;
+  padding: 3px;
+  margin: 5px;
+  position: relative;
+  left: 150px;
+}
+
 .change-text {
 
 }
@@ -233,6 +291,14 @@ textarea {
   background-size: 100%;
   border-radius: 50%;
 }
+
+.profile-img button {
+  border: 1px solid grey;
+  border-radius: 3px;
+  padding: 3px;
+  margin: 5px;
+}
+
 
 .empty-avatar {
   background: white;
@@ -250,7 +316,8 @@ textarea {
 }
 /*profile*/
 .profile-info {
-
+  width: 50%;
+  margin: auto;
 }
 
 .profile-username {
@@ -266,5 +333,58 @@ textarea {
 }
 
 .profile-posts {
+  width: 350px;
+  height: auto;
+  margin: 10px;
+  border: 1px solid grey;
+  padding: 10px;
+}
 
+.profile-posts img {
+height: 40px;
+width: 40px;
+background-size: 100%;
+border-radius: 50%;
+position: relative;
+top: 25px;
+}
+
+.profile-posts a {
+  text-decoration: none;
+  color: grey;
+}
+
+.profile-posts a:hover {
+  color: purple;
+}
+
+
+.profile-empty-posts {
+  width: 50%;
+  margin: auto;
+}
+
+.post-published {
+  font-size: 0.7em;
+  font-style: italic;
+}
+
+.post-title {
+  position: relative;
+  left: 50px;
+  top: -15px;
+}
+
+.post-content {
+  position: relative;
+  left: 50px;
+  top: -15px;
+  word-wrap: break-word;
+  word-break: break-all;
+  white-space: normal;
+}
+
+.post-published {
+  position: relative;
+  left: 50px;
 }
