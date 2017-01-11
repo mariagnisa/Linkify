@@ -19,18 +19,18 @@
       die();
     }
     // Check file size
-    if ($imageData["size"] > 500000) {
+    if ($imageData['size'] > 500000) {
       $_SESSION['error'] = 'Your file is to big, please choose a smaller one.';
       header('Location: ../views/settings.php');
       die();
     }
-    //checks file format (jpg), if upload, not error
+    //checks file format (jpg), if correct, upload avatar. If not throw an error
    if (exif_imagetype($tmp) === 2) {
-     $ext = strrchr($imageData['name'], ".");
+     $ext = strrchr($imageData['name'], '.');
      $uid = $_SESSION['loginUser']['uid'];
      $newName = 'avatar' . $uid . $ext;
      move_uploaded_file($tmp, "../assets/img/avatars/$newName");
-     $_SESSION['message'] = 'You have succecfully uploaded '.$newName;
+     $_SESSION['message'] = 'You have succecfully uploaded your profile picture';
      header('Location: ../views/settings.php');
      die();
    } else {
