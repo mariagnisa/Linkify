@@ -33,9 +33,9 @@ $posts = executeGetQuery($db, "SELECT * FROM posts");
 foreach ($posts as $post):
   $date = $post['published'];
   $date= date("l jS \of F Y");?>
-  <div class="posts">
+  <div class="postid<?php echo $post['id'] ?> posts">
     <?php if ($post['uid'] === $uid): ?>
-      <img class="posts-edit" src="../assets/img/edit.png" alt="Edit">
+      <img class="postid<?php echo $post['id'] ?> posts-edit" src="../assets/img/edit.png" alt="Edit">
     <?php endif; ?>
     <img class="posts-avatar" src="../assets/img/avatars/avatar<?php echo $post['uid'] ?>.jpg" alt="avatar">
     <a href="<?php echo $post['link']; ?>">
@@ -48,7 +48,7 @@ foreach ($posts as $post):
     </div>
   </div>
 
-  <div class="edit-post">
+  <div class="postid<?php echo $post['id'] ?> edit-post">
     <form action="../lib/updatePosts.php" method="post">
       <input type="hidden" name="postId" value="<?php echo $post['id'] ?>">
       <input type="text" name="editTitle" value="<?php echo $post['title']; ?>">
