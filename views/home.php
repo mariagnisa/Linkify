@@ -31,8 +31,11 @@ $posts = executeGetQuery($db, "SELECT * FROM posts");
 foreach ($posts as $post):
   $date = $post['published'];
   $date= date("l jS \of F Y");?>
-    <div class="profile-posts">
-      <img src="../assets/img/avatars/avatar<?php echo $post['uid'] ?>.jpg" alt="avatar">
+    <div class="posts">
+      <?php if ($post['uid'] === $uid): ?>
+              <img class="posts-edit" src="../assets/img/edit.png" alt="Edit">
+      <?php endif; ?>
+      <img class="posts-avatar" src="../assets/img/avatars/avatar<?php echo $post['uid'] ?>.jpg" alt="avatar">
       <a href="<?php echo $post['link']; ?>">
       <div class="post-title"><?php echo $post['title']; ?></div>
       </a>
