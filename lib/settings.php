@@ -15,6 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     unset($_SESSION['message']);
     unset($_SESSION['error']);
+
     //validate email
     if (!filter_var($_POST['changeEmail'], FILTER_VALIDATE_EMAIL)) {
       $_SESSION['error'] = 'The email you provided was invalid';
@@ -37,6 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     $uid = $_SESSION['loginUser']['uid'];
+    //Escape data for security
     $email = mysqli_real_escape_string($db, $_POST['changeEmail']);
     $bio = mysqli_real_escape_string($db, $_POST['changeText']);
 
