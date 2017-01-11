@@ -14,8 +14,8 @@ $comments = executeGetQuery($db, "SELECT * FROM comments");
 
  $date = $post['published'];
  $date= date("l jS \of F Y");?>
-   <div class="profile-posts">
-     <img src="../assets/img/avatars/avatar<?php echo $post['uid'] ?>.jpg" alt="avatar">
+   <div class="posts">
+     <img class="posts-avatar" src="../assets/img/avatars/avatar<?php echo $post['uid'] ?>.jpg" alt="avatar">
      <a href="<?php echo $post['link']; ?>">
      <div class="post-title"><?php echo $post['title']; ?></div>
      </a>
@@ -30,6 +30,8 @@ $comments = executeGetQuery($db, "SELECT * FROM comments");
         <button type="submit" name="comment-form-button">Comment</button>
      </form>
    </div>
+
+   <h3>Comments</h3>
 
    <?php
    foreach ($comments as $comment):
