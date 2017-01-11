@@ -80,6 +80,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   //intercepts click events on the body and checks if login or register forms are open
   document.body.addEventListener('click', event => {
+    if (login != null && register != null) {
     const clickInsideLogin = login.contains(event.target);
     const clickInsideRegister = register.contains(event.target);
     const clickLoginButton = button.contains(event.target);
@@ -90,5 +91,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
     } else if ((!clickInsideRegister && !clickRegButton) && register.style.display == 'block') {
         register.style.display = 'none';
       }
+    }
   });
 });
