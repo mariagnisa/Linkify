@@ -468,6 +468,7 @@ a:hover {
   border: 1px solid grey;
   padding: 10px;
   position: relative;
+  display: none;
 }
 
 .edit-post-save {
