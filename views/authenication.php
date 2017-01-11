@@ -41,6 +41,7 @@ if ($message) {
             <input type="text" name="username" placeholder="Username">
             <input type="email" name="email" placeholder="Email">
             <input type="password" name="password" placeholder="Password">
+            <input type="password" name="repeatPass" placeholder="Repeat password">
             <button type="submit" class="register">Register for Linkify</button>
         </form>
     </div>
