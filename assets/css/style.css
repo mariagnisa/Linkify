@@ -192,7 +192,7 @@ textarea {
   font-size: 1.0em;
 }
 
-.account-button a {
+.account-button  a {
   text-decoration: none;
   color: black;
 }
@@ -219,6 +219,9 @@ textarea {
   color: black;
 }
 
+.logo a:hover {
+  color: black;
+}
 .logout-button {
   border-radius: 3px;
   background: white;
@@ -234,7 +237,7 @@ textarea {
   font-size: 1.0em;
 }
 
-.logout-button a {
+.logout-button > a {
   text-decoration: none;
   color: black;
 }
@@ -254,22 +257,12 @@ textarea {
 
 .profile-text {
   position: relative;
-  top: 30%;
-  font-size: 0.9em;
+  top: -2px;
+  font-size: 0.8em;
   color: black;
+  padding: 1px;
 }
 
-.comment-button {
-  border: 1px solid grey;
-  border-radius: 3px;
-  width: 85px;
-  padding: 3px;
-}
-
-.comment-button a {
-  text-decoration: none;
-  color: grey;
-}
 /*settings*/
 .change-settings input {
   border: 1px solid grey;
@@ -323,7 +316,7 @@ textarea {
   text-align: center;
   padding: 2px;
   position: relative;
-  top: 5px;
+  top: -13px;
 }
 
 /*profile*/
@@ -345,34 +338,38 @@ textarea {
 
 }
 
-.profile-posts {
+/*posts*/
+
+.posts {
   width: 350px;
+  min-height: 150px;
   height: auto;
   margin: 10px;
   border: 1px solid grey;
   padding: 10px;
 }
 
-.profile-posts img {
+.posts-avatar {
 height: 40px;
 width: 40px;
 background-size: 100%;
 border-radius: 50%;
-position: relative;
-top: 25px;
+position: absolute;
+margin-top: 25px;
 }
 
-.profile-posts a {
-  text-decoration: none;
-  color: grey;
+.posts-edit {
+height: 30px;
+width: 30px;
+background-size: 100%;
+border-radius: 50%;
+position: absolute;
+margin-top: -7px;
+margin-left: 290px;
+cursor: pointer;
 }
 
-.profile-posts a:hover {
-  color: purple;
-}
-
-
-.profile-empty-posts {
+.empty-posts {
   width: 50%;
   margin: auto;
 }
@@ -380,25 +377,41 @@ top: 25px;
 .post-published {
   font-size: 0.7em;
   font-style: italic;
+  position: absolute;
+  margin-left: 50px;
+  margin-top: 90px;
 }
 
 .post-title {
-  position: relative;
-  left: 50px;
-  top: -15px;
+  position: absolute;
+  margin-left: 50px;
+  margin-top: 20px;
 }
 
 .post-content {
-  max-width: 80%;
-  position: relative;
-  left: 50px;
-  top: -15px;
+  max-width: 35%;
+  position: absolute;
+  margin-left: 50px;
+  margin-top: 40px;
   word-wrap: break-word;
 }
 
-.post-published {
-  position: relative;
-  left: 50px;
+.comment-button {
+  border-radius: 3px;
+  width: 85px;
+  padding: 3px;
+  position: absolute;
+  margin-left: 240px;
+  margin-top: 110px;
+}
+
+a {
+  text-decoration: none;
+  color: grey;
+}
+
+a:hover {
+  color: purple;
 }
 
 /*view post*/
