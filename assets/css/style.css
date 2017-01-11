@@ -259,6 +259,17 @@ textarea {
   color: black;
 }
 
+.comment-button {
+  border: 1px solid grey;
+  border-radius: 3px;
+  width: 85px;
+  padding: 3px;
+}
+
+.comment-button a {
+  text-decoration: none;
+  color: grey;
+}
 /*settings*/
 .change-settings input {
   border: 1px solid grey;
@@ -376,12 +387,11 @@ top: 25px;
 }
 
 .post-content {
+  max-width: 80%;
   position: relative;
   left: 50px;
   top: -15px;
   word-wrap: break-word;
-  word-break: break-all;
-  white-space: normal;
 }
 
 .post-published {
