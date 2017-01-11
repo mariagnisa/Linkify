@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $link = $_POST['link'];
     $date = date('Y-m-d H:i:s');
 
-    //check if the fields are not empty, if error
+    //check if the fields are empty, if error
     if (empty($title) || empty($description) || empty($link)) {
       $_SESSION['error'] = 'Please fill in all fields.';
       header('Location: /');
@@ -38,6 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     //escape data
     $title = mysqli_real_escape_string($db, $_POST['title']);
     $description = mysqli_real_escape_string($db, $_POST['description']);
+    $link = mysqli_real_escape_string($db, $_POST['link']);
 
     //if everything is good, put into db, else error
     if (!executePosts($db, "INSERT INTO posts (title, content, link, published, uid) VALUES ('$title', '$description', '$link', '$date', '$user')")) {
