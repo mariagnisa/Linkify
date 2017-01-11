@@ -10,6 +10,7 @@ if (!isset($_GET['post'])) {
 
 $postId = $_GET['post'];
 $post = executeGetQuery($db, "SELECT * FROM posts WHERE id = '$postId'", true);
+$comments = executeGetQuery($db, "SELECT * FROM comments");
 
  $date = $post['published'];
  $date= date("l jS \of F Y");?>
@@ -24,8 +25,22 @@ $post = executeGetQuery($db, "SELECT * FROM posts WHERE id = '$postId'", true);
 
    <div class="comment-form">
      <form action="../lib/comments.php" method="post">
+        <input type="hidden" name="postId" value="<?php echo $post['id']?>">
         <input type="text" name="comment" placeholder="Write comment"><br>
-        <button type="button" name="comment-form-button">Comment</button>
+        <button type="submit" name="comment-form-button">Comment</button>
      </form>
    </div>
+
+   <?php
+   foreach ($comments as $comment):
+     $date = $comment['published'];
+     $date= date("l jS \of F Y");?>
+       <div class="post-comments">
+         <img src="../assets/img/avatars/avatar<?php echo $comment['uid'] ?>.jpg" alt="avatar">
+         <div class="comment"><?php echo $comment['comment']; ?></div>
+         <div class="comment-published"><?php echo 'Published ' . $date; ?></div>
+       </div>
+   <?php
+     endforeach;
+    ?>
 <?php  require_once __DIR__.'/../views/footer.php';  ?>
