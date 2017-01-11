@@ -325,7 +325,9 @@ textarea {
   position: relative;
   top: 5px;
 }
+
 /*profile*/
+
 .profile-info {
   width: 50%;
   margin: auto;
@@ -397,4 +399,50 @@ top: 25px;
 .post-published {
   position: relative;
   left: 50px;
+}
+
+/*view post*/
+
+.comment-form input{
+  border: 1px solid grey;
+  padding: 3px;
+  margin: 3px;
+}
+
+.comment-form button {
+  border: 1px solid grey;
+  border-radius: 3px;
+  padding: 3px;
+  margin: 3px;
+}
+
+.post-comments {
+  border: 1px solid grey;
+  margin: 10px;
+  width: 300px;
+  padding: 10px;
+}
+
+.post-comments img {
+  height: 30px;
+  width: 30px;
+  background-size: 100%;
+  border-radius: 50%;
+  position: relative;
+  top: 15px;
+}
+
+.comment {
+  word-wrap: break-word;
+  max-width: 80%;
+  position: relative;
+  left: 40px;
+  top: -13px;
+}
+
+.comment-published {
+  font-size: 0.6em;
+  font-style: italic;
+  position: relative;
+  left: 40px;
 }
