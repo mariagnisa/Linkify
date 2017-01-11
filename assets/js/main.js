@@ -54,8 +54,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
   checkCookie();
   checkLoginCookie();
 
+  //show and hide effect on login form if clicked on login button
   const button = document.querySelector('.login-button');
   const login = document.querySelector('.login-wrapper');
+  //if login button is null nothing happens, otherwise show/hide when clicked
   if (button != null) {
     button.addEventListener('click', event => {
       if (login.style.display != 'block') {
@@ -66,8 +68,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
     });
   }
 
+  //show and hide effect on register form if clicked on register button
   const regButton = document.querySelector('.register-button');
   const register = document.querySelector('.register-wrapper');
+  //if register button is null nothing happens, otherwise show/hide when cicked
   if (regButton != null) {
     regButton.addEventListener('click', event => {
       if (register.style.display != 'block') {
@@ -90,6 +94,21 @@ document.addEventListener("DOMContentLoaded", function(event) {
       login.style.display = 'none';
     } else if ((!clickInsideRegister && !clickRegButton) && register.style.display == 'block') {
         register.style.display = 'none';
+      }
+    }
+  });
+
+
+  const editButton = document.querySelector('.posts-edit');
+  editButton.addEventListener('click', event => {
+
+    let editPost = document.querySelectorAll('.' + event.target.classList[0] + '.edit-post');
+    let post = document.querySelectorAll('.' + event.target.classList[0] + '.posts');
+
+    if (editButton != null) {
+      if (editPost[0].style.display != 'block') {
+          editPost[0].style.display = 'block';
+          post[0].style.display = 'none';
       }
     }
   });
