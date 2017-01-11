@@ -38,6 +38,9 @@ foreach ($posts as $post):
       </a>
       <div class="post-content"><?php echo $post['content']; ?></div>
       <div class="post-published"><?php echo 'Published ' . $date; ?></div>
+      <div class="comment-button">
+        <a href="../views/viewPost.php?post=<?php echo $post['id'] ?>">Comments</a>
+      </div>
     </div>
 <?php
   endforeach;
