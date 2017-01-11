@@ -459,3 +459,51 @@ a:hover {
   position: relative;
   left: 40px;
 }
+
+.edit-post {
+  width: 350px;
+  min-height: 200px;
+  height: auto;
+  margin: 10px;
+  border: 1px solid grey;
+  padding: 10px;
+  position: relative;
+}
+
+.edit-post-save {
+  border: 1px solid grey;
+  border-radius: 3px;
+  padding: 3px;
+  margin: 5px 0px 0px 5px;
+  cursor: pointer;
+  position: absolute;
+  right: 110px;
+  bottom: 10px;
+}
+
+.edit-post-delete {
+  border: 1px solid grey;
+  border-radius: 3px;
+  padding: 3px;
+  margin: 5px 5px 0px 5px;
+  cursor: pointer;
+  position: absolute;
+  right: 5px;
+  bottom: 10px;
+}
+
+.edit-post input {
+  border: 1px solid grey;
+  padding: 3px;
+  margin: 5px;
+  margin-top: 5px;
+  margin-left: 30px;
+}
+
+.edit-post textarea {
+  border: 1px solid grey;
+  height: 50px;
+  padding: 5px;
+  margin: 5px;
+  margin-left: 30px;
+}
