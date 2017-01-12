@@ -49,6 +49,7 @@ foreach ($posts as $post):
   </div>
 
   <div class="postid<?php echo $post['id'] ?> edit-post">
+    <img class="postid<?php echo $post['id'] ?> edit-post-cross" src="../assets/img/cross.png" alt="cross">
     <form action="../lib/updatePosts.php" method="post">
       <input type="hidden" name="postId" value="<?php echo $post['id'] ?>">
       <input type="text" name="editTitle" value="<?php echo $post['title']; ?>">
