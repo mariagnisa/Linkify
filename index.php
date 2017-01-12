@@ -15,7 +15,10 @@
       //otherwise user will come to authenication page for login/register
       require_once __DIR__.'/views/authenication.php';
     }
+
    ?>
+  
+
    <div class="cookie-box">
     <p>This website uses <a href="https://www.cookielaw.org/the-cookie-law">cookies</a> to ensure you get the best experience on our website.</p>
   <button class="cookie-box-button" type="button" name="button">Accept</button>
