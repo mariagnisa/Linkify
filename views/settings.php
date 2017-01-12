@@ -8,17 +8,6 @@ $uid = $_SESSION['loginUser']['uid'];
 
 $user = executeGetQuery($db, "SELECT * FROM users WHERE id = '$uid'", true);
 
-if (isset($_SESSION['error'])) {
-  print_r($_SESSION['error']);
-  unset($_SESSION['error']);
-}
-
-if (isset($_SESSION['message'])) {
-  print_r($_SESSION['message']);
-  unset($_SESSION['message']);
-}
-
-
  ?>
 
 <h1>Account settings</h1>

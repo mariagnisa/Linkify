@@ -8,15 +8,6 @@ $uid = $_SESSION['loginUser']['uid'];
 $user = executeGetQuery($db, "SELECT * FROM users WHERE id = '$uid'", true);
 $posts = executeGetQuery($db, "SELECT * FROM posts WHERE uid = '$uid'");
 
-if (isset($_SESSION['error'])) {
-  print_r($_SESSION['error']);
-  unset($_SESSION['error']);
-}
-
-if (isset($_SESSION['message'])) {
-  print_r($_SESSION['message']);
-  unset($_SESSION['message']);
-}
  ?>
 
 <div class="profile-info">
@@ -35,8 +26,8 @@ if (isset($_SESSION['message'])) {
   <?php
 
   foreach ($posts as $post):
-    $date = $post['published'];
-    $date= date("l jS \of F Y");
+    $date = strtotime($post['published']);
+    $date = date("l jS \of F Y", $date);
     if ($post['uid'] === $uid && sizeof($post) != 0):?>
       <div class="profile-posts">
         <a href="<?php echo $post['link']; ?>">
