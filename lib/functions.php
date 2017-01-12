@@ -1,15 +1,6 @@
 <?php
 require_once __DIR__.'/database.php';
 
-//errormessage
-function errorMessage($sgl, $queryException) {
-  echo '<pre>';
-  echo $sgl;
-  echo "\n\n\n";
-
-  die(sprintf('Something went wrong when executing query. Reason: %s', $queryException->getMessage()));
-}
-
 //validates email, both format and against the db
 function validateEmail($db, $email) {
   $validEmail = true;
