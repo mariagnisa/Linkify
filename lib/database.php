@@ -36,6 +36,7 @@ function executePosts($db, $query) {
 
     if (!$result) {
       echo 'Something went wrong with -> ' . $query;
+      die();
     } else {
       return $result;
     }
