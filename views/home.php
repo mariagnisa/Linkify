@@ -3,19 +3,9 @@
 require_once __DIR__.'/../lib/functions.php';
 require_once __DIR__.'/../views/head.php';
 
-if (isset($_SESSION['error'])) {
-  print_r($_SESSION['error']);
-  unset($_SESSION['error']);
-}
-
-if (isset($_SESSION['message'])) {
-  print_r($_SESSION['message']);
-  unset($_SESSION['message']);
-}
-
 $uid = $_SESSION['loginUser']['uid'];
 
-$posts = executeGetQuery($db, "SELECT * FROM posts");
+$posts = executeGetQuery($db, "SELECT p.*, (SELECT COUNT(*) FROM votes WHERE post_id = p.id AND vote_up = TRUE) as votes FROM posts p ORDER BY votes DESC, published DESC");
 
 ?>
 
@@ -31,9 +21,16 @@ $posts = executeGetQuery($db, "SELECT * FROM posts");
 
 <?php
 foreach ($posts as $post):
-  $date = $post['published'];
-  $date= date("l jS \of F Y");?>
+  $date = strtotime($post['published']);
+  $date = date("l jS \of F Y", $date);?>
   <div class="postid<?php echo $post['id'] ?> posts">
+    <?php if (!($post['uid'] === $uid)): ?>
+      <a href="../lib/votes.php?vote=up&post=<?php echo $post['id'] ?>">
+      <img class="posts-arrow-up" src="../assets/img/arrow-up.png" alt="up arrow"></a>
+      <?php echo $post['votes']; ?>
+      <a href="../lib/votes.php?vote=down&post=<?php echo $post['id'] ?>">
+      <img class="posts-arrow-down" src="../assets/img/arrow-down.png" alt="down arrow"></a>
+    <?php endif; ?>
     <?php if ($post['uid'] === $uid): ?>
       <img class="postid<?php echo $post['id'] ?> posts-edit" src="../assets/img/edit.png" alt="Edit">
     <?php endif; ?>
