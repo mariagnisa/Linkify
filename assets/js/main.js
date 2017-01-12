@@ -100,18 +100,18 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   //show edit post form when clicked on editbutton
   const editButton = document.querySelector('.posts-edit');
-  editButton.addEventListener('click', event => {
+  if (editButton != null) {
+    editButton.addEventListener('click', event => {
 
-    let editPost = document.querySelectorAll('.' + event.target.classList[0] + '.edit-post');
-    let post = document.querySelectorAll('.' + event.target.classList[0] + '.posts');
+      let editPost = document.querySelectorAll('.' + event.target.classList[0] + '.edit-post');
+      let post = document.querySelectorAll('.' + event.target.classList[0] + '.posts');
 
-    if (editButton != null) {
       if (editPost[0].style.display != 'block') {
         editPost[0].style.display = 'block';
         post[0].style.display = 'none';
       }
-    }
-  });
+    });
+  }
 
   //hide edit post form when clicked on closebutton
   let closeButtons = document.querySelectorAll('.edit-post-cross');
