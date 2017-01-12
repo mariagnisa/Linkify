@@ -45,8 +45,8 @@ function checkLoginCookie() {
   const usernameField = document.getElementsByName('username')[0];
   const passwordField = document.getElementsByName('password')[0];
   if(usernameField != null && passwordField != null) {
-      usernameField.value = username;
-      passwordField.value = password;
+    usernameField.value = username;
+    passwordField.value = password;
   }
 }
 
@@ -85,20 +85,20 @@ document.addEventListener("DOMContentLoaded", function(event) {
   //intercepts click events on the body and checks if login or register forms are open
   document.body.addEventListener('click', event => {
     if (login != null && register != null) {
-    const clickInsideLogin = login.contains(event.target);
-    const clickInsideRegister = register.contains(event.target);
-    const clickLoginButton = button.contains(event.target);
-    const clickRegButton = regButton.contains(event.target)
+      const clickInsideLogin = login.contains(event.target);
+      const clickInsideRegister = register.contains(event.target);
+      const clickLoginButton = button.contains(event.target);
+      const clickRegButton = regButton.contains(event.target)
 
-    if ((!clickInsideLogin && !clickLoginButton) && login.style.display == 'block') {
-      login.style.display = 'none';
-    } else if ((!clickInsideRegister && !clickRegButton) && register.style.display == 'block') {
+      if ((!clickInsideLogin && !clickLoginButton) && login.style.display == 'block') {
+        login.style.display = 'none';
+      } else if ((!clickInsideRegister && !clickRegButton) && register.style.display == 'block') {
         register.style.display = 'none';
       }
     }
   });
 
-
+  //show edit post form when clicked on editbutton
   const editButton = document.querySelector('.posts-edit');
   editButton.addEventListener('click', event => {
 
@@ -107,9 +107,28 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     if (editButton != null) {
       if (editPost[0].style.display != 'block') {
-          editPost[0].style.display = 'block';
-          post[0].style.display = 'none';
+        editPost[0].style.display = 'block';
+        post[0].style.display = 'none';
       }
     }
   });
+
+  //hide edit post form when clicked on closebutton
+  let closeButtons = document.querySelectorAll('.edit-post-cross');
+  for (let i = 0; i < closeButtons.length; i++) {
+    let closeButton = closeButtons[i];
+
+    closeButton.addEventListener('click', event => {
+
+      let editPost = document.querySelectorAll('.' + event.target.classList[0] + '.edit-post');
+      let post = document.querySelectorAll('.' + event.target.classList[0] + '.posts');
+
+      if (closeButton != null) {
+        if (post[0].style.display != 'block') {
+          editPost[0].style.display = 'none';
+          post[0].style.display = 'block';
+        }
+      }
+    });
+  }
 });
