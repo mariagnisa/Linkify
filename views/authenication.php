@@ -2,25 +2,6 @@
 
 require_once __DIR__.'/../lib/functions.php';
 require_once __DIR__.'/../views/head.php';
-$error = '';
-if (isset($_SESSION['error'])) {
-  $error = $_SESSION['error'];
-}
-
-$message = '';
-if (isset($_SESSION['message'])) {
-  $message = $_SESSION['message'];
-}
-
-if ($error) {
-  print $error;
-  unset($_SESSION['error']);
-}
-
-if ($message) {
-  print $message;
-  unset($_SESSION['message']);
-}
 
  ?>
 
@@ -46,5 +27,21 @@ if ($message) {
         </form>
     </div>
 
+    <?php
+    $posts = executeGetQuery($db, "SELECT * FROM posts");
+    foreach ($posts as $post):
+      $date = strtotime($post['published']);
+      $date = date("l jS \of F Y", $date);?>
+      <div class="posts">
+        <img class="posts-avatar" src="../assets/img/avatars/avatar<?php echo $post['uid'] ?>.jpg" alt="avatar">
+        <a href="<?php echo $post['link']; ?>">
+          <div class="post-title"><?php echo $post['title']; ?></div>
+        </a>
+        <div class="post-content"><?php echo $post['content']; ?></div>
+        <div class="post-published"><?php echo 'Published ' . $date; ?></div>
+      </div>
+    <?php
+    endforeach;
+    ?>
 
 <?php  require_once __DIR__.'/../views/footer.php';  ?>
