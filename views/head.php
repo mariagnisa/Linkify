@@ -19,4 +19,16 @@ $title = (isset($title)) ? $title:'Linkify';
 <script src="/assets/js/main.js"> </script>
 </head>
 <body>
-  <?php require_once __DIR__.'/header.php'; ?>
+  <?php require_once __DIR__.'/header.php';
+
+  if (isset($_SESSION['error'])) {
+    print_r($_SESSION['error']);
+    unset($_SESSION['error']);
+  }
+
+  if (isset($_SESSION['message'])) {
+    print_r($_SESSION['message']);
+    unset($_SESSION['message']);
+  }
+
+  ?>
