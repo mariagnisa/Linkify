@@ -26,19 +26,26 @@ require_once __DIR__.'/../views/head.php';
             <button type="submit" class="register">Register for Linkify</button>
         </form>
     </div>
+    
+    <div class="public-intro">
+      <h2>A place to rule them all.</h2>
+      <h4>Join or login to get the most of this page.</h4>
+    </div>
 
     <?php
-    $posts = executeGetQuery($db, "SELECT * FROM posts");
+    $posts = executeGetQuery($db, "SELECT * FROM posts ORDER BY published DESC");
+
+    //Show all posts, order by published date
     foreach ($posts as $post):
       $date = strtotime($post['published']);
       $date = date("l jS \of F Y", $date);?>
-      <div class="posts">
-        <img class="posts-avatar" src="../assets/img/avatars/avatar<?php echo $post['uid'] ?>.jpg" alt="avatar">
+      <div class="public-posts">
+        <img class="public-posts-avatar" src="../assets/img/avatars/avatar<?php echo $post['uid'] ?>.jpg" alt="avatar">
         <a href="<?php echo $post['link']; ?>">
-          <div class="post-title"><?php echo $post['title']; ?></div>
+          <div class="public-post-title"><?php echo $post['title']; ?></div>
         </a>
-        <div class="post-content"><?php echo $post['content']; ?></div>
-        <div class="post-published"><?php echo 'Published ' . $date; ?></div>
+        <div class="public-post-content"><?php echo $post['content']; ?></div>
+        <div class="public-post-published"><?php echo 'Published ' . $date; ?></div>
       </div>
     <?php
     endforeach;
