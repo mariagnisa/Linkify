@@ -8,175 +8,26 @@ html, body {
 textarea {
   resize: none;
 }
-/*index*/
-.cookie-box {
-  width: 100%;
-  height: 45px;
-  text-align: center;
-  justify-content: center;
-  background: #d9d9d9;
-  border: 1px solid black;
-  display: none;
-  color: black;
-  padding: 5px;
-  position: absolute;
-  bottom: 10%;
-}
 
-.cookie-box a {
+a {
   text-decoration: none;
-  color: black;
+  color: grey;
 }
 
-.cookie-box-button {
-  height: 30px;
-  width: 60px;
-  background: white;
-  color: black;
-  text-align: center;
-  position: relative;
-  right: -15px;
-  bottom: 0px;
+a:hover {
+  color: rgb(0, 102, 77);
 }
 
-.login-wrapper {
-  margin: 10px;
-  flex-shrink: 1;
-  padding: 5px;
-  text-align: left;
-  position: absolute;
-  right: 10px;
-  height: 80px;
-  width: 180px;
-  display: none;
+body {
+  top: 0;
+  background: url('../img/background.jpg') no-repeat;
+  background-size: cover;
+  z-index: -5;
+  height: 100%;
+  width: 100%;
 }
 
-.login-wrapper input {
-  padding: 3px;
-  margin: 4px;
-  border: 1px solid grey;
-  width: 170px;
-}
-
-.login-wrapper button {
-  margin: 4px;
-  height: 25px;
-  cursor: pointer;
-}
-
-.login-wrapper label {
-  font-size: 10px;
-  position: absolute;
-  top: 85px;
-  right: 15px;
-}
-
-.login {
-  height: 20px;
-  width: auto;
-  padding: 3px;
-  background: white;
-  border: 1px solid grey;
-  border-radius: 3px;
-}
-
-.register-wrapper {
-  margin: 10px;
-  flex-shrink: 1;
-  padding: 5px;
-  text-align: left;
-  position: absolute;
-  right: 10px;
-  height: 80px;
-  width: 180px;
-  display: none;
-}
-
-.register-wrapper input {
-  padding: 3px;
-  margin: 4px;
-  width: 170px;
-  border: 1px solid grey;
-}
-
-.register-wrapper button {
-  margin: 4px;
-  height: 30px;
-  cursor: pointer;
-}
-
-.register {
-  height: 20px;
-  width: auto;
-  padding: 3px;
-  background: white;
-  border: 1px solid grey;
-  border-radius: 3px;
-}
-
-.remember-checkbox {
-  position: absolute;
-  right: 5px;
-  top: 85px;
-}
-
-.post {
-  margin: auto;
-}
-
-.post input {
-  border: 1px solid grey;
-  width: 170px;
-  margin: 5px;
-  padding: 3px;
-}
-
-.post textarea {
-  border: 1px solid grey;
-  width: 170px;
-  height: 70px;
-  margin: 0px 5px 0px 5px;
-  padding: 3px;
-}
-
-.post button {
-  border: 1px solid grey;
-  border-radius: 3px;
-  position: relative;
-  left: 120px;
-}
 /*header*/
-
-.login-button {
-  border-radius: 3px;
-  background: white;
-  margin: 10px;
-  position: absolute;
-  right: 85px;
-  top: 5px;
-  border: 1px solid grey;
-  padding: 3px;
-  cursor: pointer;
-  height: 27px;
-  width: auto;
-  font-size: 1.0em;
-}
-
-.register-button {
-  border-radius: 3px;
-  background: white;
-  margin: 10px;
-  position: absolute;
-  right: 15px;
-  top: 5px;
-  border: 1px solid grey;
-  padding: 3px;
-  cursor: pointer;
-  height: 27px;
-  width: auto;
-  font-size: 1.0em;
-}
-
 .account-button {
   border-radius: 3px;
   background: white;
@@ -198,7 +49,7 @@ textarea {
 }
 
 .navbar {
-  background: lightgrey;
+  background-color: rgba(0, 102, 77, 0.5);
   width: 100%;
   height: 50px;
   display: flex;
@@ -222,6 +73,7 @@ textarea {
 .logo a:hover {
   color: black;
 }
+
 .logout-button {
   border-radius: 3px;
   background: white;
@@ -242,7 +94,7 @@ textarea {
   color: black;
 }
 
-.profile {
+.profile-avatar {
   height: 40px;
   width: 40px;
   background-size: 100%;
@@ -255,284 +107,10 @@ textarea {
   justify-content: center;
 }
 
-.profile-text {
+.profile-avatar-text {
   position: relative;
   top: -2px;
   font-size: 0.8em;
   color: black;
   padding: 1px;
-}
-
-/*settings*/
-.change-settings input {
-  border: 1px solid grey;
-  padding: 3px;
-}
-
-.change-settings textarea {
-  border: 1px solid grey;
-  height: 80px;
-  width: 200px;
-  padding: 3px;
-}
-
-.change-settings button {
-  border: 1px solid grey;
-  border-radius: 3px;
-  padding: 3px;
-  margin: 5px;
-  position: relative;
-  left: 150px;
-}
-
-.change-text {
-
-}
-
-.profile-img img {
-  height: 60px;
-  width: 60px;
-  background-size: 100%;
-  border-radius: 50%;
-}
-
-.profile-img button {
-  border: 1px solid grey;
-  border-radius: 3px;
-  padding: 3px;
-  margin: 5px;
-}
-
-
-.empty-avatar {
-  background: white;
-  border: 1px solid grey;
-  height: 60px;
-  width: 60px;
-}
-
-.empty-avatar p {
-  font-size: 0.8em;
-  text-align: center;
-  padding: 2px;
-  position: relative;
-  top: -13px;
-}
-
-/*profile*/
-
-.profile-info {
-  width: 50%;
-  margin: auto;
-}
-
-.profile-username {
-
-}
-
-.profile-name {
-
-}
-
-.profile-bio {
-
-}
-
-/*posts*/
-
-.posts {
-  width: 400px;
-  min-height: 150px;
-  height: auto;
-  margin: 10px;
-  border: 1px solid grey;
-  padding: 10px;
-  position: relative;
-}
-
-.posts-arrow-up {
-  cursor: pointer;
-  width: 30px;
-  height: 30px;
-  position: absolute;
-  margin-top: 20px;
-}
-
-.posts-arrow-down {
-  cursor: pointer;
-  width: 30px;
-  height: 30px;
-  position: absolute;
-  margin-top: 50px;
-}
-
-.posts-avatar {
-height: 40px;
-width: 40px;
-background-size: 100%;
-border-radius: 50%;
-position: absolute;
-margin-top: 25px;
-margin-left: 50px;
-}
-
-.posts-edit {
-height: 30px;
-width: 30px;
-background-size: 100%;
-border-radius: 50%;
-position: absolute;
-margin-top: -7px;
-margin-left: 350px;
-cursor: pointer;
-}
-
-.empty-posts {
-  width: 50%;
-  margin: auto;
-}
-
-.post-published {
-  font-size: 0.7em;
-  font-style: italic;
-  position: absolute;
-  left: 100px;
-  top: 90px;
-}
-
-.post-title {
-  position: absolute;
-  left: 100px;
-  top: 20px;
-}
-
-.post-content {
-  max-width: 60%;
-  position: absolute;
-  left: 100px;
-  top: 40px;
-  word-wrap: break-word;
-}
-
-.comment-button {
-  border-radius: 3px;
-  width: 85px;
-  padding: 3px;
-  position: absolute;
-  right: 5px;
-  bottom: 5px;
-}
-
-a {
-  text-decoration: none;
-  color: grey;
-}
-
-a:hover {
-  color: purple;
-}
-
-/*view post*/
-
-.comment-form input{
-  border: 1px solid grey;
-  padding: 3px;
-  margin: 3px;
-}
-
-.comment-form button {
-  border: 1px solid grey;
-  border-radius: 3px;
-  padding: 3px;
-  margin: 3px;
-}
-
-.post-comments {
-  border: 1px solid grey;
-  margin: 10px;
-  width: 300px;
-  padding: 10px;
-}
-
-.post-comments img {
-  height: 30px;
-  width: 30px;
-  background-size: 100%;
-  border-radius: 50%;
-  position: relative;
-  top: 15px;
-}
-
-.comment {
-  word-wrap: break-word;
-  max-width: 80%;
-  position: relative;
-  left: 40px;
-  top: -13px;
-}
-
-.comment-published {
-  font-size: 0.6em;
-  font-style: italic;
-  position: relative;
-  left: 40px;
-}
-
-.edit-post {
-  width: 350px;
-  min-height: 200px;
-  height: auto;
-  margin: 10px;
-  border: 1px solid grey;
-  padding: 10px;
-  position: relative;
-  display: none;
-}
-
-.edit-post-save {
-  border: 1px solid grey;
-  border-radius: 3px;
-  padding: 3px;
-  margin: 5px 0px 0px 5px;
-  cursor: pointer;
-  position: absolute;
-  right: 110px;
-  bottom: 10px;
-}
-
-.edit-post-delete {
-  border: 1px solid grey;
-  border-radius: 3px;
-  padding: 3px;
-  margin: 5px 5px 0px 5px;
-  cursor: pointer;
-  position: absolute;
-  right: 5px;
-  bottom: 10px;
-}
-
-.edit-post-cross {
-  background-size: 100%;
-  height: 20px;
-  width: 20px;
-  position: absolute;
-  right: 10px;
-  cursor: pointer;
-  z-index: 99999;
-}
-
-.edit-post input {
-  border: 1px solid grey;
-  padding: 3px;
-  margin: 5px;
-  margin-top: 5px;
-  margin-left: 30px;
-}
-
-.edit-post textarea {
-  border: 1px solid grey;
-  height: 50px;
-  padding: 5px;
-  margin: 5px;
-  margin-left: 30px;
 }

@@ -1,0 +1,127 @@
+/*posts*/
+.view-posts {
+  width: 350px;
+  min-height: 150px;
+  height: auto;
+  margin: 40px auto;
+  border: 1px solid grey;
+  padding: 10px;
+  position: relative;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
+}
+
+.view-posts-avatar {
+  height: 40px;
+  width: 40px;
+  background-size: 100%;
+  border-radius: 50%;
+  position: absolute;
+  top: 45px;
+  left: 30px;
+}
+
+.view-post-published {
+  font-size: 0.7em;
+  font-style: italic;
+  position: absolute;
+  left: 90px;
+  top: 110px;
+}
+
+.view-post-title {
+  position: absolute;
+  left: 90px;
+  top: 40px;
+}
+
+.view-post-content {
+  max-width: 60%;
+  position: absolute;
+  left: 90px;
+  top: 60px;
+  word-wrap: break-word;
+}
+
+/*comment form*/
+.comment-form {
+  position: relative;
+  margin: auto;
+  padding: 10px;
+  height: auto;
+  width: 270px;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.comment-form input{
+  border: 1px solid grey;
+  padding: 3px;
+  margin: 3px;
+  position: relative;
+  width: 240px;
+  top: 5px;
+}
+
+.comment-form button {
+  border: 1px solid grey;
+  border-radius: 3px;
+  padding: 3px;
+  margin: 3px;
+  position: relative;
+  left: 160px;
+  top: 10px;
+}
+
+/*comments*/
+.comment-intro {
+  position: relative;
+  width: 100px;
+  margin: auto;
+}
+.post-comments {
+  border: 1px solid grey;
+  border-radius: 5px;
+  margin: 20px auto;
+  width: 300px;
+  padding: 10px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.post-comments img {
+  height: 30px;
+  width: 30px;
+  background-size: 100%;
+  border-radius: 50%;
+  position: relative;
+  top: 15px;
+}
+
+.comment {
+  word-wrap: break-word;
+  max-width: 80%;
+  position: relative;
+  left: 40px;
+  top: -13px;
+}
+
+.comment-published {
+  font-size: 0.6em;
+  font-style: italic;
+  position: relative;
+  left: 40px;
+}
+
+.post-comment-empty {
+  position: relative;
+  margin: auto;
+  padding: 10px;
+  width: 250px;
+  height: auto;
+  text-align: center;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

@@ -1,0 +1,202 @@
+/*cookie*/
+.cookie-box {
+  width: 100%;
+  height: 45px;
+  text-align: center;
+  justify-content: center;
+  background: #d9d9d9;
+  border: 1px solid black;
+  display: none;
+  color: black;
+  padding: 5px;
+  position: absolute;
+  bottom: 10%;
+}
+
+.cookie-box a {
+  text-decoration: none;
+  color: black;
+}
+
+.cookie-box-button {
+  height: 30px;
+  width: 60px;
+  background: white;
+  color: black;
+  text-align: center;
+  position: relative;
+  right: -15px;
+  bottom: 0px;
+}
+
+/*login*/
+.login-wrapper {
+  margin: 10px;
+  flex-shrink: 1;
+  padding: 5px;
+  text-align: left;
+  position: absolute;
+  right: 10px;
+  height: 80px;
+  width: 180px;
+  display: none;
+}
+
+.login-wrapper input {
+  padding: 3px;
+  margin: 4px;
+  border: 1px solid grey;
+  width: 170px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.login-wrapper button {
+  margin: 4px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.login-wrapper label {
+  font-size: 10px;
+  position: absolute;
+  top: 85px;
+  right: 15px;
+}
+
+.login {
+  height: 20px;
+  width: auto;
+  padding: 3px;
+  background: white;
+  border: 1px solid grey;
+  border-radius: 3px;
+}
+
+.login-button {
+  border-radius: 3px;
+  background: white;
+  margin: 10px;
+  position: absolute;
+  right: 85px;
+  top: 5px;
+  border: 1px solid grey;
+  padding: 3px;
+  cursor: pointer;
+  height: 27px;
+  width: auto;
+  font-size: 1.0em;
+}
+
+/*register*/
+.register-wrapper {
+  margin: 10px;
+  flex-shrink: 1;
+  padding: 5px;
+  text-align: left;
+  position: absolute;
+  right: 10px;
+  height: 80px;
+  width: 180px;
+  display: none;
+}
+
+.register-wrapper input {
+  padding: 3px;
+  margin: 4px;
+  width: 170px;
+  border: 1px solid grey;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.register-wrapper button {
+  margin: 4px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.register {
+  height: 20px;
+  width: auto;
+  padding: 3px;
+  background: white;
+  border: 1px solid grey;
+  border-radius: 3px;
+}
+
+.register-button {
+  border-radius: 3px;
+  background: white;
+  margin: 10px;
+  position: absolute;
+  right: 15px;
+  top: 5px;
+  border: 1px solid grey;
+  padding: 3px;
+  cursor: pointer;
+  height: 27px;
+  width: auto;
+  font-size: 1.0em;
+}
+
+.remember-checkbox {
+  position: absolute;
+  right: 5px;
+  top: 85px;
+}
+
+/*posts*/
+.public-posts {
+  width: 350px;
+  min-height: 150px;
+  height: auto;
+  margin: 10px auto;
+  border: 1px solid grey;
+  padding: 10px;
+  position: relative;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.public-posts-avatar {
+height: 40px;
+width: 40px;
+background-size: 100%;
+border-radius: 50%;
+position: absolute;
+top: 45px;
+left: 30px;
+}
+
+.public-post-published {
+  font-size: 0.7em;
+  font-style: italic;
+  position: absolute;
+  left: 90px;
+  top: 110px;
+}
+
+.public-post-title {
+  position: absolute;
+  left: 90px;
+  top: 40px;
+}
+
+.public-post-content {
+  max-width: 60%;
+  position: absolute;
+  left: 90px;
+  top: 60px;
+  word-wrap: break-word;
+}
+
+/*Intro*/
+.public-intro {
+  position: relative;
+  height: auto;
+  width: 350px;
+  margin: auto;
+  text-align: center;
+}

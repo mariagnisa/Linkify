@@ -1,0 +1,207 @@
+.home-intro {
+  position: relative;
+  margin: auto;
+  text-align: center;
+}
+
+/*share post*/
+.share-post {
+  position: relative;
+  margin: auto;
+  padding: 15px;
+  border: 1px solid grey;
+  width: 300px;
+  height: 200px;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.share-post input {
+  border: 1px solid grey;
+  width: 250px;
+  margin: 5px;
+  padding: 3px;
+  position: relative;
+  left: 5px;
+}
+
+.share-post textarea {
+  border: 1px solid grey;
+  width: 250px;
+  height: 70px;
+  margin: 0px 5px 0px 5px;
+  padding: 3px;
+  position: relative;
+  left: 5px;
+
+}
+
+.share-post button {
+  border: 1px solid grey;
+  border-radius: 3px;
+  position: relative;
+  left: 220px;
+  top: 10px;
+  cursor: pointer;
+}
+
+/*posts*/
+.posts {
+  width: 400px;
+  min-height: 150px;
+  height: auto;
+  margin: 20px auto;
+  border: 1px solid grey;
+  padding: 10px;
+  position: relative;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.posts-arrow-up {
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  top: 40px;
+}
+
+.posts-arrow-down {
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  top: 80px;
+}
+
+.posts-vote {
+  position: relative;
+  top: 55px;
+  left: 14px;
+}
+
+.posts-avatar {
+height: 40px;
+width: 40px;
+background-size: 100%;
+border-radius: 50%;
+position: absolute;
+top: 35px;
+left: 60px;
+}
+
+.posts-published {
+  font-size: 0.7em;
+  font-style: italic;
+  position: absolute;
+  left: 110px;
+  top: 95px;
+}
+
+.posts-title {
+  position: absolute;
+  left: 110px;
+  top: 30px;
+}
+
+.posts-content {
+  max-width: 60%;
+  position: absolute;
+  left: 110px;
+  top: 50px;
+  word-wrap: break-word;
+}
+
+.posts-edit {
+height: 30px;
+width: 30px;
+background-size: 100%;
+border-radius: 50%;
+position: absolute;
+top: 5px;
+left: 350px;
+cursor: pointer;
+}
+
+.empty-posts {
+  width: 50%;
+  margin: auto;
+}
+
+.comment-button {
+  border-radius: 3px;
+  width: 85px;
+  padding: 3px;
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+}
+
+/*Edit post*/
+.edit-post {
+  width: 400px;
+  min-height: 200px;
+  height: auto;
+  margin: 20px auto;
+  border: 1px solid grey;
+  padding: 10px;
+  position: relative;
+  display: none;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.edit-post-save {
+  border: 1px solid grey;
+  border-radius: 3px;
+  padding: 3px;
+  margin: 5px 0px 0px 5px;
+  cursor: pointer;
+  position: absolute;
+  right: 110px;
+  bottom: 10px;
+}
+
+.edit-post-delete {
+  border: 1px solid grey;
+  border-radius: 3px;
+  padding: 3px;
+  margin: 5px 5px 0px 5px;
+  cursor: pointer;
+  position: absolute;
+  right: 5px;
+  bottom: 10px;
+}
+
+.edit-post-cross {
+  background-size: 100%;
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  z-index: 99999;
+}
+
+.edit-post input {
+  border: 1px solid grey;
+  padding: 3px;
+  margin: 0px 5px 5px 5px;
+  top: 5px;
+  left: 50px;
+  width: 250px;
+  position: relative;
+}
+
+.edit-post textarea {
+  border: 1px solid grey;
+  height: 50px;
+  padding: 5px;
+  margin: 5px 5px 0px 5px;
+  left: 50px;
+  width: 250px;
+  position: relative;
+}

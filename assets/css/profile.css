@@ -1,0 +1,49 @@
+/*profile*/
+.profile-intro {
+  position: relative;
+  width: 150px;
+  margin: 10px auto;
+  text-align: center;
+}
+
+.profile-info {
+  width: 300px;
+  margin: 20px auto;
+  padding: 0px 15px 15px 15px;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid grey;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.profile-posts {
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  position: relative;
+  margin: 15px auto;
+  height: auto;
+  width: 300px;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.profile-post-published {
+  font-size: 0.6em;
+  font-style: italic;
+}
+
+.profile-empty-posts {
+  position: relative;
+  width: 100px;
+  margin: 10px auto;
+  text-align: center;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.profile-posts-intro {
+  position: relative;
+  width: 100px;
+  text-align: center;
+  margin: auto;
+}
