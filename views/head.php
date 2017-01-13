@@ -15,6 +15,11 @@ $title = (isset($title)) ? $title:'Linkify';
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/4.1.0/sanitize.min.css">
 <link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/authenication.css">
+<link rel="stylesheet" href="/assets/css/home.css">
+<link rel="stylesheet" href="/assets/css/settings.css">
+<link rel="stylesheet" href="/assets/css/profile.css">
+<link rel="stylesheet" href="/assets/css/viewPost.css">
 <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.ico">
 <script src="/assets/js/main.js"> </script>
 </head>
