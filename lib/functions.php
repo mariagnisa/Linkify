@@ -52,11 +52,11 @@ function registerNewUser($db, $name, $username, $email, $password, $repeatPass) 
     return false;
   }
 
-  //checks if the passwords matches, if not error
+  //checks if the passwords matches, if not throw an error
   if (!($password === $repeatPass)) {
+    session_start();
     $_SESSION['error'] = 'Passwords do not match. Please try again.';
-    header('Location: /');
-    die();
+    return false;
   }
 
   // Hash password
@@ -65,15 +65,15 @@ function registerNewUser($db, $name, $username, $email, $password, $repeatPass) 
   //check if registration succeded
   session_start();
   if (!executePosts($db, "INSERT INTO users (email, name, password, username) VALUES ('$email', '$name', '$password', '$username')")) {
-    $_SESSION['error'] = 'Failed to registrate.';
+    $_SESSION['error'] = 'Failed to registered. Please try again';
     return false;
   } else {
-    $_SESSION['message'] = 'You are now registrated. Please login in to continue.';
+    $_SESSION['message'] = 'You are now registered. Please login in to continue.';
     return true;
   }
 }
 
-//validates a user against db and if correct, the user logs into linkify
+//validates a user against db and if correct, the user logs in
 function loginUser($db, $username, $password) {
   //Escapes username and password
   list($username, $password) = escapeData($db, [$username, $password]);
@@ -101,13 +101,14 @@ function checkUserLogin($db) {
   return true;
 }
 
+//Validate password against db and user
 function validateUserPassword($db, $uid, $password) {
   $hash = executeGetQuery($db, "SELECT password FROM users WHERE id = '$uid'", true)['password'];
   return password_verify($password, $hash);
 }
 
+//Checks if the user has a profile image or not
 function hasImage($imageFolder) {
-  //$imageFolder = "../assets/img/avatars";
   $imageLink = "avatar" . $_SESSION['loginUser']['uid'] . ".jpg";
   $images = scandir($imageFolder);
   foreach ($images as $image) {
