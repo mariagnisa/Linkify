@@ -13,7 +13,7 @@
   width: 300px;
   height: 200px;
   border-radius: 5px;
-  background-color: white;
+  background-color: rgba(0, 0, 0, 0.4);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -24,6 +24,8 @@
   padding: 3px;
   position: relative;
   left: 5px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .share-post textarea {
@@ -34,16 +36,18 @@
   padding: 3px;
   position: relative;
   left: 5px;
-
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .share-post button {
-  border: 1px solid grey;
+  border: 1px solid black;
   border-radius: 3px;
   position: relative;
   left: 220px;
   top: 10px;
   cursor: pointer;
+  background-color: white;
 }
 
 /*posts*/
@@ -94,16 +98,16 @@ left: 60px;
 
 .posts-published {
   font-size: 0.7em;
-  font-style: italic;
+  font-family: Regular-Italic;
   position: absolute;
   left: 110px;
-  top: 95px;
+  top: 100px;
 }
 
 .posts-title {
   position: absolute;
   left: 110px;
-  top: 30px;
+  top: 5px;
 }
 
 .posts-content {
@@ -163,6 +167,11 @@ cursor: pointer;
   position: absolute;
   right: 110px;
   bottom: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.edit-post-save:active {
+  box-shadow: none;
 }
 
 .edit-post-delete {
@@ -174,6 +183,11 @@ cursor: pointer;
   position: absolute;
   right: 5px;
   bottom: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.edit-post-delete:active {
+  box-shadow: none;
 }
 
 .edit-post-cross {
