@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $date = date('Y-m-d H:i:s');
 
 
-  //check if the field is not empty, if error
+  //check if the field is not empty, if throw an error
   if (empty($comment)) {
     $_SESSION['error'] = 'Please fill in fields.';
     header('Location: /');
@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   //escape data
   $comment = mysqli_real_escape_string($db, $comment);
 
-  //if everything is good, put into db, else error
+  //if everything is good, insert into db, else throw an error
   if (!executePosts($db, "INSERT INTO comments (comment, published, uid, posts_id) VALUES ('$comment', '$date', '$user', '$postId')")) {
     $_SESSION['error'] = 'Something went wrong with the database request.';
     header("Location: ../views/viewPost.php?post=$postId");
@@ -41,4 +41,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
 
- ?>
+?>
