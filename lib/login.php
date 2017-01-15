@@ -9,15 +9,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       session_start();
       //store the logged in users uid
       $_SESSION['loginUser'] = [
-      'uid' => $uid
+        'uid' => $uid
       ];
       setcookie('username', $_POST['username'], time() + (86400 * 30), "/");
       setcookie('password', $_POST['password'], time() + (86400 * 30), "/");
     }
   } else {
-    //if missing fields
+    //if missing fields throw an error
     session_start();
-    $_SESSION['error'] = 'Please fill out all fields.';
+    $_SESSION['error'] = 'Please fill in all fields.';
+    header('Location: /');
+    die();
   }
 
   header('Location: /');
@@ -25,4 +27,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 
- ?>
+?>
