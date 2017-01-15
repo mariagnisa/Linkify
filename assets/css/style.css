@@ -5,6 +5,10 @@ html, body {
   padding: 0;
 }
 
+* {
+  font-family: 'Lora', serif;
+}
+
 textarea {
   resize: none;
 }
@@ -23,8 +27,88 @@ body {
   background: url('../img/background.jpg') no-repeat;
   background-size: cover;
   z-index: -5;
-  height: 100%;
+}
+
+.wrapper {
+  height: calc(100% - 50px);
+  overflow: auto;
+}
+
+.error {
+  width: 60%;
+  height: auto;
+  margin: 15px auto;
+  color: tomato;
+  border: 1px solid black;
+  border-radius: 5px;
+  text-align: center;
+  padding: 7px;
+  background-color: rgba(0, 0, 0, 0.6);
+  font-family: Bold;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.message {
+  width: 60%;
+  height: auto;
+  margin: 15px auto;
+  color: black;
+  border: 1px solid black;
+  border-radius: 5px;
+  text-align: center;
+  padding: 7px;
+  background-color: rgba(0, 0, 0, 0.18);
+  font-family: Bold;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/*cookie*/
+.cookie-box {
+  display: none;
   width: 100%;
+  height: 50px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  font-family: Bold;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border: 1px solid black;
+  color: white;
+  padding: 10px 0;
+  margin: 10px auto;
+  position: relative;
+}
+
+.cookie-box-p {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.cookie-box a {
+  text-decoration: none;
+  color: rgb(0, 128, 96);
+}
+
+.cookie-box a:hover {
+  color: white;
+}
+
+.cookie-box-button {
+  height: 30px;
+  width: 60px;
+  background: white;
+  border: 1px solid grey;
+  color: black;
+  text-align: center;
+  position: absolute;
+  right: 25px;
+  border-radius: 5px;
+}
+
+.cookie-box-visible {
+  height: calc(100% - 120px) !important;
 }
 
 /*header*/
