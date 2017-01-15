@@ -10,7 +10,7 @@ $posts = executeGetQuery($db, "SELECT p.*, (SELECT COUNT(*) FROM votes WHERE pos
 
 ?>
 <div class="home-intro">
-  <h3>A place to rule them all</h3>
+  <h2>A place to rule them all</h2>
 </div>
 
 <!-- Share post form -->
@@ -30,53 +30,53 @@ foreach ($posts as $post):
   $date = strtotime($post['published']);
   $date = date("l jS \of F Y", $date);?>
 
-  <!-- Adding the post id to parent div-->
-  <div class="postid<?php echo $post['id'] ?> posts">
+  <!-- Adding the post id-->
+  <div class="postid<?php echo $post['id']; ?> posts">
     <?php //Only show voting system on other posts, not the logged in users posts
-     if (!($post['uid'] === $uid)):
-       //Sending two querys with vote, which vote and the post id ?>
-      <a href="../lib/votes.php?vote=up&post=<?php echo $post['id'] ?>">
-      <img class="posts-arrow-up" src="../assets/img/arrow-up.png" alt="up arrow"></a>
-      <a href="../lib/votes.php?vote=down&post=<?php echo $post['id'] ?>">
-      <img class="posts-arrow-down" src="../assets/img/arrow-down.png" alt="down arrow"></a>
-    <?php endif; ?>
-     <div class="posts-vote">
-       <?php //print votes
-       echo $post['votes']; ?>
-     </div>
+    if (!($post['uid'] === $uid)):
+      //Sending two querys with vote, which vote and the post id ?>
+      <a href="../lib/votes.php?vote=up&post=<?php echo $post['id']; ?>">
+        <img class="posts-arrow-up" src="../assets/img/arrow-up.png" alt="up arrow"></a>
+        <a href="../lib/votes.php?vote=down&post=<?php echo $post['id']; ?>">
+          <img class="posts-arrow-down" src="../assets/img/arrow-down.png" alt="down arrow"></a>
+        <?php endif; ?>
+        <div class="posts-vote">
+          <?php //print votes
+          echo $post['votes']; ?>
+        </div>
 
-    <?php //Show edit options for the logged in users posts
-     if ($post['uid'] === $uid):
-       //Adding the post id so the right post can be edited ?>
-      <img class="postid<?php echo $post['id']; ?> posts-edit" src="../assets/img/edit.png" alt="Edit">
-    <?php endif; ?>
-    <img class="posts-avatar" src="../assets/img/avatars/avatar<?php echo $post['uid']; ?>.jpg" alt="avatar">
-    <a href="<?php echo $post['link']; ?>">
-      <div class="posts-title"><?php echo $post['title']; ?></div>
-    </a>
-    <div class="posts-content"><?php echo $post['content']; ?></div>
-    <div class="posts-published"><?php echo 'Published ' . $date; ?></div>
-    <div class="comment-button">
-      <!-- Sending the post id-->
-      <a href="../views/viewPost.php?post=<?php echo $post['id']; ?>">Comments</a>
-    </div>
-  </div>
+        <?php //Show edit options for the logged in users posts
+        if ($post['uid'] === $uid):
+          //Adding the post id so the right post can be edited ?>
+          <img class="postid<?php echo $post['id']; ?> posts-edit" src="../assets/img/edit.png" alt="Edit">
+        <?php endif; ?>
+        <img class="posts-avatar" src="../assets/img/avatars/avatar<?php echo $post['uid']; ?>.jpg" alt="avatar">
+        <a href="<?php echo $post['link']; ?>">
+          <div class="posts-title"><h3><?php echo $post['title']; ?></h3></div>
+        </a>
+        <div class="posts-content"><?php echo $post['content']; ?></div>
+        <div class="posts-published"><?php echo 'Published ' . $date; ?></div>
+        <div class="comment-button">
+          <!-- Sending the post id-->
+          <a href="../views/viewPost.php?post=<?php echo $post['id']; ?>">Comments</a>
+        </div>
+      </div>
 
-  <!-- Adding the post id to parent div-->
-  <div class="postid<?php echo $post['id']; ?> edit-post">
-    <!-- Adding the post id so when closed, right post is shown-->
-    <img class="postid<?php echo $post['id']; ?> edit-post-cross" src="../assets/img/cross.png" alt="cross">
-    <form action="../lib/updatePosts.php" method="post">
-      <input type="hidden" name="postId" value="<?php echo $post['id']; ?>">
-      <input type="text" name="editTitle" value="<?php echo $post['title']; ?>">
-      <textarea name="editContent"><?php echo $post['content']; ?></textarea>
-      <input type="url" name="editLink" value="<?php echo $post['link']; ?>">
-      <button class="edit-post-save" type="submit" name="editButton">Save changes</button>
-      <button class="edit-post-delete" type="submit" name="deleteButton">Delete post</button>
-    </form>
-  </div>
-  <?php
-endforeach;
-?>
+      <!-- Adding the post id -->
+      <div class="postid<?php echo $post['id']; ?> edit-post">
+        <!-- Adding the post id so when closed, right post is shown-->
+        <img class="postid<?php echo $post['id']; ?> edit-post-cross" src="../assets/img/cross.png" alt="cross">
+        <form action="../lib/updatePosts.php" method="post">
+          <input type="hidden" name="postId" value="<?php echo $post['id']; ?>">
+          <input type="text" name="editTitle" value="<?php echo $post['title']; ?>">
+          <textarea name="editContent"><?php echo $post['content']; ?></textarea>
+          <input type="url" name="editLink" value="<?php echo $post['link']; ?>">
+          <button class="edit-post-save" type="submit" name="editButton">Save changes</button>
+          <button class="edit-post-delete" type="submit" name="deleteButton">Delete post</button>
+        </form>
+      </div>
+      <?php
+    endforeach;
+    ?>
 
-<?php  require_once __DIR__.'/../views/footer.php';  ?>
+    <?php  require_once __DIR__.'/../views/footer.php';  ?>
