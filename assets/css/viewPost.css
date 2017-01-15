@@ -23,8 +23,8 @@
 }
 
 .view-post-published {
-  font-size: 0.7em;
-  font-style: italic;
+  font-size: 0.8em;
+  font-family: Regular-Italic;
   position: absolute;
   left: 90px;
   top: 110px;
@@ -33,7 +33,7 @@
 .view-post-title {
   position: absolute;
   left: 90px;
-  top: 40px;
+  top: 15px;
 }
 
 .view-post-content {
@@ -52,8 +52,9 @@
   height: auto;
   width: 270px;
   border-radius: 5px;
-  background-color: white;
+  background-color: rgba(0, 0, 0, 0.4);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border: 1px solid grey;
 }
 .comment-form input{
   border: 1px solid grey;
@@ -62,16 +63,21 @@
   position: relative;
   width: 240px;
   top: 5px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .comment-form button {
-  border: 1px solid grey;
+  border: 1px solid black;
   border-radius: 3px;
   padding: 3px;
   margin: 3px;
   position: relative;
   left: 160px;
   top: 10px;
+  cursor: pointer;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 /*comments*/
@@ -108,8 +114,8 @@
 }
 
 .comment-published {
-  font-size: 0.6em;
-  font-style: italic;
+  font-size: 0.7em;
+  font-family: Regular-Italic;
   position: relative;
   left: 40px;
 }
