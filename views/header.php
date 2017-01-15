@@ -7,10 +7,9 @@ if ($loggedin) {
   $user = executeGetQuery($db, "SELECT id FROM users WHERE id = '$uid'", true);
 }
 ?>
-
 <header>
   <div class="navbar">
-
+    
     <?php
     //If the user is not logged in, show login and register options
     if (!$loggedin): ?>
@@ -47,4 +46,13 @@ if ($loggedin) {
 <?php endif; ?>
 </div>
 
+<div class="cookie-box">
+  <div class="cookie-box-p">
+    <p>This website uses <a href="https://www.cookielaw.org/the-cookie-law">cookies</a> to ensure you get the best experience on our website.</p>
+  </div>
+  <button class="cookie-box-button" type="button" name="button">Accept</button>
+</div>
+
 </header>
+
+<div class="wrapper">
