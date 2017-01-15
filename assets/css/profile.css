@@ -27,18 +27,35 @@
   padding: 10px;
 }
 
+.profile-info-avatar {
+  height: 60px;
+  width: 60px;
+  background-size: 100%;
+  border-radius: 50%;
+  position: relative;
+  top: 10px;
+  right: -100px;
+}
+
+.profile-post-content {
+  top: -15px;
+  position: relative;
+}
+
 .profile-post-published {
-  font-size: 0.6em;
-  font-style: italic;
+  font-size: 0.7em;
+  font-family: Regular-Italic;
 }
 
 .profile-empty-posts {
   position: relative;
-  width: 100px;
+  width: 200px;
   margin: 10px auto;
   text-align: center;
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
+  padding: 5px;
 }
 
 .profile-posts-intro {
@@ -46,4 +63,89 @@
   width: 100px;
   text-align: center;
   margin: auto;
+}
+
+/*profile edit*/
+.profile-edit {
+  height: 30px;
+  width: 30px;
+  background-size: 100%;
+  border-radius: 50%;
+  position: absolute;
+  top: 5px;
+  left: 260px;
+  cursor: pointer;
+}
+
+.profile-edit-post {
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  position: relative;
+  margin: 15px auto;
+  min-height: 180px;
+  height: auto;
+  width: 300px;
+  border-radius: 5px;
+  padding: 10px;
+  display: none;
+}
+
+.profile-edit-post-cross {
+  background-size: 100%;
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  z-index: 99999;
+}
+
+.profile-edit-post-save {
+  border: 1px solid grey;
+  border-radius: 3px;
+  padding: 3px;
+  margin: 5px 0px 0px 5px;
+  cursor: pointer;
+  position: absolute;
+  right: 110px;
+  bottom: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.profile-edit-post-save:active {
+  box-shadow: none;
+}
+
+.profile-edit-post-delete {
+  border: 1px solid grey;
+  border-radius: 3px;
+  padding: 3px;
+  margin: 5px 5px 0px 5px;
+  cursor: pointer;
+  position: absolute;
+  right: 5px;
+  bottom: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.profile-edit-post-delete:active {
+  box-shadow: none;
+}
+
+.profile-edit-post input {
+  border: 1px solid grey;
+  padding: 3px;
+  margin: 0px 5px 5px 5px;
+  top: 5px;
+  width: 230px;
+  position: relative;
+}
+
+.profile-edit-post textarea {
+  border: 1px solid grey;
+  height: 50px;
+  padding: 5px;
+  margin: 5px 5px 0px 5px;
+  width: 230px;
+  position: relative;
 }
