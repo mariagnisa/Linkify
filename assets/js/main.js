@@ -29,10 +29,15 @@ function checkCookie() {
   const accept = getCookie('accept-cookie');
   if (accept == "") {
     document.querySelector('.cookie-box').style.display = 'flex';
+    //Add a class to wrapper for the right height on body
+    document.querySelector('.wrapper').classList.add('cookie-box-visible');
+
     const cbutton = document.querySelector('.cookie-box-button');
     cbutton.addEventListener('click', event => {
       setCookie('accept-cookie', '1', 1);
       document.querySelector('.cookie-box').style.display = 'none';
+      //Remove/rewrite the wrapper class
+      document.querySelector('.wrapper').className = 'wrapper';
     });
   }
 }
@@ -124,6 +129,44 @@ document.addEventListener("DOMContentLoaded", function(event) {
       let post = document.querySelectorAll('.' + event.target.classList[0] + '.posts');
 
       if (closeButton != null) {
+        if (post[0].style.display != 'block') {
+          editPost[0].style.display = 'none';
+          post[0].style.display = 'block';
+        }
+      }
+    });
+  }
+
+  //show edit post form on profile page when clicked on editbutton
+  let editProfileButtons = document.querySelectorAll('.profile-edit');
+  for (let i = 0; i < editProfileButtons.length; i++) {
+    let editProfileButton = editProfileButtons[i];
+
+    if (editProfileButton != null) {
+      editProfileButton.addEventListener('click', event => {
+
+        let editPost = document.querySelectorAll('.' + event.target.classList[0] + '.profile-edit-post');
+        let post = document.querySelectorAll('.' + event.target.classList[0] + '.profile-posts');
+
+        if (editPost[0].style.display != 'block') {
+          editPost[0].style.display = 'block';
+          post[0].style.display = 'none';
+        }
+      });
+    }
+  }
+
+  //hide edit post form on profile page when clicked on closebutton
+  let closeProfileButtons = document.querySelectorAll('.profile-edit-post-cross');
+  for (let i = 0; i < closeProfileButtons.length; i++) {
+    let closeProfileButton = closeProfileButtons[i];
+
+    closeProfileButton.addEventListener('click', event => {
+
+      let editPost = document.querySelectorAll('.' + event.target.classList[0] + '.profile-edit-post');
+      let post = document.querySelectorAll('.' + event.target.classList[0] + '.profile-posts');
+
+      if (closeProfileButton != null) {
         if (post[0].style.display != 'block') {
           editPost[0].style.display = 'none';
           post[0].style.display = 'block';
