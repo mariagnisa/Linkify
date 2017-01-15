@@ -10,19 +10,26 @@ if (!checkUserLogin($db)) {
   die();
 }
 
+//Fetch the specific post id
 $postId = $_GET['post'];
+//Fetch the specific vote request, up or down
 $vote = $_GET['vote'];
 $uid = $_SESSION['loginUser']['uid'];
 
+//Get the specific post and the logged in user
 $currentVote = executeGetQuery($db, "SELECT * FROM votes WHERE post_id = '$postId' AND uid = '$uid'", true);
 
+//If the user pressed vote up
 if ($vote == 'up') {
+  //Checks if the user has already voted (up)
   if (isset($currentVote)) {
+    //If the user has voted the same before, throw an error
     if ($currentVote['vote_up'] === '1') {
       $_SESSION['error'] = 'You have already voted up on this post.';
       header('Location: /');
       die();
     } else {
+      //If the user has voted, but voted down before, the vote is updated
       $currentVoteId = $currentVote['id'];
       executePosts($db, "UPDATE votes SET vote_up = TRUE WHERE id = '$currentVoteId'");
       $_SESSION['message'] = 'You have now changed your vote.';
@@ -30,6 +37,7 @@ if ($vote == 'up') {
       die();
     }
   } else {
+    //If the user has not voted before, and all good with db request, insert vote.
     if (!executePosts($db, "INSERT INTO votes (vote_up, post_id, uid) VALUES (TRUE, '$postId', '$uid')")) {
       $_SESSION['error'] = 'Something went wrong with the database request.';
       header('Location: /');
@@ -40,14 +48,17 @@ if ($vote == 'up') {
       die();
     }
   }
-} elseif ($vote == 'down') {
+} //If the user pressed vote down
+elseif ($vote == 'down') {
+  //Checks if the user has already voted (down)
   if (isset($currentVote)) {
-    var_dump($currentVote);
+    //If the user has voted the same before, throw an error
     if ($currentVote['vote_up'] === '0') {
       $_SESSION['error'] = 'You have already voted up on this post.';
       header('Location: /');
       die();
     } else {
+      //If the user has voted, but voted up before, the vote is updated
       $currentVoteId = $currentVote['id'];
       executePosts($db, "UPDATE votes SET vote_up = FALSE WHERE id = '$currentVoteId'");
       $_SESSION['message'] = 'You have now changed your vote.';
@@ -55,6 +66,7 @@ if ($vote == 'up') {
       die();
     }
   } else {
+    //If the user has not voted before, and all good with db request, insert vote.
     if (!executePosts($db, "INSERT INTO votes (vote_up, post_id, uid) VALUES (FALSE, '$postId', '$uid')")) {
       $_SESSION['error'] = 'Something went wrong with the database request.';
       header('Location: /');

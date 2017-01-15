@@ -8,18 +8,20 @@ $uid = $_SESSION['loginUser']['uid'];
 //Fetch data from the logged in user
 $user = executeGetQuery($db, "SELECT * FROM users WHERE id = '$uid'", true);
 //Fetch all posts from the logged in user
-$posts = executeGetQuery($db, "SELECT * FROM posts WHERE uid = '$uid'");
+$posts = executeGetQuery($db, "SELECT * FROM posts WHERE uid = '$uid' ORDER BY published DESC");
 
 ?>
 
 <div class="profile-intro">
-  <h3>Profile info</h3>
+  <h2>Profile info</h2>
 </div>
 <div class="profile-info">
+  <img class="profile-info-avatar" src="../assets/img/avatars/avatar<?php echo $user['id']; ?>.jpg" alt="avatar">
   <p>Username: <?php echo $user['username']; ?> </p>
   <p>Fullname: <?php echo $user['name']; ?> </p>
   <p>Bio: <?php echo $user['bio']; ?> </p>
-  <p style="font-style: italic">If you want to change your settings please visit your account page to update them.</p>
+  <hr>
+  <p style="font-family: Regular-Italic">If you want to change your settings please visit your account page to update them.</p>
 </div>
 <br>
 <div class="profile-posts-intro">
@@ -31,15 +33,32 @@ foreach ($posts as $post):
   $date = date("l jS \of F Y", $date);
   //Checks if the user have any posts, if there are some print all of them
   if ($post['uid'] === $uid && sizeof($post) != 0):?>
-  <div class="profile-posts">
+  <!-- Adding the post id-->
+  <div class="postid<?php echo $post['id']; ?> profile-posts">
+    <img class="postid<?php echo $post['id']; ?> profile-edit" src="../assets/img/edit.png" alt="Edit">
     <a href="<?php echo $post['link']; ?>">
-      <div class="profile-post-title"><?php echo $post['title']; ?></div>
+      <div class="profile-post-title"><h3><?php echo $post['title']; ?></h3></div>
     </a>
     <div class="profile-post-content"><?php echo $post['content']; ?></div>
     <div class="profile-post-published"><?php echo 'Published ' . $date; ?></div>
   </div>
-<?php endif;
-endforeach;
+<?php endif; ?>
+
+<!-- Adding the post id -->
+<div class="postid<?php echo $post['id']; ?> profile-edit-post">
+  <!-- Adding the post id so when closed, right post is shown-->
+  <img class="postid<?php echo $post['id']; ?> profile-edit-post-cross" src="../assets/img/cross.png" alt="cross">
+  <form action="../lib/updatePosts.php" method="post">
+    <input type="hidden" name="postId" value="<?php echo $post['id']; ?>">
+    <input type="text" name="editTitle" value="<?php echo $post['title']; ?>">
+    <textarea name="editContent"><?php echo $post['content']; ?></textarea>
+    <input type="url" name="editLink" value="<?php echo $post['link']; ?>">
+    <button class="profile-edit-post-save" type="submit" name="editButton">Save changes</button>
+    <button class="profile-edit-post-delete" type="submit" name="deleteButton">Delete post</button>
+  </form>
+</div>
+<?php endforeach;
+
 //If the user have not made any posts, show message
 if (sizeof($posts) == 0): ?>
 <div class="profile-empty-posts">

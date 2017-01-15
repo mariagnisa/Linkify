@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $postId = $_POST['postId'];
     $date = date('Y-m-d H:i:s');
 
-    //check if the fields are empty, if error
+    //check if the fields are empty, if they are throw error
     if (empty($title) || empty($content) || empty($url)) {
       $_SESSION['error'] = 'Please fill in all fields.';
       header('Location: /');
@@ -31,14 +31,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Remove all illegal characters from the url
     $url = filter_var($url, FILTER_SANITIZE_URL);
 
-    //validate the link to be a url
+    //validate the link to be a url, if not throw error
     if (filter_var($url, FILTER_VALIDATE_URL) === false) {
       $_SESSION['error'] = 'Please provide a valid url link.';
       header('Location: /');
       die();
     }
 
-    //escape data
+    //escape all data
     $title = mysqli_real_escape_string($db, $title);
     $content = mysqli_real_escape_string($db, $content);
     $url = mysqli_real_escape_string($db, $url);
@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   if (isset($delete)) {
     $postId = $_POST['postId'];
 
-  //deletes the specifik post otherwise throw an error
+    //deletes the specific post otherwise throw an error
     if (!executePosts($db, "DELETE FROM posts WHERE id = '$postId'")) {
       $_SESSION['error'] = 'Something went wrong with the database request.';
       header('Location: /');
@@ -75,4 +75,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 
- ?>
+?>

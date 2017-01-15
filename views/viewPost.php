@@ -14,14 +14,14 @@ $postId = $_GET['post'];
 //Fetch the specifik post
 $post = executeGetQuery($db, "SELECT * FROM posts WHERE id = '$postId'", true);
 //Fetch all comments to the specific post
-$comments = executeGetQuery($db, "SELECT * FROM comments WHERE posts_id = '$postId'");
+$comments = executeGetQuery($db, "SELECT * FROM comments WHERE posts_id = '$postId' ORDER BY published DESC");
 
 $date = strtotime($post['published']);
 $date = date("l jS \of F Y", $date);?>
 <div class="view-posts">
   <img class="view-posts-avatar" src="../assets/img/avatars/avatar<?php echo $post['uid']; ?>.jpg" alt="avatar">
   <a href="<?php echo $post['link']; ?>">
-    <div class="view-post-title"><?php echo $post['title']; ?></div>
+    <div class="view-post-title"><h3><?php echo $post['title']; ?></h3></div>
   </a>
   <div class="view-post-content"><?php echo $post['content']; ?></div>
   <div class="view-post-published"><?php echo 'Published ' . $date; ?></div>
