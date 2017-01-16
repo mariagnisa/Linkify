@@ -12,6 +12,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   $save = $_POST['editButton'];
   $delete = $_POST['deleteButton'];
+  $location = 'Location: /';
+
+  if (isset($_GET['profile'])) {
+    $location = 'Location: ../views/profile.php';
+  }
 
   //if the save button is clicked
   if (isset($save)) {
@@ -24,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     //check if the fields are empty, if they are throw error
     if (empty($title) || empty($content) || empty($url)) {
       $_SESSION['error'] = 'Please fill in all fields.';
-      header('Location: /');
+      header($location);
       die();
     }
 
@@ -34,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     //validate the link to be a url, if not throw error
     if (filter_var($url, FILTER_VALIDATE_URL) === false) {
       $_SESSION['error'] = 'Please provide a valid url link.';
-      header('Location: /');
+      header($location);
       die();
     }
 
@@ -46,13 +51,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     //if everything is good, update post to db, otherwise throw error
     if (!executePosts($db, "UPDATE posts SET title = '$title', content = '$content', link = '$url', published = '$date' WHERE id = '$postId'")) {
       $_SESSION['error'] = 'Something went wrong with the database request.';
-      header('Location: /');
+      header($location);
       die();
     } else {
       $_SESSION['message'] = 'Your post has been updated.';
     }
 
-    header('Location: /');
+    header($location);
     die();
   }
 
@@ -63,13 +68,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     //deletes the specific post otherwise throw an error
     if (!executePosts($db, "DELETE FROM posts WHERE id = '$postId'")) {
       $_SESSION['error'] = 'Something went wrong with the database request.';
-      header('Location: /');
+      header($location);
       die();
     } else {
       $_SESSION['message'] = 'Your post has been deleted.';
     }
 
-    header('Location: /');
+    header($location);
     die();
   }
 }
