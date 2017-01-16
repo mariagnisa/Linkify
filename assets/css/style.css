@@ -80,8 +80,7 @@ body {
 
 .cookie-box-p {
   margin: 0;
-  position: absolute;
-  top: 50%;
+  position: relative;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -103,7 +102,7 @@ body {
   color: black;
   text-align: center;
   position: absolute;
-  right: 25px;
+  right: 15px;
   border-radius: 5px;
 }
 
@@ -197,4 +196,44 @@ body {
   font-size: 0.8em;
   color: black;
   padding: 1px;
+}
+
+@media screen and (max-width: 415px) {
+    .error {
+      width: 90%;
+      margin: 20px auto;
+    }
+
+    .message {
+      width: 90%;
+      margin: 20px auto;
+    }
+
+    .wrapper {
+      overflow-x: hidden;
+    }
+}
+
+@media screen and (min-width: 359px) and (max-width: 769px) {
+    .wrapper {
+      overflow-x: hidden;
+    }
+}
+
+@media screen and (min-width: 319px) and (max-width: 737px) {
+    .cookie-box {
+      height: auto;
+    }
+
+    .cookie-box-p {
+      left: 0;
+      transform: translate(0%, 0%);
+      top: -15px;
+      padding: 3px;
+    }
+
+    .cookie-box-button {
+      bottom: 5px;
+      right: 5px;
+    }
 }

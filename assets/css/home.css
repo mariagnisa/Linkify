@@ -110,12 +110,25 @@ left: 60px;
   top: 5px;
 }
 
+.posts-title h3 {
+  width: 250px;
+  overflow: hidden;
+  white-space: nowrap;
+  word-wrap: break-word;
+  text-overflow: ellipsis;
+}
+
 .posts-content {
   max-width: 60%;
+  height: 70px;
   position: absolute;
   left: 110px;
   top: 50px;
   word-wrap: break-word;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  z-index: 55;
 }
 
 .posts-edit {
@@ -125,7 +138,7 @@ background-size: 100%;
 border-radius: 50%;
 position: absolute;
 top: 5px;
-left: 350px;
+right: 5px;
 cursor: pointer;
 }
 
@@ -218,4 +231,115 @@ cursor: pointer;
   left: 50px;
   width: 250px;
   position: relative;
+}
+
+@media screen and (max-width: 320px) {
+    .posts {
+      width: 90%;
+      height: 170px;
+      margin: 20px auto;
+    }
+
+    .edit-post {
+      width: 90%;
+      height: 160px;
+      margin: 20px auto;
+    }
+
+    .posts-title {
+      top: 15px;
+      width: 130px;
+    }
+
+    .posts-title h3 {
+      width: 130px;
+    }
+
+    .posts-content {
+      top: 65px;
+      height: 45px;
+    }
+
+    .posts-published {
+      top: 110px;
+    }
+
+    .edit-post input {
+      left: 5px;
+      top: 5px;
+      width: 80%;
+    }
+
+    .edit-post textarea {
+      left: 5px;
+      top: 5px;
+      width: 80%;
+    }
+}
+
+@media screen and (min-width: 321px) and (max-width: 376px) {
+    .posts {
+      width: 80%;
+    }
+
+    .posts-title h3 {
+      width: 140px;
+    }
+
+    .posts-published {
+      left: 80px;
+    }
+
+    .edit-post {
+      width: 80%;
+    }
+
+    .edit-post input {
+      width: 220px;
+      left: 0px;
+    }
+
+    .edit-post textarea {
+      width: 220px;
+      left: 0px;
+    }
+}
+
+@media screen and (min-width: 377px) and (max-width: 415px) {
+    .posts-title h3 {
+      width: 145px;
+    }
+
+    .posts {
+      width: 90%;
+      height: 170px;
+      margin: 20px auto;
+    }
+
+    .edit-post {
+      width: 90%;
+      height: 160px;
+      margin: 20px auto;
+    }
+
+    .posts-content {
+      top: 65px;
+      height: 45px;
+    }
+
+    .posts-published {
+      top: 110px;
+      left: 80px;
+    }
+
+    .edit-post input {
+      left: 10px;
+      top: 10px;
+    }
+
+    .edit-post textarea {
+      left: 10px;
+      top: 5px;
+    }
+
 }

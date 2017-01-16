@@ -8,6 +8,7 @@
   right: 10px;
   height: 80px;
   width: 180px;
+  z-index: 9999;
   display: none;
 }
 
@@ -72,6 +73,7 @@
   right: 10px;
   height: 80px;
   width: 180px;
+  z-index: 1000;
   display: none;
 }
 
@@ -159,12 +161,24 @@ input[type='checkbox']  {
   top: 10px;
 }
 
+.public-post-title h3 {
+  overflow: hidden;
+  white-space: nowrap;
+  word-wrap: break-word;
+  text-overflow: ellipsis;
+}
+
 .public-post-content {
   max-width: 60%;
   position: absolute;
   left: 90px;
   top: 60px;
+  height: 45px;
   word-wrap: break-word;
+  z-index: 5;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 /*Intro*/
@@ -174,4 +188,26 @@ input[type='checkbox']  {
   width: 350px;
   margin: auto;
   text-align: center;
+}
+
+@media screen and (max-width: 320px) {
+    .public-posts {
+      width: 90%;
+      margin: 10px auto;
+    }
+
+    .public-post-title h3 {
+      width: 180px;
+    }
+
+    .public-intro {
+      width: 90%;
+    }
+}
+
+@media screen and (min-width: 321px) and (max-width: 414px) {
+    .public-posts {
+      width: 90%;
+      margin: 10px auto;
+    }
 }

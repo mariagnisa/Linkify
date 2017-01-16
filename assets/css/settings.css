@@ -73,6 +73,10 @@
 }
 
 .profile-img input {
+  width: 60%;
+}
+
+.profile-img input {
   position: relative;
   left: 50px;
   margin: 0px 0px 5px 0px;
