@@ -87,13 +87,13 @@
 }
 
 .posts-avatar {
-height: 40px;
-width: 40px;
-background-size: 100%;
-border-radius: 50%;
-position: absolute;
-top: 35px;
-left: 60px;
+  height: 40px;
+  width: 40px;
+  background-size: 100%;
+  border-radius: 50%;
+  position: absolute;
+  top: 35px;
+  left: 60px;
 }
 
 .posts-published {

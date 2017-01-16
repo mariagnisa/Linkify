@@ -19,7 +19,12 @@ $comments = executeGetQuery($db, "SELECT * FROM comments WHERE posts_id = '$post
 $date = strtotime($post['published']);
 $date = date("l jS \of F Y", $date);?>
 <div class="view-posts">
+  <?php //Checks if the user have any uploaded profile avatar or not
+    if (!userImage($_SERVER['DOCUMENT_ROOT']."/assets/img/avatars", $post['uid'])): ?>
+  <img class="view-posts-avatar" src="../assets/img/noavatar.jpg" alt="avatar">
+<?php else: ?>
   <img class="view-posts-avatar" src="../assets/img/avatars/avatar<?php echo $post['uid']; ?>.jpg" alt="avatar">
+<?php endif; ?>
   <a href="<?php echo $post['link']; ?>">
     <div class="view-post-title"><h3><?php echo $post['title']; ?></h3></div>
   </a>
@@ -47,7 +52,12 @@ foreach ($comments as $comment):
   $date = strtotime($comment['published']);
   $date = date("l jS \of F Y", $date);?>
   <div class="post-comments">
+    <?php //Checks if the user have any uploaded profile avatar or not
+    if (!userImage($_SERVER['DOCUMENT_ROOT']."/assets/img/avatars", $comment['uid'])): ?>
+  <img src="../assets/img/noavatar.jpg" alt="avatar">
+  <?php else: ?>
     <img src="../assets/img/avatars/avatar<?php echo $comment['uid']; ?>.jpg" alt="avatar">
+  <?php endif; ?>
     <div class="comment"><?php echo $comment['comment']; ?></div>
     <div class="comment-published"><?php echo 'Published ' . $date; ?></div>
   </div>
