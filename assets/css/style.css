@@ -87,7 +87,7 @@ body {
 
 .cookie-box a {
   text-decoration: none;
-  color: rgb(0, 128, 96);
+  color: 	rgb(0, 153, 115);
 }
 
 .cookie-box a:hover {
@@ -196,6 +196,21 @@ body {
   font-size: 0.8em;
   color: black;
   padding: 1px;
+}
+
+/*footer*/
+.footer {
+  margin: 30px auto;
+  text-align: center;
+}
+
+.footer h5 {
+  margin: 30px 0px 10px 0px;
+}
+
+.footer img {
+  height: 30px;
+  width: 30px;
 }
 
 @media screen and (max-width: 415px) {
