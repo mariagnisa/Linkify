@@ -94,9 +94,3 @@
 .profile-img button:active {
   box-shadow: none;
 }
-
-.empty-avatar p {
-  font-size: 0.8em;
-  text-align: center;
-  padding: 2px;
-}
