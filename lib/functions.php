@@ -109,7 +109,12 @@ function validateUserPassword($db, $uid, $password) {
 
 //Checks if the user has a profile image or not
 function hasImage($imageFolder) {
-  $imageLink = "avatar" . $_SESSION['loginUser']['uid'] . ".jpg";
+  return userImage($imageFolder, $_SESSION['loginUser']['uid']);
+}
+
+//Checks if the avatar exists
+function userImage($imageFolder, $uid) {
+  $imageLink = "avatar" . $uid . ".jpg";
   $images = scandir($imageFolder);
   foreach ($images as $image) {
     if ($image === $imageLink) {
