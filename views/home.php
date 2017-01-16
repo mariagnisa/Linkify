@@ -50,33 +50,38 @@ foreach ($posts as $post):
           //Adding the post id so the right post can be edited ?>
           <img class="postid<?php echo $post['id']; ?> posts-edit" src="../assets/img/edit.png" alt="Edit">
         <?php endif; ?>
+        <?php //Checks if the user have any uploaded profile avatar or not
+        if (userImage($_SERVER['DOCUMENT_ROOT']."/assets/img/avatars", $post['uid'])): ?>
         <img class="posts-avatar" src="../assets/img/avatars/avatar<?php echo $post['uid']; ?>.jpg" alt="avatar">
-        <a href="<?php echo $post['link']; ?>">
-          <div class="posts-title"><h3><?php echo $post['title']; ?></h3></div>
-        </a>
-        <div class="posts-content"><?php echo $post['content']; ?></div>
-        <div class="posts-published"><?php echo 'Published ' . $date; ?></div>
-        <div class="comment-button">
-          <!-- Sending the post id-->
-          <a href="../views/viewPost.php?post=<?php echo $post['id']; ?>">Comments</a>
-        </div>
+      <?php else: ?>
+        <img class="posts-avatar" src="../assets/img/noavatar.jpg" alt="avatar">
+      <?php endif; ?>
+      <a href="<?php echo $post['link']; ?>">
+        <div class="posts-title"><h3><?php echo $post['title']; ?></h3></div>
+      </a>
+      <div class="posts-content"><?php echo $post['content']; ?></div>
+      <div class="posts-published"><?php echo 'Published ' . $date; ?></div>
+      <div class="comment-button">
+        <!-- Sending the post id-->
+        <a href="../views/viewPost.php?post=<?php echo $post['id']; ?>">Comments</a>
       </div>
+    </div>
 
-      <!-- Adding the post id -->
-      <div class="postid<?php echo $post['id']; ?> edit-post">
-        <!-- Adding the post id so when closed, right post is shown-->
-        <img class="postid<?php echo $post['id']; ?> edit-post-cross" src="../assets/img/cross.png" alt="cross">
-        <form action="../lib/updatePosts.php" method="post">
-          <input type="hidden" name="postId" value="<?php echo $post['id']; ?>">
-          <input type="text" name="editTitle" value="<?php echo $post['title']; ?>">
-          <textarea name="editContent"><?php echo $post['content']; ?></textarea>
-          <input type="url" name="editLink" value="<?php echo $post['link']; ?>">
-          <button class="edit-post-save" type="submit" name="editButton">Save changes</button>
-          <button class="edit-post-delete" type="submit" name="deleteButton">Delete post</button>
-        </form>
-      </div>
-      <?php
-    endforeach;
-    ?>
+    <!-- Adding the post id -->
+    <div class="postid<?php echo $post['id']; ?> edit-post">
+      <!-- Adding the post id so when closed, right post is shown-->
+      <img class="postid<?php echo $post['id']; ?> edit-post-cross" src="../assets/img/cross.png" alt="cross">
+      <form action="../lib/updatePosts.php" method="post">
+        <input type="hidden" name="postId" value="<?php echo $post['id']; ?>">
+        <input type="text" name="editTitle" value="<?php echo $post['title']; ?>">
+        <textarea name="editContent"><?php echo $post['content']; ?></textarea>
+        <input type="url" name="editLink" value="<?php echo $post['link']; ?>">
+        <button class="edit-post-save" type="submit" name="editButton">Save changes</button>
+        <button class="edit-post-delete" type="submit" name="deleteButton">Delete post</button>
+      </form>
+    </div>
+    <?php
+  endforeach;
+  ?>
 
-    <?php  require_once __DIR__.'/../views/footer.php';  ?>
+  <?php  require_once __DIR__.'/../views/footer.php';  ?>

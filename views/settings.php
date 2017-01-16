@@ -47,9 +47,7 @@ $user = executeGetQuery($db, "SELECT * FROM users WHERE id = '$uid'", true);
     if (hasImage("../assets/img/avatars")): ?>
     <img src="../assets/img/avatars/avatar<?php echo $user['id'] ?>.jpg" alt="avatar">
   <?php else: ?>
-    <div class="empty-avatar">
-      <p>Your new avatar is waiting</p>
-    </div>
+    <img src="../assets/img/noavatar.jpg" alt="avatar">
   <?php endif; ?>
 </div>
 </div>

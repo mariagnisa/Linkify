@@ -9,7 +9,7 @@ if ($loggedin) {
 ?>
 <header>
   <div class="navbar">
-    
+
     <?php
     //If the user is not logged in, show login and register options
     if (!$loggedin): ?>
@@ -34,9 +34,7 @@ if ($loggedin) {
   <?php //Checks if the user have any uploaded profile avatar or not
   if (!hasImage($_SERVER['DOCUMENT_ROOT']."/assets/img/avatars")): ?>
   <a href="/views/profile.php">
-    <div class="profile-avatar">
-      <p class="profile-avatar-text">Profile</p>
-    </div>
+    <img class="profile-avatar" src="../assets/img/noavatar.jpg" alt="avatar">
   </a>
 <?php else: ?>
   <a href="/views/profile.php">

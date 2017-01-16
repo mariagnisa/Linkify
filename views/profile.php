@@ -16,7 +16,12 @@ $posts = executeGetQuery($db, "SELECT * FROM posts WHERE uid = '$uid' ORDER BY p
   <h2>Profile info</h2>
 </div>
 <div class="profile-info">
+  <?php //Checks if the user have any uploaded profile avatar or not
+  if (!userImage($_SERVER['DOCUMENT_ROOT']."/assets/img/avatars", $user['id'])): ?>
+  <img class="profile-info-avatar" src="../assets/img/noavatar.jpg" alt="avatar">
+<?php else: ?>
   <img class="profile-info-avatar" src="../assets/img/avatars/avatar<?php echo $user['id']; ?>.jpg" alt="avatar">
+<?php endif; ?>
   <p>Username: <?php echo $user['username']; ?> </p>
   <p>Fullname: <?php echo $user['name']; ?> </p>
   <p>Bio: <?php echo $user['bio']; ?> </p>
