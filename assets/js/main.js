@@ -104,18 +104,22 @@ document.addEventListener("DOMContentLoaded", function(event) {
   });
 
   //show edit post form when clicked on editbutton
-  const editButton = document.querySelector('.posts-edit');
-  if (editButton != null) {
-    editButton.addEventListener('click', event => {
+  let editButtons = document.querySelectorAll('.posts-edit');
+  for (let i = 0; i < editButtons.length; i++) {
+    let editButton = editButtons[i];
 
-      let editPost = document.querySelectorAll('.' + event.target.classList[0] + '.edit-post');
-      let post = document.querySelectorAll('.' + event.target.classList[0] + '.posts');
+    if (editButton != null) {
+      editButton.addEventListener('click', event => {
 
-      if (editPost[0].style.display != 'block') {
-        editPost[0].style.display = 'block';
-        post[0].style.display = 'none';
-      }
-    });
+        let editPost = document.querySelectorAll('.' + event.target.classList[0] + '.edit-post');
+        let post = document.querySelectorAll('.' + event.target.classList[0] + '.posts');
+
+        if (editPost[0].style.display != 'block') {
+          editPost[0].style.display = 'block';
+          post[0].style.display = 'none';
+        }
+      });
+    }
   }
 
   //hide edit post form when clicked on closebutton
