@@ -25,11 +25,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     header('Location: ../views/settings.php');
     die();
   }
-  //checks file format (jpg), if correct, upload avatar. If not throw an error
+  //checks file format (jpg/jpeg), if correct, upload avatar. If not throw an error
   if (exif_imagetype($tmp) === 2) {
-    $ext = strrchr($imageData['name'], '.');
     $uid = $_SESSION['loginUser']['uid'];
-    $newName = 'avatar' . $uid . $ext;
+    $newName = 'avatar' . $uid . '.jpg';
     move_uploaded_file($tmp, "../assets/img/avatars/$newName");
     $_SESSION['message'] = 'You have succecfully uploaded your profile picture';
     header('Location: ../views/settings.php');
