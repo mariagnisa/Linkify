@@ -48,7 +48,7 @@ foreach ($posts as $post):
 <div class="postid<?php echo $post['id']; ?> profile-edit-post">
   <!-- Adding the post id so when closed, right post is shown-->
   <img class="postid<?php echo $post['id']; ?> profile-edit-post-cross" src="../assets/img/cross.png" alt="cross">
-  <form action="../lib/updatePosts.php" method="post">
+  <form action="../lib/updatePosts.php?profile=true" method="post">
     <input type="hidden" name="postId" value="<?php echo $post['id']; ?>">
     <input type="text" name="editTitle" value="<?php echo $post['title']; ?>">
     <textarea name="editContent"><?php echo $post['content']; ?></textarea>
