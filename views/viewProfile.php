@@ -10,12 +10,12 @@ if (!isset($_GET['user'])) {
 }
 
 //Get the right user id from post
-$uid = $_GET['user'];
+$userName = $_GET['user'];
 
 //Fetch data from the logged in user
-$user = executeGetQuery($db, "SELECT * FROM users WHERE id = '$uid'", true);
+$user = executeGetQuery($db, "SELECT * FROM users WHERE username = '$userName'", true);
 //Fetch all posts from the specifik user
-$posts = executeGetQuery($db, "SELECT * FROM posts WHERE uid = '$uid' ORDER BY published DESC");
+$posts = executeGetQuery($db, "SELECT p.*, (SELECT username FROM users WHERE id = p.uid) as name FROM posts p ORDER BY published DESC");
 
 ?>
 
@@ -29,14 +29,14 @@ $posts = executeGetQuery($db, "SELECT * FROM posts WHERE uid = '$uid' ORDER BY p
 <?php else: ?>
   <img class="profile-info-avatar" src="../assets/img/avatars/avatar<?php echo $user['id']; ?>.jpg" alt="avatar">
 <?php endif; ?>
-  <p>Username: <?php echo $user['username']; ?> </p>
-  <p>Fullname: <?php echo $user['name']; ?> </p>
-  <p>Bio: <?php echo $user['bio']; ?> </p>
-  <hr>
+<p>Username: <?php echo $user['username']; ?> </p>
+<p>Fullname: <?php echo $user['name']; ?> </p>
+<p>Bio: <?php echo $user['bio']; ?> </p>
+<hr>
 </div>
 <br>
 <div class="profile-posts-intro">
-  <h3><?php echo $uid; ?> posts</h3>
+  <h3><?php echo $userName; ?>s posts</h3>
 </div>
 <?php
 foreach ($posts as $post):
@@ -65,4 +65,3 @@ endif;
 ?>
 
 <?php  require_once __DIR__.'/../views/footer.php';  ?>
- ?>
