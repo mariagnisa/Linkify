@@ -1,7 +1,7 @@
 # Linkify
 A school assignment.
 
-<img src="http://i.giphy.com/13jStcEL8lX6jm.gif" alt="LOTR" width="100%">
+<img src="http://i.giphy.com/Qp9CqMKvtHerC.gif" alt="LOTR" width="100%">
 
 ## Description
 This is like a reddit clone with a lord of the rings theme. You can share your links, comment on others link and vote on links. You have a profile page with your account settings and you can visit other peoples profile pages.
