@@ -39,7 +39,7 @@ if ($vote == 'up') {
   } else {
     //If the user has not voted before, and all good with db request, insert vote.
     if (!executePosts($db, "INSERT INTO votes (vote_up, post_id, uid) VALUES (TRUE, '$postId', '$uid')")) {
-      $_SESSION['error'] = 'Something went wrong with the database request.';
+      $_SESSION['error'] = 'Something went wrong with the database request->' .mysqli_errors($db);
       header('Location: /');
       die();
     } else {
@@ -54,7 +54,7 @@ elseif ($vote == 'down') {
   if (isset($currentVote)) {
     //If the user has voted the same before, throw an error
     if ($currentVote['vote_up'] === '0') {
-      $_SESSION['error'] = 'You have already voted up on this post.';
+      $_SESSION['error'] = 'You have already voted down on this post';
       header('Location: /');
       die();
     } else {
@@ -68,7 +68,7 @@ elseif ($vote == 'down') {
   } else {
     //If the user has not voted before, and all good with db request, insert vote.
     if (!executePosts($db, "INSERT INTO votes (vote_up, post_id, uid) VALUES (FALSE, '$postId', '$uid')")) {
-      $_SESSION['error'] = 'Something went wrong with the database request.';
+      $_SESSION['error'] = 'Something went wrong with the database request->' .mysqli_errors($db);
       header('Location: /');
       die();
     } else {
