@@ -5,7 +5,7 @@ require_once __DIR__.'/../views/head.php';
 
 //Checks if the post id is set, if not the user will be thrown back to previous page
 if (!isset($_GET['post'])) {
-  header('Location:../views/home.php');
+  header('Location: /home');
   die();
 }
 
@@ -20,16 +20,16 @@ $date = strtotime($post['published']);
 $date = date("l jS \of F Y", $date);?>
 <div class="view-posts">
   <?php //Checks if the user have any uploaded profile avatar or not
-    if (!userImage($_SERVER['DOCUMENT_ROOT']."/assets/img/avatars", $post['uid'])): ?>
+  if (!userImage($_SERVER['DOCUMENT_ROOT']."/assets/img/avatars", $post['uid'])): ?>
   <img class="view-posts-avatar" src="../assets/img/noavatar.jpg" alt="avatar">
 <?php else: ?>
   <img class="view-posts-avatar" src="../assets/img/avatars/avatar<?php echo $post['uid']; ?>.jpg" alt="avatar">
 <?php endif; ?>
-  <a href="<?php echo $post['link']; ?>">
-    <div class="view-post-title"><h3><?php echo $post['title']; ?></h3></div>
-  </a>
-  <div class="view-post-content"><?php echo $post['content']; ?></div>
-  <div class="view-post-published"><?php echo 'Published ' . $date; ?></div>
+<a href="<?php echo $post['link']; ?>">
+  <div class="view-post-title"><h3><?php echo $post['title']; ?></h3></div>
+</a>
+<div class="view-post-content"><?php echo $post['content']; ?></div>
+<div class="view-post-published"><?php echo 'Published ' . $date; ?></div>
 </div>
 
 <!-- Share comment form -->
@@ -54,14 +54,18 @@ foreach ($comments as $comment):
   <div class="post-comments">
     <?php //Checks if the user have any uploaded profile avatar or not
     if (!userImage($_SERVER['DOCUMENT_ROOT']."/assets/img/avatars", $comment['uid'])): ?>
-  <img src="../assets/img/noavatar.jpg" alt="avatar">
+    <a href="/profile/<?php echo $comment['uid']; ?>">
+      <img src="../assets/img/noavatar.jpg" alt="avatar">
+    </a>
   <?php else: ?>
-    <img src="../assets/img/avatars/avatar<?php echo $comment['uid']; ?>.jpg" alt="avatar">
+    <a href="/profile/<?php echo $comment['uid']; ?>">
+      <img src="../assets/img/avatars/avatar<?php echo $comment['uid']; ?>.jpg" alt="avatar">
+    </a>
   <?php endif; ?>
-    <div class="comment"><?php echo $comment['comment']; ?></div>
-    <div class="comment-published"><?php echo 'Published ' . $date; ?></div>
-  </div>
-  <?php
+  <div class="comment"><?php echo $comment['comment']; ?></div>
+  <div class="comment-published"><?php echo 'Published ' . $date; ?></div>
+</div>
+<?php
 endforeach;
 
 //If there is no comments

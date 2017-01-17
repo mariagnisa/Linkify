@@ -22,22 +22,22 @@ if ($loggedin) {
     // If the user is logged in, show buttons with links to different pages
   else: ?>
   <div class="logo">
-    <a href="/views/home.php"><h2>linkify</h2></a>
+    <a href="/home"><h2>linkify</h2></a>
   </div>
   <div class="logout-button">
-    <a href="/../lib/logout.php">Logout</a>
+    <a href="/logout">Logout</a>
   </div>
   <div class="account-button">
-    <a href="/views/settings.php">Account</a>
+    <a href="/account">Account</a>
   </div>
 
   <?php //Checks if the user have any uploaded profile avatar or not
   if (!hasImage($_SERVER['DOCUMENT_ROOT']."/assets/img/avatars")): ?>
-  <a href="/views/profile.php">
+  <a href="/profile">
     <img class="profile-avatar" src="../assets/img/noavatar.jpg" alt="avatar">
   </a>
 <?php else: ?>
-  <a href="/views/profile.php">
+  <a href="/profile">
     <img class="profile-avatar" src="../assets/img/avatars/avatar<?php echo $user['id'] ?>.jpg" alt="avatar">
   </a>
 <?php endif; ?>

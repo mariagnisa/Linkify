@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $location = 'Location: /';
 
   if (isset($_GET['profile'])) {
-    $location = 'Location: ../views/profile.php';
+    $location = 'Location: /profile';
   }
 
   //if the save button is clicked

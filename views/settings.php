@@ -17,7 +17,7 @@ $user = executeGetQuery($db, "SELECT * FROM users WHERE id = '$uid'", true);
 <div class="settings-container">
   <div class="change-settings">
     <h3>Change email</h3>
-    <form action="../lib/settings.php" method="post">
+    <form action="/../lib/settings.php" method="post">
       <input type="text" name="changeEmail" value="<?php echo $user['email']; ?>"> <br>
 
       <h3>Change password</h3>
