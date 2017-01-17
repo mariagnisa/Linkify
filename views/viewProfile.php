@@ -32,7 +32,6 @@ $posts = executeGetQuery($db, "SELECT p.*, (SELECT username FROM users WHERE id 
 <p>Username: <?php echo $user['username']; ?> </p>
 <p>Fullname: <?php echo $user['name']; ?> </p>
 <p>Bio: <?php echo $user['bio']; ?> </p>
-<hr>
 </div>
 <br>
 <div class="profile-posts-intro">
