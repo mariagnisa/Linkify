@@ -16,21 +16,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     //check if email and password inputs are empty, if they are throw an error
     if (empty($_POST['changeEmail']) || empty($_POST["confirmPassword"])) {
       $_SESSION['error'] = 'Please fill in all fields.';
-      header('Location: ../views/settings.php');
+      header('Location: /account');
       die();
     }
 
     //validate email, if invalid throw an error
     if (!filter_var($_POST['changeEmail'], FILTER_VALIDATE_EMAIL)) {
       $_SESSION['error'] = 'The email you provided was invalid';
-      header('Location: ../views/settings.php');
+      header('Location: /account');
       die();
     }
 
     //validate password, checks which user through session. If wrong password, throw an error
     if (!validateUserPassword($db, $_SESSION['loginUser']['uid'], $_POST['confirmPassword'])) {
       $_SESSION['error'] = 'Invalid password.';
-      header('Location: ../views/settings.php');
+      header('Location: /account');
       die();
     }
 
@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       //If new password is filled in and not the repeat password, throw an error
       if (empty($_POST['repeatPassword'])) {
         $_SESSION['error'] = 'Please repeat your password.';
-        header('Location: ../views/settings.php');
+        header('Location: /account');
         die();
       }
       $newPassword = $_POST['newPassword'];
@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       //checks if the new passwords matches, if not throw an error
       if (!($newPassword === $repeatPassword)) {
         $_SESSION['error'] = 'Passwords do not match. Please try again.';
-        header('Location: ../views/settings.php');
+        header('Location: /account');
         die();
       }
       //hash the new password
@@ -73,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
       $_SESSION['message'] = 'Your settings has been updated';
     }
-    header('Location: ../views/settings.php');
+    header('Location: /account');
     die();
   }
 }
