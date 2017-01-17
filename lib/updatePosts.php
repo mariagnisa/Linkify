@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     //if everything is good, update post to db, otherwise throw error
     if (!executePosts($db, "UPDATE posts SET title = '$title', content = '$content', link = '$url', published = '$date' WHERE id = '$postId'")) {
-      $_SESSION['error'] = 'Something went wrong with the database request.';
+      $_SESSION['error'] = 'Something went wrong with the database request ->' . mysqli_errors($db);
       header($location);
       die();
     } else {
@@ -67,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     //deletes the specific post otherwise throw an error
     if (!executePosts($db, "DELETE FROM posts WHERE id = '$postId'")) {
-      $_SESSION['error'] = 'Something went wrong with the database request.';
+      $_SESSION['error'] = 'Something went wrong with the database request ->' . mysqli_errors($db);
       header($location);
       die();
     } else {
