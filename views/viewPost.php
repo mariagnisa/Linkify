@@ -38,7 +38,7 @@ $date = date("l jS \of F Y", $date);?>
     <!-- Sending the specific post id -->
     <input type="hidden" name="postId" value="<?php echo $post['id']; ?>">
     <input type="text" name="comment" placeholder="Write comment"><br>
-    <button type="submit" name="comment-form-button">Comment</button>
+    <button type="submit" id="commentButton" name="comment-form-button">Comment</button>
   </form>
 </div>
 
