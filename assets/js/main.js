@@ -178,4 +178,27 @@ document.addEventListener("DOMContentLoaded", function(event) {
       }
     });
   }
+
+  //Prevent sending data if user click on button multiple times
+  let i = 0;
+  const commentButton = document.getElementById('commentButton');
+  console.log(commentButton);
+  if (commentButton != null) {
+    commentButton.addEventListener('click', event => {
+      if(i++ == 1) {
+        commentButton.disabled = true;
+      }
+    });
+  }
+
+  //Prevent sending data if user click on button multiple times
+  const postButton = document.getElementById('postButton');
+  if (postButton != null) {
+    postButton.addEventListener('click', event => {
+      if(i++ == 1) {
+        postButton.disabled = true;
+      }
+    });
+  }
+
 });
