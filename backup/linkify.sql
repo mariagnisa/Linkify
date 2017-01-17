@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Värd: localhost:3306
--- Tid vid skapande: 17 jan 2017 kl 15:15
+-- Tid vid skapande: 17 jan 2017 kl 20:20
 -- Serverversion: 5.5.49-log
 -- PHP-version: 7.0.9
 
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `comments` (
   `comment` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `posts_id` int(11) NOT NULL,
   `published` datetime NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumpning av Data i tabell `comments`
@@ -50,22 +50,11 @@ INSERT INTO `comments` (`id`, `uid`, `comment`, `posts_id`, `published`) VALUES
 (16, 3, 'Truly, the best movie', 7, '2017-01-12 17:36:45'),
 (17, 3, 'Such wow!', 8, '2017-01-12 17:39:29'),
 (18, 3, 'Much wow!', 8, '2017-01-12 17:41:42'),
-(19, 2, 'You are funny, you know that?', 14, '2017-01-13 13:14:05'),
-(20, 1, 'I agree with Frodo!', 14, '2017-01-14 13:08:35'),
 (21, 1, 'Awesome!', 12, '2017-01-14 13:10:21'),
 (22, 1, 'Good job!', 15, '2017-01-14 13:18:50'),
 (23, 1, 'Wow!', 17, '2017-01-15 11:06:53'),
-(24, 3, 'Haha!', 14, '2017-01-15 16:17:27'),
 (25, 5, 'Cool!', 9, '2017-01-15 17:50:36'),
-(44, 5, 'Awesome!', 14, '2017-01-15 20:40:45'),
 (45, 8, 'Hey, first comment!', 23, '2017-01-16 15:11:55'),
-(46, 5, 'hello', 14, '2017-01-17 10:38:25'),
-(47, 5, 'hello', 14, '2017-01-17 10:38:26'),
-(48, 5, 'hello', 14, '2017-01-17 10:38:27'),
-(49, 5, 'hello', 14, '2017-01-17 10:38:28'),
-(50, 5, 'hej', 14, '2017-01-17 10:40:54'),
-(51, 5, 'hej', 14, '2017-01-17 10:40:55'),
-(52, 5, 'hej', 14, '2017-01-17 10:40:56'),
 (53, 5, 'wow', 15, '2017-01-17 10:46:24');
 
 -- --------------------------------------------------------
@@ -81,7 +70,7 @@ CREATE TABLE IF NOT EXISTS `posts` (
   `link` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `published` datetime NOT NULL,
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumpning av Data i tabell `posts`
@@ -98,10 +87,9 @@ INSERT INTO `posts` (`id`, `uid`, `content`, `link`, `published`, `title`) VALUE
 (10, 4, 'Everything you wanna know', 'http://www.theonering.net/torwp/2013/05/16/71670-all-about-sam-why-the-main-character-of-the-lord-of-the-rings-is-really-samwise-gamgee/', '2017-01-10 02:14:36', 'All facts of me'),
 (12, 5, 'I do as Legolas, here is some info about me.', 'https://sv.wikipedia.org/wiki/Aragorn', '2017-01-11 21:26:06', 'A good story'),
 (13, 5, 'Hey, I got a fan page!', 'http://lotr.wikia.com/wiki/Aragorn_II_Elessar', '2017-01-12 13:23:59', 'Fan page'),
-(14, 5, 'Who is that guy?', 'http://www.imdb.com/name/nm0001557/', '2017-01-15 19:36:46', 'Some guy'),
 (15, 3, 'I have a fan page! Such wow.', 'http://lotr.wikia.com/wiki/Meriadoc_Brandybuck', '2017-01-15 13:14:16', 'What, fan page? Me?'),
 (16, 1, 'The latest adventure folks!', 'http://www.thehobbit.com/', '2017-01-14 13:02:08', 'Adventure time'),
-(17, 5, 'Have you seen this movie? Martin is like the best', 'http://www.thehobbit.com/', '2017-01-17 11:54:07', 'I love Martin Freeman!'),
+(17, 5, 'Have you seen this movie? Martin is like the best', 'http://www.thehobbit.com/', '2017-01-17 15:19:04', 'I love Martin Freeman!'),
 (18, 3, 'Such amazed', 'http://www.lordoftherings.net/', '2017-01-15 16:16:48', 'Watch this!'),
 (23, 8, 'Here is a wikipedia page', 'https://en.wikipedia.org/wiki/Gimli_(Middle-earth)', '2017-01-16 15:11:15', 'Wiki is your friend');
 
@@ -145,7 +133,7 @@ CREATE TABLE IF NOT EXISTS `votes` (
   `uid` int(11) NOT NULL,
   `vote_up` tinyint(1) NOT NULL,
   `post_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumpning av Data i tabell `votes`
@@ -154,20 +142,16 @@ CREATE TABLE IF NOT EXISTS `votes` (
 INSERT INTO `votes` (`id`, `uid`, `vote_up`, `post_id`) VALUES
 (10, 3, 1, 2),
 (11, 3, 1, 8),
-(12, 3, 1, 14),
-(13, 2, 1, 14),
 (14, 2, 1, 6),
 (15, 2, 1, 15),
 (16, 2, 1, 12),
 (17, 2, 1, 10),
-(18, 6, 1, 14),
 (19, 6, 1, 12),
 (20, 6, 1, 8),
 (21, 6, 1, 4),
 (22, 6, 1, 9),
 (23, 6, 1, 15),
 (24, 1, 1, 13),
-(25, 1, 1, 14),
 (26, 1, 1, 15),
 (27, 5, 1, 8),
 (28, 5, 1, 4),
@@ -182,7 +166,8 @@ INSERT INTO `votes` (`id`, `uid`, `vote_up`, `post_id`) VALUES
 (37, 8, 0, 18),
 (38, 8, 1, 15),
 (39, 8, 1, 17),
-(40, 5, 0, 23);
+(40, 5, 0, 23),
+(41, 5, 0, 18);
 
 --
 -- Index för dumpade tabeller
@@ -225,12 +210,12 @@ ALTER TABLE `votes`
 -- AUTO_INCREMENT för tabell `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=55;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=54;
 --
 -- AUTO_INCREMENT för tabell `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=24;
 --
 -- AUTO_INCREMENT för tabell `users`
 --
@@ -240,7 +225,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT för tabell `votes`
 --
 ALTER TABLE `votes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=42;
 --
 -- Restriktioner för dumpade tabeller
 --
@@ -249,8 +234,8 @@ ALTER TABLE `votes`
 -- Restriktioner för tabell `comments`
 --
 ALTER TABLE `comments`
-  ADD CONSTRAINT `FK_COMMENTS_UID_USERS_ID` FOREIGN KEY (`uid`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `FK_COMMENTS_POSTS_ID_POSTS_ID` FOREIGN KEY (`posts_id`) REFERENCES `posts` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `FK_COMMENTS_POSTS_ID_POSTS_ID` FOREIGN KEY (`posts_id`) REFERENCES `posts` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `FK_COMMENTS_UID_USERS_ID` FOREIGN KEY (`uid`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Restriktioner för tabell `posts`
@@ -262,8 +247,8 @@ ALTER TABLE `posts`
 -- Restriktioner för tabell `votes`
 --
 ALTER TABLE `votes`
-  ADD CONSTRAINT `FK_VOTES_UID_USERS_ID` FOREIGN KEY (`uid`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `FK_VOTES_POST_ID_POSTS_ID` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `FK_VOTES_POST_ID_POSTS_ID` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `FK_VOTES_UID_USERS_ID` FOREIGN KEY (`uid`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
