@@ -6,7 +6,7 @@ require_once __DIR__.'/../views/head.php';
 $uid = $_SESSION['loginUser']['uid'];
 
 //Get all posts and votes that are up(true), order by votes number and published date
-$posts = executeGetQuery($db, "SELECT p.*, (SELECT COUNT(*) FROM votes WHERE post_id = p.id AND vote_up = TRUE) as votes, (SELECT username FROM users WHERE id = p.uid) as name FROM posts p ORDER BY votes DESC, published DESC");
+$posts = executeGetQuery($db, "SELECT p.*, ((SELECT COUNT(*) FROM votes WHERE post_id = p.id AND vote_up = TRUE) - (SELECT COUNT(*) FROM votes WHERE post_id = p.id AND vote_up = FALSE)) as votes, (SELECT username FROM users WHERE id = p.uid) as name FROM posts p ORDER BY votes DESC, published DESC");
 
 ?>
 <div class="home-intro">
@@ -19,7 +19,7 @@ $posts = executeGetQuery($db, "SELECT p.*, (SELECT COUNT(*) FROM votes WHERE pos
     <input type="text" name="title" placeholder="Title"><br>
     <textarea name="description" placeholder="Description"></textarea><br>
     <input type="url" name="link" placeholder="Your link"><br>
-    <button type="submit" name="postButton">Share</button>
+    <button type="submit" id="postButton" name="postButton">Share</button>
   </form>
 </div>
 
@@ -53,11 +53,11 @@ foreach ($posts as $post):
         <?php //Checks if the user have any uploaded profile avatar or not
         if (userImage($_SERVER['DOCUMENT_ROOT']."/assets/img/avatars", $post['uid'])): ?>
         <a href="/profile/<?php echo $post['name']; ?>">
-        <img class="posts-avatar" src="../assets/img/avatars/avatar<?php echo $post['uid']; ?>.jpg" alt="avatar">
+          <img class="posts-avatar" src="../assets/img/avatars/avatar<?php echo $post['uid']; ?>.jpg" alt="avatar">
         </a>
       <?php else: ?>
         <a href="/profile/<?php echo $post['name']; ?>">
-        <img class="posts-avatar" src="../assets/img/noavatar.jpg" alt="avatar">
+          <img class="posts-avatar" src="../assets/img/noavatar.jpg" alt="avatar">
         </a>
       <?php endif; ?>
       <a href="<?php echo $post['link']; ?>">
