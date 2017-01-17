@@ -7,6 +7,7 @@ $uid = $_SESSION['loginUser']['uid'];
 
 //Get all posts and votes that are up(true), order by votes number and published date
 $posts = executeGetQuery($db, "SELECT p.*, (SELECT COUNT(*) FROM votes WHERE post_id = p.id AND vote_up = TRUE) as votes FROM posts p ORDER BY votes DESC, published DESC");
+$users = executeGetQuery($db, "SELECT * FROM users");
 
 ?>
 <div class="home-intro">
@@ -52,9 +53,13 @@ foreach ($posts as $post):
         <?php endif; ?>
         <?php //Checks if the user have any uploaded profile avatar or not
         if (userImage($_SERVER['DOCUMENT_ROOT']."/assets/img/avatars", $post['uid'])): ?>
+        <a href="/profile/<?php echo $post['uid']; ?>">
         <img class="posts-avatar" src="../assets/img/avatars/avatar<?php echo $post['uid']; ?>.jpg" alt="avatar">
+        </a>
       <?php else: ?>
+        <a href="/profile/<?php echo $post['uid']; ?>">
         <img class="posts-avatar" src="../assets/img/noavatar.jpg" alt="avatar">
+        </a>
       <?php endif; ?>
       <a href="<?php echo $post['link']; ?>">
         <div class="posts-title"><h3><?php echo $post['title']; ?></h3></div>
@@ -63,7 +68,7 @@ foreach ($posts as $post):
       <div class="posts-published"><?php echo 'Published ' . $date; ?></div>
       <div class="comment-button">
         <!-- Sending the post id-->
-        <a href="../views/viewPost.php?post=<?php echo $post['id']; ?>">Comments</a>
+        <a href="post/<?php echo $post['id']; ?>">Comments</a>
       </div>
     </div>
 
