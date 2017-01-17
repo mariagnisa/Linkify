@@ -14,7 +14,7 @@ function executeGetQuery($db, $query, $single = false) {
   $result = mysqli_query($db, $query);
 
   if(!$result) {
-    echo 'Something went wrong ->'. $query;
+    echo 'Something went wrong ->' . mysqli_errors($query);
     die();
   }
 
@@ -37,7 +37,7 @@ function executePosts($db, $query) {
 
 
   if (!$result) {
-    echo 'Something went wrong -> ' . $query;
+    echo 'Something went wrong -> ' . mysqli_errors($query);
     return false;
   } else {
     return $result;
