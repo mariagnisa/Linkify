@@ -16,13 +16,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $check = getimagesize($tmp);
   if ($check == false) {
     $_SESSION['error'] = 'File is not a image.';
-    header('Location: ../views/settings.php');
+    header('Location: /account');
     die();
   }
   // Check file size. If too big throw an error
   if ($imageData['size'] > 500000) {
     $_SESSION['error'] = 'Your file is to big, please choose a smaller one.';
-    header('Location: ../views/settings.php');
+    header('Location: /account');
     die();
   }
   //checks file format (jpg/jpeg), if correct, upload avatar. If not throw an error
@@ -31,11 +31,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $newName = 'avatar' . $uid . '.jpg';
     move_uploaded_file($tmp, "../assets/img/avatars/$newName");
     $_SESSION['message'] = 'You have succecfully uploaded your profile picture';
-    header('Location: ../views/settings.php');
+    header('Location: /account');
     die();
   } else {
     $_SESSION['error'] = 'You have to choose a valid .jpg file.';
-    header('Location: ../views/settings.php');
+    header('Location: /account');
     die();
   }
 }
