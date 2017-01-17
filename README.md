@@ -1,2 +1,21 @@
 # Linkify
-A school assignment
+A school assignment.
+
+<img src="http://i.giphy.com/13jStcEL8lX6jm.gif" alt="LOTR" width="100%">
+
+## Description
+This is like a reddit clone. You can share your links, comment on others link and vote on links.
+
+## How to start
+
+- Git clone https://github.com/mariagnisa/Linkify.git e.g. clone this repo
+- Create a database and import the sql-file, which are in th backup folder
+- Set up a local server for the repos root, like MAMP.
+- Everything is included.
+- Browse to your serveradress.
+- Enjoy
+
+## License
+MIT License
+
+Copyright (c) 2016 Maria
