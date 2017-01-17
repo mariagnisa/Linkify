@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Värd: localhost:3306
--- Tid vid skapande: 16 jan 2017 kl 13:39
+-- Tid vid skapande: 17 jan 2017 kl 15:15
 -- Serverversion: 5.5.49-log
 -- PHP-version: 7.0.9
 
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `comments` (
   `comment` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `posts_id` int(11) NOT NULL,
   `published` datetime NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumpning av Data i tabell `comments`
@@ -57,7 +57,16 @@ INSERT INTO `comments` (`id`, `uid`, `comment`, `posts_id`, `published`) VALUES
 (23, 1, 'Wow!', 17, '2017-01-15 11:06:53'),
 (24, 3, 'Haha!', 14, '2017-01-15 16:17:27'),
 (25, 5, 'Cool!', 9, '2017-01-15 17:50:36'),
-(44, 5, 'Awesome!', 14, '2017-01-15 20:40:45');
+(44, 5, 'Awesome!', 14, '2017-01-15 20:40:45'),
+(45, 8, 'Hey, first comment!', 23, '2017-01-16 15:11:55'),
+(46, 5, 'hello', 14, '2017-01-17 10:38:25'),
+(47, 5, 'hello', 14, '2017-01-17 10:38:26'),
+(48, 5, 'hello', 14, '2017-01-17 10:38:27'),
+(49, 5, 'hello', 14, '2017-01-17 10:38:28'),
+(50, 5, 'hej', 14, '2017-01-17 10:40:54'),
+(51, 5, 'hej', 14, '2017-01-17 10:40:55'),
+(52, 5, 'hej', 14, '2017-01-17 10:40:56'),
+(53, 5, 'wow', 15, '2017-01-17 10:46:24');
 
 -- --------------------------------------------------------
 
@@ -72,7 +81,7 @@ CREATE TABLE IF NOT EXISTS `posts` (
   `link` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `published` datetime NOT NULL,
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumpning av Data i tabell `posts`
@@ -92,8 +101,9 @@ INSERT INTO `posts` (`id`, `uid`, `content`, `link`, `published`, `title`) VALUE
 (14, 5, 'Who is that guy?', 'http://www.imdb.com/name/nm0001557/', '2017-01-15 19:36:46', 'Some guy'),
 (15, 3, 'I have a fan page! Such wow.', 'http://lotr.wikia.com/wiki/Meriadoc_Brandybuck', '2017-01-15 13:14:16', 'What, fan page? Me?'),
 (16, 1, 'The latest adventure folks!', 'http://www.thehobbit.com/', '2017-01-14 13:02:08', 'Adventure time'),
-(17, 5, 'Have you seen this movie? Martin is like the best', 'http://www.thehobbit.com/', '2017-01-15 18:57:46', 'I love Martin Freeman!'),
-(18, 3, 'Such amazed', 'http://www.lordoftherings.net/', '2017-01-15 16:16:48', 'Watch this!');
+(17, 5, 'Have you seen this movie? Martin is like the best', 'http://www.thehobbit.com/', '2017-01-17 11:54:07', 'I love Martin Freeman!'),
+(18, 3, 'Such amazed', 'http://www.lordoftherings.net/', '2017-01-15 16:16:48', 'Watch this!'),
+(23, 8, 'Here is a wikipedia page', 'https://en.wikipedia.org/wiki/Gimli_(Middle-earth)', '2017-01-16 15:11:15', 'Wiki is your friend');
 
 -- --------------------------------------------------------
 
@@ -119,7 +129,7 @@ INSERT INTO `users` (`id`, `name`, `password`, `email`, `username`, `bio`) VALUE
 (2, 'Frodo Baggins', '$2y$10$B4/MrNSc2xDXlgfoyMAMMOALB4RpHB6h5oxyaJRemVH69hna1nl72', 'frodo@baggins.com', 'Frodo', ''),
 (3, 'Meriadoc Vinbock', '$2y$10$RKORtVutkR3UvYc73l6byef4GaR4ns9ApbvtUCVL7ojBHJk0iqKTO', 'merry@vinbock.com', 'Merry', 'Shire is the best place in the world!'),
 (4, 'Samuel Gamgi', '$2y$10$NDBvU.RguEAu3GjWAwkSOO4rIv9mD25SLIF5hpMFHU.wk5/CgcJ/.', 'sam@gamgi.com', 'Sam', '“That there’s some good in this world,  and it’s worth fighting for.”'),
-(5, 'Aragorn Arathorn', '$2y$10$CK9cpfdXUujaHNtyE.r8Tu4w8ZZd9lf2uigMEn9yaMSgNq8sfXPbO', 'aragorn@arathorn.com', 'Aragorn', ''),
+(5, 'Aragorn Arathorn', '$2y$10$CK9cpfdXUujaHNtyE.r8Tu4w8ZZd9lf2uigMEn9yaMSgNq8sfXPbO', 'aragorn@arathorn.com', 'Aragorn', 'Amazing'),
 (6, 'Gandalf', '$2y$10$zGNXOsSThKar7d/pHY2O.ODQo61Rh07nOIu3OW5TcbRwZGZqf2CtG', 'gandalf@gandalf.com', 'Gandalf', ''),
 (7, 'Peregrin Took', '$2y$10$AnBb0vcIRvUw/sOyS91eCeAoljVRxTBLQpiugjjywuzoWYcCRH82W', 'pippin@took.com', 'Pippin', ''),
 (8, 'Gimli Gloins', '$2y$10$/NKx3Y4vHtLBGllVwAwsg.uaWG2jEs284.6PhrDnEM2QVGT42WOWO', 'gimli@gloin.se', 'gimli', '');
@@ -135,7 +145,7 @@ CREATE TABLE IF NOT EXISTS `votes` (
   `uid` int(11) NOT NULL,
   `vote_up` tinyint(1) NOT NULL,
   `post_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumpning av Data i tabell `votes`
@@ -169,7 +179,10 @@ INSERT INTO `votes` (`id`, `uid`, `vote_up`, `post_id`) VALUES
 (34, 1, 1, 17),
 (35, 3, 1, 17),
 (36, 5, 1, 15),
-(37, 8, 0, 18);
+(37, 8, 0, 18),
+(38, 8, 1, 15),
+(39, 8, 1, 17),
+(40, 5, 0, 23);
 
 --
 -- Index för dumpade tabeller
@@ -180,8 +193,8 @@ INSERT INTO `votes` (`id`, `uid`, `vote_up`, `post_id`) VALUES
 --
 ALTER TABLE `comments`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `FK_COMMENTS_UID_USERS_ID` (`uid`),
-  ADD KEY `FK_COMMENTS_POSTS_ID_POSTS_ID` (`posts_id`);
+  ADD KEY `FK_COMMENTS_POSTS_ID_POSTS_ID` (`posts_id`),
+  ADD KEY `FK_COMMENTS_UID_USERS_ID` (`uid`);
 
 --
 -- Index för tabell `posts`
@@ -201,8 +214,8 @@ ALTER TABLE `users`
 --
 ALTER TABLE `votes`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `FK_VOTES_UID_USERS_ID` (`uid`),
-  ADD KEY `FK_VOTES_POST_ID_POSTS_ID` (`post_id`);
+  ADD KEY `FK_VOTES_POST_ID_POSTS_ID` (`post_id`),
+  ADD KEY `FK_VOTES_UID_USERS_ID` (`uid`);
 
 --
 -- AUTO_INCREMENT för dumpade tabeller
@@ -212,12 +225,12 @@ ALTER TABLE `votes`
 -- AUTO_INCREMENT för tabell `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=45;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=55;
 --
 -- AUTO_INCREMENT för tabell `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT för tabell `users`
 --
@@ -227,7 +240,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT för tabell `votes`
 --
 ALTER TABLE `votes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=41;
 --
 -- Restriktioner för dumpade tabeller
 --
@@ -236,21 +249,21 @@ ALTER TABLE `votes`
 -- Restriktioner för tabell `comments`
 --
 ALTER TABLE `comments`
-  ADD CONSTRAINT `FK_COMMENTS_POSTS_ID_POSTS_ID` FOREIGN KEY (`posts_id`) REFERENCES `posts` (`id`),
-  ADD CONSTRAINT `FK_COMMENTS_UID_USERS_ID` FOREIGN KEY (`uid`) REFERENCES `users` (`id`);
+  ADD CONSTRAINT `FK_COMMENTS_UID_USERS_ID` FOREIGN KEY (`uid`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `FK_COMMENTS_POSTS_ID_POSTS_ID` FOREIGN KEY (`posts_id`) REFERENCES `posts` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Restriktioner för tabell `posts`
 --
 ALTER TABLE `posts`
-  ADD CONSTRAINT `FK_POSTS_UID_USERS_ID` FOREIGN KEY (`uid`) REFERENCES `users` (`id`);
+  ADD CONSTRAINT `FK_POSTS_UID_USERS_ID` FOREIGN KEY (`uid`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Restriktioner för tabell `votes`
 --
 ALTER TABLE `votes`
-  ADD CONSTRAINT `FK_VOTES_POST_ID_POSTS_ID` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`),
-  ADD CONSTRAINT `FK_VOTES_UID_USERS_ID` FOREIGN KEY (`uid`) REFERENCES `users` (`id`);
+  ADD CONSTRAINT `FK_VOTES_UID_USERS_ID` FOREIGN KEY (`uid`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `FK_VOTES_POST_ID_POSTS_ID` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
