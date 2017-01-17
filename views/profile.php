@@ -26,7 +26,6 @@ $posts = executeGetQuery($db, "SELECT * FROM posts WHERE uid = '$uid' ORDER BY p
   <p>Fullname: <?php echo $user['name']; ?> </p>
   <p>Bio: <?php echo $user['bio']; ?> </p>
   <hr>
-  <p style="font-family: Regular-Italic">If you want to change your settings please visit your account page to update them.</p>
 </div>
 <br>
 <div class="profile-posts-intro">
