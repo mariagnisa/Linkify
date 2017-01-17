@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   //check if the field is not empty, if throw an error
   if (empty($comment)) {
     $_SESSION['error'] = 'Please fill in fields.';
-    header('Location: /');
+    header("Location: /post/$postId");
     die();
   }
 
@@ -29,13 +29,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   //if everything is good, insert into db, else throw an error
   if (!executePosts($db, "INSERT INTO comments (comment, published, uid, posts_id) VALUES ('$comment', '$date', '$user', '$postId')")) {
     $_SESSION['error'] = 'Something went wrong with the database request.';
-    header("Location: ../views/viewPost.php?post=$postId");
+    header("Location: /post/$postId");
     die();
   } else {
     $_SESSION['message'] = 'Your comment has been uploaded.';
   }
 
-  header("Location: ../views/viewPost.php?post=$postId");
+  header("Location: /post/$postId");
   die();
 }
 
