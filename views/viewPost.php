@@ -14,7 +14,7 @@ $postId = $_GET['post'];
 //Fetch the specifik post
 $post = executeGetQuery($db, "SELECT * FROM posts WHERE id = '$postId'", true);
 //Fetch all comments to the specific post
-$comments = executeGetQuery($db, "SELECT * FROM comments WHERE posts_id = '$postId' ORDER BY published DESC");
+$comments = executeGetQuery($db, "SELECT * FROM comments INNER JOIN users ON (comments.uid = users.id) WHERE posts_id = '$postId' ORDER BY published DESC");
 
 $date = strtotime($post['published']);
 $date = date("l jS \of F Y", $date);?>
@@ -54,11 +54,11 @@ foreach ($comments as $comment):
   <div class="post-comments">
     <?php //Checks if the user have any uploaded profile avatar or not
     if (!userImage($_SERVER['DOCUMENT_ROOT']."/assets/img/avatars", $comment['uid'])): ?>
-    <a href="/profile/<?php echo $comment['uid']; ?>">
+    <a href="/profile/<?php echo $comment['username']; ?>">
       <img src="../assets/img/noavatar.jpg" alt="avatar">
     </a>
   <?php else: ?>
-    <a href="/profile/<?php echo $comment['uid']; ?>">
+    <a href="/profile/<?php echo $comment['username']; ?>">
       <img src="../assets/img/avatars/avatar<?php echo $comment['uid']; ?>.jpg" alt="avatar">
     </a>
   <?php endif; ?>
