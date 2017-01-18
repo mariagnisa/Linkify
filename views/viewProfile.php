@@ -15,7 +15,7 @@ $userName = $_GET['user'];
 //Fetch data from the logged in user
 $user = executeGetQuery($db, "SELECT * FROM users WHERE username = '$userName'", true);
 //Fetch all posts from the specifik user
-$posts = executeGetQuery($db, "SELECT p.*, (SELECT username FROM users WHERE id = p.uid) as name FROM posts p ORDER BY published DESC");
+$posts = executeGetQuery($db, "SELECT * FROM posts INNER JOIN users ON (posts.uid = users.id) WHERE username = '$userName' ORDER BY published DESC");
 
 ?>
 
@@ -42,7 +42,7 @@ foreach ($posts as $post):
   $date = strtotime($post['published']);
   $date = date("l jS \of F Y", $date);
   //Checks if the user have any posts, if there are some print all of them
-  if ($post['uid'] === $uid && sizeof($post) != 0):?>
+  if (sizeof($post) != 0):?>
   <!-- Adding the post id-->
   <div class="postid<?php echo $post['id']; ?> profile-posts">
     <a href="<?php echo $post['link']; ?>">
