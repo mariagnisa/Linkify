@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 $loggedin = checkUserLogin($db);
 
 if ($loggedin) {

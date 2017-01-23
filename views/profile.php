@@ -1,6 +1,10 @@
 <?php
 
 require_once __DIR__.'/../lib/functions.php';
+
+if (!checkUserLogin($db)) {
+  header('Location: /');
+}
 require_once __DIR__.'/../views/head.php';
 
 $uid = $_SESSION['loginUser']['uid'];

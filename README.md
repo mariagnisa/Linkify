@@ -8,8 +8,12 @@ This is like a reddit clone with a lord of the rings theme. You can share links,
 
 ## How to start
 
-- `$ git clone https://github.com/mariagnisa/Linkify.git` e.g. clone this repo using e.g. command prompt.
-- Create a database called `linkify` and import the [sql-file](https://github.com/mariagnisa/Linkify/blob/master/backup/linkify.sql)
+- `$ git clone https://github.com/mariagnisa/Linkify.git` e.g. clone this repo using e.g. command prompt or Bash.
+- Create a database called `linkify` and/or change database name, password and user in **lib/database.php**
+
+> `$db = mysqli_connect('localhost', '**user**', '**password**', '**database**')`
+
+- import the [sql-file](https://github.com/mariagnisa/Linkify/blob/master/backup/linkify.sql)
 - Set up a local server for the repos root, using e.g. [MAMP](https://www.mamp.info/en/).
 - Everything is included.
 - Browse to your serveradress.

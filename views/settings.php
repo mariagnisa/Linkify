@@ -1,6 +1,11 @@
 <?php
 
 require_once __DIR__.'/../lib/functions.php';
+
+if (!checkUserLogin($db)) {
+  header('Location: /');
+}
+
 require_once __DIR__.'/../views/head.php';
 
 $uid = $_SESSION['loginUser']['uid'];
@@ -18,7 +23,12 @@ $user = executeGetQuery($db, "SELECT * FROM users WHERE id = '$uid'", true);
   <div class="change-settings">
     <h3>Change email</h3>
     <form action="/../lib/settings.php" method="post">
-      <input type="text" name="changeEmail" value="<?php echo $user['email']; ?>"> <br>
+      <p><?php echo $user['email']; ?></p>
+      <input type="text" name="changeEmail" placeholder="Enter new email"> <br>
+
+      <h3>Change username</h3>
+      <p><?php echo $user['username']; ?></p>
+      <input type="text" name="changeUsername" placeholder="Enter new username"> <br>
 
       <h3>Change password</h3>
       <input type="password" name="newPassword" placeholder="New password"><br>

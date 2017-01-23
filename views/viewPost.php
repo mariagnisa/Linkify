@@ -1,6 +1,11 @@
 <?php
 
 require_once __DIR__.'/../lib/functions.php';
+
+if (!checkUserLogin($db)) {
+  header('Location: /');
+}
+
 require_once __DIR__.'/../views/head.php';
 
 //Checks if the post id is set, if not the user will be thrown back to previous page

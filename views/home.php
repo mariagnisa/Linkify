@@ -1,6 +1,10 @@
 <?php
 
 require_once __DIR__.'/../lib/functions.php';
+
+if (!checkUserLogin($db)) {
+  header('Location: /');
+}
 require_once __DIR__.'/../views/head.php';
 
 $uid = $_SESSION['loginUser']['uid'];
@@ -18,7 +22,7 @@ $posts = executeGetQuery($db, "SELECT p.*, ((SELECT COUNT(*) FROM votes WHERE po
   <form action="/../lib/posts.php" method="post">
     <input type="text" name="title" placeholder="Title"><br>
     <textarea name="description" placeholder="Description"></textarea><br>
-    <input type="url" name="link" placeholder="Your link"><br>
+    <input type="text" name="link" placeholder="Your link"><br>
     <button type="submit" id="postButton" name="postButton">Share</button>
   </form>
 </div>
