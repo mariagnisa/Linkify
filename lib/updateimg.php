@@ -9,6 +9,11 @@ if(!file_exists($uploads)) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  if (empty($_FILES['profileImg']['name'])) {
+    $_SESSION['error'] = 'Please, provide a image.';
+    header('Location: /account');
+    die();
+  }
   $imageData = $_FILES['profileImg'];
   $tmp = $imageData["tmp_name"];
 
