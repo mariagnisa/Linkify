@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once __DIR__.'/database.php';
 
 //validates email, both format and against the db
@@ -40,21 +41,18 @@ function registerNewUser($db, $name, $username, $email, $password, $repeatPass) 
 
   //validate email
   if (!validateEmail($db, $email)) {
-    session_start();
     $_SESSION['error'] = 'The email you provided was invalid or already in use';
     return false;
   }
 
   //validate username
   if (!validateUsername($db, $username)) {
-    session_start();
     $_SESSION['error'] = 'The username you provided is already in use.';
     return false;
   }
 
   //checks if the passwords matches, if not throw an error
   if (!($password === $repeatPass)) {
-    session_start();
     $_SESSION['error'] = 'Passwords do not match. Please try again.';
     return false;
   }
@@ -63,7 +61,6 @@ function registerNewUser($db, $name, $username, $email, $password, $repeatPass) 
   $password = password_hash($password, PASSWORD_BCRYPT);
 
   //check if registration succeded
-  session_start();
   if (!executePosts($db, "INSERT INTO users (email, name, password, username) VALUES ('$email', '$name', '$password', '$username')")) {
     $_SESSION['error'] = 'Failed to registered. Please try again';
     return false;
@@ -87,24 +84,30 @@ function loginUser($db, $username, $password) {
       return $user['id'];
     }
   }
-  session_start();
   $_SESSION['error'] = 'Invalid username, email or password';
   return false;
 }
 
 //check if a user is logged in through an active session
 function checkUserLogin($db) {
-
-  if (!isset($_SESSION['loginUser'])) {
-    return false;
-  }
-  return true;
+  return isset($_SESSION['loginUser']);
 }
 
 //Validate password against db and user
 function validateUserPassword($db, $uid, $password) {
   $hash = executeGetQuery($db, "SELECT password FROM users WHERE id = '$uid'", true)['password'];
   return password_verify($password, $hash);
+}
+
+//update the users information
+function updateUser($db, $uid, $newInsert, $column) {
+  $updateUser = "UPDATE users SET $column = '$newInsert' WHERE id = '$uid'";
+
+  if (!executePosts($db, $updateUser)) {
+    $_SESSION['error'] = 'Something went wrong with the database reguest ->' . mysqli_errors($updateUser);
+    return false;
+  }
+  return true;
 }
 
 //Checks if the user has a profile image or not
