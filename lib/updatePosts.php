@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   require_once __DIR__.'/../lib/functions.php';
@@ -10,8 +9,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     die();
   }
 
-  $save = $_POST['editButton'];
-  $delete = $_POST['deleteButton'];
   $location = 'Location: /';
 
   if (isset($_GET['profile'])) {
@@ -19,7 +16,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   }
 
   //if the save button is clicked
-  if (isset($save)) {
+  if (isset($_POST['editButton'])) {
+
     $title = $_POST['editTitle'];
     $content = $_POST['editContent'];
     $url = $_POST['editLink'];
@@ -62,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   }
 
   //if the delete button is clicked
-  if (isset($delete)) {
+  if (isset($_POST['deleteButton'])) {
     $postId = $_POST['postId'];
 
     //deletes the specific post otherwise throw an error
