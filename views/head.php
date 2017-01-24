@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 $title = (isset($title)) ? $title:'Linkify';
 ?>
 <html>
