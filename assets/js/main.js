@@ -1,16 +1,16 @@
 'use strict';
 
-//set cookie
-function setCookie(cname, cvalue, cmaxDay) {
+// set cookie
+function setCookie (cname, cvalue, cmaxDay) {
   const d = new Date();
-  d.setTime(d.getTime() + (cmaxDay*24*60*60*1000));
-  const expires = "expires=" + d.toUTCString();
+  d.setTime( d.getTime() + ( cmaxDay * 24 * 60 * 60 * 1000 ));
+  const expires = 'expires=' + d.toUTCString();
   document.cookie = cname + "=" + cvalue + ";" + expires;
 }
 
-//get cookie
-function getCookie(cname) {
-  const name = cname + "=";
+// get cookie
+function getCookie (cname) {
+  const name = cname + '=';
   const ca = document.cookie.split(';');
   for (let i = 0; i < ca.length; i++) {
     let c = ca[i];
@@ -18,16 +18,16 @@ function getCookie(cname) {
       c = c.substring(1);
     }
     if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
+      return c.substring( name.length, c.length);
     }
   }
   return "";
 }
 
-//check if there is a cookie
-function checkCookie() {
+// check if there is a cookie
+function checkCookie () {
   const accept = getCookie('accept-cookie');
-  if (accept == "") {
+  if (accept == '') {
     document.querySelector('.cookie-box').style.display = 'flex';
     //Add a class to wrapper for the right height on body
     document.querySelector('.wrapper').classList.add('cookie-box-visible');
@@ -180,12 +180,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
   }
 
   //Prevent sending data if user click on button multiple times
-  let i = 0;
+  let count = 0;
   const commentButton = document.getElementById('commentButton');
-  console.log(commentButton);
+
   if (commentButton != null) {
     commentButton.addEventListener('click', event => {
-      if(i++ == 1) {
+      if(count++ == 1) {
         commentButton.disabled = true;
       }
     });
@@ -195,10 +195,23 @@ document.addEventListener("DOMContentLoaded", function(event) {
   const postButton = document.getElementById('postButton');
   if (postButton != null) {
     postButton.addEventListener('click', event => {
-      if(i++ == 1) {
+      if(count++ == 1) {
         postButton.disabled = true;
       }
     });
   }
 
+  // Prevent sending data if user votes multiple times
+  let voteButtons = document.querySelectorAll('.vote-button');
+  for (let i = 0; i < voteButtons.length; i++) {
+    let voteButton = voteButtons[i];
+
+    if (voteButton != null) {
+      voteButton.addEventListener('click', event => {
+        if (count++ > 0) {
+          event.preventDefault();
+        }
+      });
+    }
+  }
 });

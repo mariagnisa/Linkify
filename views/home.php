@@ -39,9 +39,9 @@ foreach ($posts as $post):
     <?php //Only show voting system on other posts, not the logged in users posts
     if (!($post['uid'] === $uid)):
       //Sending two querys with vote, which vote and the post id ?>
-      <a href="../lib/votes.php?vote=up&post=<?php echo $post['id']; ?>">
+      <a class="vote-button" href="../lib/votes.php?vote=up&post=<?php echo $post['id']; ?>">
         <img class="posts-arrow-up" src="../assets/img/arrow-up.png" alt="up arrow"></a>
-        <a href="../lib/votes.php?vote=down&post=<?php echo $post['id']; ?>">
+        <a class="vote-button" href="../lib/votes.php?vote=down&post=<?php echo $post['id']; ?>">
           <img class="posts-arrow-down" src="../assets/img/arrow-down.png" alt="down arrow"></a>
         <?php endif; ?>
         <div class="posts-vote">
