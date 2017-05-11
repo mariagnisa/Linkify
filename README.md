@@ -1,3 +1,5 @@
+[![StyleCI](https://styleci.io/repos/75823166/shield?branch=master)](https://styleci.io/repos/75823166)
+
 # Linkify
 A school assignment.
 
