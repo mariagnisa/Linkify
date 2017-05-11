@@ -45,15 +45,15 @@ require_once __DIR__.'/../views/head.php';
 </div>
 
 <?php
-$posts = executeGetQuery($db, "SELECT * FROM posts ORDER BY published DESC");
+$posts = executeGetQuery($db, 'SELECT * FROM posts ORDER BY published DESC');
 
 //Show all posts, order by published date
 foreach ($posts as $post):
   $date = strtotime($post['published']);
-  $date = date("l jS \of F Y", $date);?>
+  $date = date("l jS \of F Y", $date); ?>
   <div class="public-posts">
     <?php //Checks if the user have any uploaded profile avatar or not
-    if (!userImage($_SERVER['DOCUMENT_ROOT']."/assets/img/avatars", $post['uid'])): ?>
+    if (!userImage($_SERVER['DOCUMENT_ROOT'].'/assets/img/avatars', $post['uid'])): ?>
     <img class="public-posts-avatar" src="../assets/img/noavatar.jpg" alt="avatar">
   <?php else: ?>
     <img class="public-posts-avatar" src="../assets/img/avatars/avatar<?php echo $post['uid'] ?>.jpg" alt="avatar">
@@ -62,10 +62,10 @@ foreach ($posts as $post):
     <div class="public-post-title"><h3><?php echo $post['title']; ?></h3></div>
   </a>
   <div class="public-post-content"><?php echo $post['content']; ?></div>
-  <div class="public-post-published"><?php echo 'Published ' . $date; ?></div>
+  <div class="public-post-published"><?php echo 'Published '.$date; ?></div>
 </div>
 <?php
 endforeach;
 ?>
 
-<?php  require_once __DIR__.'/../views/footer.php';  ?>
+<?php  require_once __DIR__.'/../views/footer.php'; ?>

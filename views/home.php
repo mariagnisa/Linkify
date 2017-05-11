@@ -10,7 +10,7 @@ require_once __DIR__.'/../views/head.php';
 $uid = $_SESSION['loginUser']['uid'];
 
 //Get all posts and votes that are up(true), order by votes number and published date
-$posts = executeGetQuery($db, "SELECT p.*, ((SELECT COUNT(*) FROM votes WHERE post_id = p.id AND vote_up = TRUE) - (SELECT COUNT(*) FROM votes WHERE post_id = p.id AND vote_up = FALSE)) as votes, (SELECT username FROM users WHERE id = p.uid) as name FROM posts p ORDER BY published DESC");
+$posts = executeGetQuery($db, 'SELECT p.*, ((SELECT COUNT(*) FROM votes WHERE post_id = p.id AND vote_up = TRUE) - (SELECT COUNT(*) FROM votes WHERE post_id = p.id AND vote_up = FALSE)) as votes, (SELECT username FROM users WHERE id = p.uid) as name FROM posts p ORDER BY published DESC');
 
 ?>
 <div class="home-intro">
@@ -32,7 +32,7 @@ $posts = executeGetQuery($db, "SELECT p.*, ((SELECT COUNT(*) FROM votes WHERE po
 foreach ($posts as $post):
   //Convert datetime to specific date format
   $date = strtotime($post['published']);
-  $date = date("l jS \of F Y", $date);?>
+  $date = date("l jS \of F Y", $date); ?>
 
   <!-- Adding the post id-->
   <div class="postid<?php echo $post['id']; ?> posts">
@@ -55,7 +55,7 @@ foreach ($posts as $post):
           <img class="postid<?php echo $post['id']; ?> posts-edit" src="../assets/img/edit.png" alt="Edit">
         <?php endif; ?>
         <?php //Checks if the user have any uploaded profile avatar or not
-        if (userImage($_SERVER['DOCUMENT_ROOT']."/assets/img/avatars", $post['uid'])): ?>
+        if (userImage($_SERVER['DOCUMENT_ROOT'].'/assets/img/avatars', $post['uid'])): ?>
         <a href="/profile/<?php echo $post['name']; ?>">
           <img class="posts-avatar" src="../assets/img/avatars/avatar<?php echo $post['uid']; ?>.jpg" alt="avatar">
         </a>
@@ -68,7 +68,7 @@ foreach ($posts as $post):
         <div class="posts-title"><h3><?php echo $post['title']; ?></h3></div>
       </a>
       <div class="posts-content"><?php echo $post['content']; ?></div>
-      <div class="posts-published"><?php echo 'Published ' . $date; ?></div>
+      <div class="posts-published"><?php echo 'Published '.$date; ?></div>
       <div class="comment-button">
         <!-- Sending the post id-->
         <a href="post/<?php echo $post['id']; ?>">Comments</a>
@@ -92,4 +92,4 @@ foreach ($posts as $post):
   endforeach;
   ?>
 
-  <?php  require_once __DIR__.'/../views/footer.php';  ?>
+  <?php  require_once __DIR__.'/../views/footer.php'; ?>
