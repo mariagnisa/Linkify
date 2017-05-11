@@ -3,7 +3,7 @@
 $loggedin = checkUserLogin($db);
 
 if ($loggedin) {
-    $uid = $_SESSION["loginUser"]['uid'];
+    $uid = $_SESSION['loginUser']['uid'];
     $user = executeGetQuery($db, "SELECT id FROM users WHERE id = '$uid'", true);
 }
 ?>
@@ -32,7 +32,7 @@ if ($loggedin) {
   </div>
 
   <?php //Checks if the user have any uploaded profile avatar or not
-  if (!hasImage($_SERVER['DOCUMENT_ROOT']."/assets/img/avatars")): ?>
+  if (!hasImage($_SERVER['DOCUMENT_ROOT'].'/assets/img/avatars')): ?>
   <a href="/profile">
     <img class="profile-avatar" src="../assets/img/noavatar.jpg" alt="avatar">
   </a>
