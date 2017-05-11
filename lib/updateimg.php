@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 //The path to the image folder
 $uploads = '../assets/img/avatars/';
@@ -15,11 +16,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         die();
     }
     $imageData = $_FILES['profileImg'];
-    $tmp = $imageData["tmp_name"];
+    $tmp = $imageData['tmp_name'];
 
   //check if image file is fake or not. If fake throw an error
   $check = getimagesize($tmp);
-    if ($check == false) {
+    if ($check === false) {
         $_SESSION['error'] = 'File is not a image.';
         header('Location: /account');
         die();
@@ -33,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   //checks file format (jpg/jpeg), if correct, upload avatar. If not throw an error
   if (exif_imagetype($tmp) === 2) {
       $uid = $_SESSION['loginUser']['uid'];
-      $newName = 'avatar' . $uid . '.jpg';
+      $newName = 'avatar'.$uid.'.jpg';
       move_uploaded_file($tmp, "../assets/img/avatars/$newName");
       $_SESSION['message'] = 'You have succecfully uploaded your profile picture';
       header('Location: /account');
