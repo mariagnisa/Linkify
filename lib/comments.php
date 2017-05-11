@@ -14,7 +14,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $postId = $_POST['postId'];
     $date = date('Y-m-d H:i:s');
 
-
   //check if the field is not empty, if throw an error
   if (empty($comment)) {
       $_SESSION['error'] = 'Please fill in fields.';

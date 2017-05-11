@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 require_once __DIR__.'/database.php';
 
@@ -14,6 +15,7 @@ function validateEmail($db, $email)
             $validEmail = false;
         }
     }
+
     return $validEmail;
 }
 
@@ -23,6 +25,7 @@ function validateUsername($db, $username)
     if (executeGetQuery($db, "SELECT id FROM users WHERE username = '$username'", true)) {
         return false;
     }
+
     return true;
 }
 
@@ -32,6 +35,7 @@ function escapeData($db, $items)
     foreach ($items as $i => $item) {
         $items[$i] = mysqli_real_escape_string($db, $item);
     }
+
     return $items;
 }
 
@@ -39,23 +43,26 @@ function escapeData($db, $items)
 function registerNewUser($db, $name, $username, $email, $password, $repeatPass)
 {
     // Escape all the data received from the user
-  list($name, $username, $email, $password, $repeatPass) = escapeData($db, [$name, $username, $email, $password, $repeatPass]);
+  list($name, $username, $email, $password, $repeatPass) = escapeData($db, array($name, $username, $email, $password, $repeatPass));
 
   //validate email
   if (!validateEmail($db, $email)) {
       $_SESSION['error'] = 'The email you provided was invalid or already in use';
+
       return false;
   }
 
   //validate username
   if (!validateUsername($db, $username)) {
       $_SESSION['error'] = 'The username you provided is already in use.';
+
       return false;
   }
 
   //checks if the passwords matches, if not throw an error
   if (!($password === $repeatPass)) {
       $_SESSION['error'] = 'Passwords do not match. Please try again.';
+
       return false;
   }
 
@@ -65,9 +72,11 @@ function registerNewUser($db, $name, $username, $email, $password, $repeatPass)
   //check if registration succeded
   if (!executePosts($db, "INSERT INTO users (email, name, password, username) VALUES ('$email', '$name', '$password', '$username')")) {
       $_SESSION['error'] = 'Failed to registered. Please try again';
+
       return false;
   } else {
       $_SESSION['message'] = 'You are now registered. Please login in to continue.';
+
       return true;
   }
 }
@@ -76,7 +85,7 @@ function registerNewUser($db, $name, $username, $email, $password, $repeatPass)
 function loginUser($db, $username, $password)
 {
     //Escapes username and password
-  list($username, $password) = escapeData($db, [$username, $password]);
+  list($username, $password) = escapeData($db, array($username, $password));
 
   //Fetch the user based on username or email
   $user = executeGetQuery($db, "SELECT * FROM users WHERE email = '$username' OR username = '$username'", true);
@@ -88,6 +97,7 @@ function loginUser($db, $username, $password)
     }
     }
     $_SESSION['error'] = 'Invalid username, email or password';
+
     return false;
 }
 
@@ -101,6 +111,7 @@ function checkUserLogin($db)
 function validateUserPassword($db, $uid, $password)
 {
     $hash = executeGetQuery($db, "SELECT password FROM users WHERE id = '$uid'", true)['password'];
+
     return password_verify($password, $hash);
 }
 
@@ -110,9 +121,11 @@ function updateUser($db, $uid, $newInsert, $column)
     $updateUser = "UPDATE users SET $column = '$newInsert' WHERE id = '$uid'";
 
     if (!executePosts($db, $updateUser)) {
-        $_SESSION['error'] = 'Something went wrong with the database reguest ->' . mysqli_errors($updateUser);
+        $_SESSION['error'] = 'Something went wrong with the database reguest ->'.mysqli_errors($updateUser);
+
         return false;
     }
+
     return true;
 }
 
@@ -125,12 +138,13 @@ function hasImage($imageFolder)
 //Checks if the avatar exists
 function userImage($imageFolder, $uid)
 {
-    $imageLink = "avatar" . $uid . ".jpg";
+    $imageLink = 'avatar'.$uid.'.jpg';
     $images = scandir($imageFolder);
     foreach ($images as $image) {
         if ($image === $imageLink) {
             return true;
         }
     }
+
     return false;
 }
