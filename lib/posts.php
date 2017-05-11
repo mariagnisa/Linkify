@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   //if everything is good, insert into db, else throw an error
   if (!executePosts($db, "INSERT INTO posts (title, content, link, published, uid) VALUES ('$title', '$description', '$link', '$date', '$user')")) {
-      $_SESSION['error'] = 'Something went wrong with the database request ->' . mysqli_errors($db);
+      $_SESSION['error'] = 'Something went wrong with the database request ->'.mysqli_errors($db);
       header('Location: /');
       die();
   } else {
