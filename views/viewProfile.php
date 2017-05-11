@@ -29,7 +29,7 @@ $posts = executeGetQuery($db, "SELECT * FROM posts INNER JOIN users ON (posts.ui
 </div>
 <div class="profile-info">
   <?php //Checks if the user have any uploaded profile avatar or not
-  if (!userImage($_SERVER['DOCUMENT_ROOT']."/assets/img/avatars", $user['id'])): ?>
+  if (!userImage($_SERVER['DOCUMENT_ROOT'].'/assets/img/avatars', $user['id'])): ?>
   <img class="profile-info-avatar" src="../assets/img/noavatar.jpg" alt="avatar">
 <?php else: ?>
   <img class="profile-info-avatar" src="../assets/img/avatars/avatar<?php echo $user['id']; ?>.jpg" alt="avatar">
@@ -47,20 +47,20 @@ foreach ($posts as $post):
   $date = strtotime($post['published']);
   $date = date("l jS \of F Y", $date);
   //Checks if the user have any posts, if there are some print all of them
-  if (sizeof($post) != 0):?>
+  if (count($post) !== 0):?>
   <!-- Adding the post id-->
   <div class="postid<?php echo $post['id']; ?> profile-posts">
     <a href="<?php echo $post['link']; ?>">
       <div class="profile-post-title"><h3><?php echo $post['title']; ?></h3></div>
     </a>
     <div class="profile-post-content"><?php echo $post['content']; ?></div>
-    <div class="profile-post-published"><?php echo 'Published ' . $date; ?></div>
+    <div class="profile-post-published"><?php echo 'Published '.$date; ?></div>
   </div>
 <?php endif; ?>
 <?php endforeach;
 
 //If the user have not made any posts, show message
-if (sizeof($posts) == 0): ?>
+if (count($posts) === 0): ?>
 <div class="profile-empty-posts">
   <p>No posts yet!</p>
 </div>
@@ -68,4 +68,4 @@ if (sizeof($posts) == 0): ?>
 endif;
 ?>
 
-<?php  require_once __DIR__.'/../views/footer.php';  ?>
+<?php  require_once __DIR__.'/../views/footer.php'; ?>

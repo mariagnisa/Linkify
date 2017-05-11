@@ -54,11 +54,11 @@ $user = executeGetQuery($db, "SELECT * FROM users WHERE id = '$uid'", true);
     </form>
     <?php
     //Checks if the logged in user have uploaded any profile avatar, if not show empty avatar
-    if (hasImage("../assets/img/avatars")): ?>
+    if (hasImage('../assets/img/avatars')): ?>
     <img src="../assets/img/avatars/avatar<?php echo $user['id'] ?>.jpg" alt="avatar">
   <?php else: ?>
     <img src="../assets/img/noavatar.jpg" alt="avatar">
   <?php endif; ?>
 </div>
 </div>
-<?php  require_once __DIR__.'/footer.php';  ?>
+<?php  require_once __DIR__.'/footer.php'; ?>
