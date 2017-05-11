@@ -9,10 +9,10 @@ $title = 'Linkify';
 
 //checks if a user has a active session
 if ($loggedInUser) {
-  //if active session, the user will come to home page
+    //if active session, the user will come to home page
   require_once __DIR__.'/views/home.php';
 } else {
-  //otherwise user will come to authenication page for login/register
+    //otherwise user will come to authenication page for login/register
   require_once __DIR__.'/views/authenication.php';
 }
 

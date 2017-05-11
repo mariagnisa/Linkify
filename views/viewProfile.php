@@ -3,15 +3,15 @@
 require_once __DIR__.'/../lib/functions.php';
 
 if (!checkUserLogin($db)) {
-  header('Location: /');
+    header('Location: /');
 }
 
 require_once __DIR__.'/../views/head.php';
 
 //Checks if the user id is set, if not the user will be thrown back to previous page
 if (!isset($_GET['user'])) {
-  header('Location: /home');
-  die();
+    header('Location: /home');
+    die();
 }
 
 //Get the right user id from post

@@ -3,8 +3,8 @@
 $loggedin = checkUserLogin($db);
 
 if ($loggedin) {
-  $uid = $_SESSION["loginUser"]['uid'];
-  $user = executeGetQuery($db, "SELECT id FROM users WHERE id = '$uid'", true);
+    $uid = $_SESSION["loginUser"]['uid'];
+    $user = executeGetQuery($db, "SELECT id FROM users WHERE id = '$uid'", true);
 }
 ?>
 <header>

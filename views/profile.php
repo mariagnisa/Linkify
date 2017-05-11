@@ -3,7 +3,7 @@
 require_once __DIR__.'/../lib/functions.php';
 
 if (!checkUserLogin($db)) {
-  header('Location: /');
+    header('Location: /');
 }
 require_once __DIR__.'/../views/head.php';
 

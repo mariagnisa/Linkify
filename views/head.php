@@ -28,14 +28,16 @@ $title = (isset($title)) ? $title:'Linkify';
 <body>
   <?php require_once __DIR__.'/header.php';
 
-  if (isset($_SESSION['error'])) { ?>
+  if (isset($_SESSION['error'])) {
+      ?>
     <div class="error">
       <?php  print_r($_SESSION['error']); ?>
     </div>
     <?php unset($_SESSION['error']);
   }
 
-  if (isset($_SESSION['message'])) { ?>
+  if (isset($_SESSION['message'])) {
+      ?>
     <div class="message">
       <?php  print_r($_SESSION['message']); ?>
     </div>

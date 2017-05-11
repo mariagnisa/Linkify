@@ -17,15 +17,27 @@ require_once __DIR__.'/../views/head.php';
 </div>
 <div class="register-wrapper">
   <!-- Register form -->
+
   <form action="../lib/register.php" method="post">
-    <input type="text" name="fullname" placeholder="Full name">
-    <input type="text" name="username" placeholder="Username">
-    <input type="email" name="email" placeholder="Email">
+    <input type="text" name="fullname" value="<?php if (isset($_SESSION['fullname'])) {
+    echo $_SESSION['fullname'];
+} ?>" placeholder="Full name">
+    <input type="text" name="username" value="<?php if (isset($_SESSION['username'])) {
+    echo $_SESSION['username'];
+} ?>" placeholder="Username">
+    <input type="email" name="email" value="<?php if (isset($_SESSION['email'])) {
+    echo $_SESSION['email'];
+} ?>" placeholder="Email">
     <input type="password" name="password" placeholder="Password">
     <input type="password" name="repeatPass" placeholder="Repeat password">
     <button type="submit" class="register">Register for Linkify</button>
   </form>
 </div>
+
+<?php unset($_SESSION['fullname']);
+      unset($_SESSION['username']);
+      unset($_SESSION['email']);
+    ?>
 
 <div class="public-intro">
   <h2>A place to rule them all.</h2>

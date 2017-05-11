@@ -3,7 +3,7 @@
 require_once __DIR__.'/../lib/functions.php';
 
 if (!checkUserLogin($db)) {
-  header('Location: /');
+    header('Location: /');
 }
 require_once __DIR__.'/../views/head.php';
 
@@ -38,7 +38,7 @@ foreach ($posts as $post):
   <div class="postid<?php echo $post['id']; ?> posts">
     <?php //Only show voting system on other posts, not the logged in users posts
     if (!($post['uid'] === $uid)):
-      //Sending two querys with vote, which vote and the post id ?>
+      //Sending two querys with vote, which vote and the post id?>
       <a class="vote-button" href="../lib/votes.php?vote=up&post=<?php echo $post['id']; ?>">
         <img class="posts-arrow-up" src="../assets/img/arrow-up.png" alt="up arrow"></a>
         <a class="vote-button" href="../lib/votes.php?vote=down&post=<?php echo $post['id']; ?>">
@@ -51,7 +51,7 @@ foreach ($posts as $post):
 
         <?php //Show edit options for the logged in users posts
         if ($post['uid'] === $uid):
-          //Adding the post id so the right post can be edited ?>
+          //Adding the post id so the right post can be edited?>
           <img class="postid<?php echo $post['id']; ?> posts-edit" src="../assets/img/edit.png" alt="Edit">
         <?php endif; ?>
         <?php //Checks if the user have any uploaded profile avatar or not
