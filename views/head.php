@@ -1,6 +1,6 @@
 <?php
 
-$title = (isset($title)) ? $title:'Linkify';
+$title = (isset($title)) ? $title : 'Linkify';
 ?>
 <html>
 <head>
